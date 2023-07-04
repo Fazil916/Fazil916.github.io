@@ -15,10 +15,22 @@ html, body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-h1,
-h2,
-p {
+h2 {
   margin: 0;
+  font-size: 1.8rem;
+}
+
+header h1 {
+  color: #ffffff;
+  font-size: 1.0rem;
+  font-weight: 500;
+  justify-content: flex-start;
+}
+
+header p {
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 200;
 }
 
 a {
@@ -35,39 +47,25 @@ a {
 header {
   background-color: #0e0000;
   padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header-content {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
 .title-container {
   display: flex;
   align-items: center;
-  margin-bottom: 10px; /* Adjust the margin as needed */
-}
-
-#logo {
-  width: 80px;
-  height: auto;
-  margin-right: 10px;
-}
-
-header h1 {
-  font-size: 2rem;
-  font-weight: 500;
-}
-
-header p {
-  font-size: 1.5rem;
-  font-weight: 200;
+  margin-right: auto;
 }
 
 nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .nav-item {
@@ -94,10 +92,6 @@ main {
 section {
   display: flex;
   flex-direction: column;
-}
-
-section:last-child {
-  margin-bottom: 20px; /* Adjust as needed */
 }
 
 .section {
@@ -189,4 +183,10 @@ button[type="submit"]:hover {
 .image {
   max-width: 100%;
   height: auto;
+}
+
+#logo {
+  width: 60px;
+  height: auto;
+  margin-right: 10px;
 }

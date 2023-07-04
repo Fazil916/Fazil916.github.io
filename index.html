@@ -12,26 +12,78 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/styles/css/styles.css">
-  
+
   <style>
-    /* CSS modifications */
-    :root {
-      --color-primary: #ffffff;
-      --color-secondary: #0e0000;
-      --header-height: 70px;
-      --main-container-width: 300px;
+    /* Custom CSS for mobile view */
+    @media (max-width: 768px) {
+      header {
+        padding: 10px;
+      }
+
+      .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .title-container {
+        margin-bottom: 10px;
+      }
+
+      #logo {
+        width: 40px;
+        margin-right: 5px;
+      }
+
+      .header-text {
+        margin-left: 5px;
+      }
+
+      h1 {
+        font-size: 1.2rem;
+      }
+
+      p {
+        font-size: 0.8rem;
+      }
+
+      nav {
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+
+      main {
+        padding: 20px 0;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      .image-container {
+        flex-direction: column;
+      }
+
+      .image {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+      }
+
+      .button-container {
+        flex-direction: column;
+      }
+
+      .button-container button,
+      .myButton {
+        margin-bottom: 10px;
+      }
+
+      .form-group {
+        margin-bottom: 10px;
+      }
     }
-    
-    body {
-      background-attachment: scroll;
-      font-family: 'Open Sans', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    
-    /* Rest of your CSS styles */
-    
   </style>
+
 </head>
 
 <body>
@@ -91,24 +143,25 @@
 
     <section id="contact" class="section">
       <h2>Contact Us</h2>
-      <p>To discuss your lighting needs or to schedule a consultation, please fill out the form
-        <form action="mailto:info@illuminatedesign.com" method="post" enctype="text/plain">
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-          </div>
-          <button type="submit">Send Message</button>
-        </form>
-      </section>
-    </main>
-  </body>
-  </html>
-  
+      <p>To discuss your lighting needs or to schedule a consultation, please fill out the form</p>
+      <form action="mailto:info@illuminatedesign.com" method="post" enctype="text/plain">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+</body>
+
+</html>

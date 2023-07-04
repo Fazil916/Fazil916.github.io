@@ -1,50 +1,58 @@
 :root {
     --color-primary: #ffffff;
     --color-secondary: #0e0000;
-}
-@media screen and (max-width: 768px) {
-    /* CSS styles for screens up to 768px wide */
   }
   
-
-body {
+  @media screen and (max-width: 480px) {
+    /* CSS styles for screens up to 768px wide */
+    body {
+      font-size: 14px;
+      display: grid;
+      justify-content: flex-end;
+      align-items: stretch;
+      flex-direction: column;
+      max-width: fit-content;
+      height: 100%;
+      padding: 100px;
+    }
+  }
+  
+  body {
     background-color: #0e0000;
     color: #ffffff;
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
-    display: grid;
-    justify-content: flex-end;
-    align-items: stretch;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    max-width: fit-content;
-    height: 100%; 
-    padding: 100px;   
-
-}
-h1,
-label,
-select,
-button {
-    color: #ffffff;
-    text-align: center;
-}
-
-h2 {
-    color: #ffffff;
+    height: 100vh;
+  }
+  
+  h1,
+  label,
+  select,
+  button {
     text-align: left;
-}
-
-input {color: #000000;
-    text-align: left;}
-
-.container {
+  }
+  
+  h2 {
+    text-align: left;
+  }
+  
+  input {
+    color: #000000;
+    text-align: left;
+  }
+  
+  .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-}
-
-#calculator {
+  }
+  
+  #calculator {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,82 +60,85 @@ input {color: #000000;
     padding: 20px;
     border-radius: 10px;
     color: var(--color-primary);
-}
-
-#room-geometry,
-#lux,
-#product
-{
+  }
+  
+  #room-geometry,
+  #lux,
+  #product {
     border: 2mm ridge rgba(211, 220, 50, .6);
     padding: 20px;
     margin: 20px auto;
-    width: 60%;
+    width: 75%;
     border-radius: 70px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    flex-wrap: wrap
-    
-}
-
-#room-geometry {
+    flex-wrap: wrap;
+    height: 80%;
+    color: azure;
+  }
+  
+  #room-geometry {
     background-image: url("/styles/image/roomgeo.jpg");
-}
-
-#lux {
+  }
+  
+  #lux {
     background-image: url("/styles/image/lux.jpg");
-}
-
-#product {
+  }
+  
+  #product {
     background-image: url("/styles/image/spot.jpg");
-}
-
-.input-group {
+  }
+  
+  .input-group input {
     width: 80%;
-    margin-bottom: 15px;
-}
+    border: 1px solid rgba(246, 246, 246, 0.818); /* Border color with transparency */
+    background-color: rgba(247, 227, 227, 0.966); /* Background color with transparency */
+    padding: 8px;
+    color: #fff;
+   
+  }
+  
 
-.input-group input {
-    width: 80%;
-}
-
-#lux-and-product .input-group {
+  #lux-and-product .input-group {
     width: 50%;
-}
-
-#lux-and-product .input-group input {
+  }
+  
+  #lux-and-product .input-group input {
     width: 100%;
-}
-
-#results {
+  }
+  
+  #results {
     border: 2mm ridge rgba(211, 220, 50, .6);
     padding: 20px;
     margin: 20px auto;
-    width: 60%;
+    width: 80%;
     border-radius: 70px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     background-image: url("/report.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center; 
-}
-
-#results h2 {
-    align-self: flex-start; 
-    margin-left: 10px; 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, .5); /* Shadow to the text */
-}
-
-#results > div {
+    background-position: center;
+  }
+  
+  #results h2 {
+    align-self: flex-start;
+    margin-left: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Shadow to the text */
+  }
+  
+  #results > div {
     padding: 10px;
     font-size: 18px;
-    font-family: 'Georgia', serif; 
-    background-color: rgba(255, 255, 255, 0.7); /* semi-transparent white */
+    font-family: 'Georgia', serif;
+    background-color: rgba(255, 255, 255, 0.7);
+    /* semi-transparent white */
     border: none;
     border-radius: 4px;
     transition: all 0.3s ease-in-out;
@@ -137,10 +148,12 @@ input {color: #000000;
     width: 100%;
     justify-content: center;
     align-items: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, .5); /* Shadow to the text */
-}
-
-button#calculate, #report {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Shadow to the text */
+  }
+  
+  button#calculate,
+  #report {
     padding: 10px 20px;
     background-color: #998e17;
     border: none;
@@ -155,56 +168,55 @@ button#calculate, #report {
     /* left margin set to auto */
     margin-right: auto;
     /* right margin set to auto */
-}
-
-button#calculate:hover {
+  }
+  
+  button#calculate:hover {
     background-color: #494303;
-}
-
-header {
+  }
+  
+  header {
     background-color: var(--color-secondary);
     height: var(--header-height);
     padding: 20px;
-}
-
-.header-content {
-    display: flex;
+  }
+  
+  .header-content {
+    display:flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-}
-
-.title-container {
+    }
+    
+    .title-container {
     display: flex;
     align-items: center;
-}
-
-#logo {
+    }
+    
+    #logo {
     width: 80px;
     height: auto;
     margin-right: 10px;
-}
-
-header h1 {
-    color: var(--color-primary);
+    }
+    
+    header h1 {
     font-weight: 500;
     margin: 15px 0 0;
     font-size: 2rem;
-}
+    }
 
-header p {
-    color: var(--color-primary);
+    header p {
+    color: #8e4b4b;
     font-weight: 200;
     margin: 5px 0 0;
     font-size: 1.5rem;
-}
-
-nav {
+    }
+    
+    nav {
     display: flex;
     justify-content: flex-end;
-}
-
-.nav-item {
+    }
+    
+    .nav-item {
     display: inline-block;
     padding: 10px 20px;
     background-color: #998e17;
@@ -217,14 +229,14 @@ nav {
     text-decoration: none;
     font-weight: 300;
     transition: background-color 0.3s ease;
-}
-
-.nav-item:hover {
+    }
+    
+    .nav-item:hover {
     background-color: #494303;
     text-decoration: none;
-}
-
-
-.nav-item:first-child {
+    }
+    
+    .nav-item:first-child {
     margin-left: 0;
-}
+    }
+  
