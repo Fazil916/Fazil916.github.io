@@ -12,11 +12,13 @@ body {
     color: #ffffff;
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
-    display: block;
+    display: grid;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: stretch;
     flex-direction: column;
-    height: 100vh;
+    max-width: fit-content;
+    height: 100%; 
+    padding: 100px;   
 
 }
 h1,
@@ -39,7 +41,7 @@ input {color: #000000;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
+    width: 100%;
 }
 
 #calculator {
@@ -62,22 +64,24 @@ input {color: #000000;
     width: 60%;
     border-radius: 70px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    flex-wrap: wrap
+    
 }
 
 #room-geometry {
-    background-image: url("/roomgeo.jpg");
+    background-image: url("/styles/image/roomgeo.jpg");
 }
 
 #lux {
-    background-image: url("/lux.jpg");
+    background-image: url("/styles/image/lux.jpg");
 }
 
 #product {
-    background-image: url("/spot.jpg");
+    background-image: url("/styles/image/spot.jpg");
 }
 
 .input-group {

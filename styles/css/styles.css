@@ -6,11 +6,13 @@
 }
 
 /* Global styles */
-body {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  color: #ffffff;
-  background-color: #0e0000;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  display: inline-block;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 h1,
@@ -44,6 +46,7 @@ header {
 .title-container {
   display: flex;
   align-items: center;
+  margin-bottom: 10px; /* Adjust the margin as needed */
 }
 
 #logo {
@@ -85,6 +88,16 @@ nav {
 main {
   background-color: #0e0000;
   padding: 40px 0;
+  min-height: 100%;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+section:last-child {
+  margin-bottom: 20px; /* Adjust as needed */
 }
 
 .section {
@@ -171,4 +184,9 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #494303;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
 }

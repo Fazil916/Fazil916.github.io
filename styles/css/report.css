@@ -7,6 +7,7 @@
     /* CSS styles for screens up to 768px wide */
     body {
       font-size: 12px;
+      display: inline-block;
     }
   
     .container {
