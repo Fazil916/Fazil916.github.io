@@ -1,9 +1,25 @@
 :root {
     --color-primary: #ffffff;
     --color-secondary: #0e0000;
-}
-
-body {
+  }
+  
+  @media screen and (max-width: 768px) {
+    /* CSS styles for screens up to 768px wide */
+    body {
+      font-size: 12px;
+    }
+  
+    .container {
+      width: 80%;
+    }
+  
+    #calculator,
+    #results {
+      width: 90%;
+    }
+  }
+  
+  body {
     background-color: #0e0000;
     color: #ffffff;
     font-family: 'Open Sans', sans-serif;
@@ -13,34 +29,34 @@ body {
     align-items: center;
     flex-direction: column;
     height: 100vh;
-}
-
-h1,
-label,
-select,
-button {
+  }
+  
+  h1,
+  label,
+  select,
+  button {
     color: #ffffff;
     text-align: center;
-}
-
-h2 {
+  }
+  
+  h2 {
     color: #ffffff;
     text-align: left;
-}
-
-input {
+  }
+  
+  input {
     color: #000000;
     text-align: left;
-}
-
-.container {
+  }
+  
+  .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 50%;
-}
-
-#calculator {
+  }
+  
+  #calculator {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,26 +64,26 @@ input {
     padding: 20px;
     border-radius: 10px;
     color: var(--color-primary);
-}
-
-.input-group {
+  }
+  
+  .input-group {
     width: 80%;
     margin-bottom: 15px;
-}
-
-.input-group input {
-    width: 80%;
-}
-
-#lux-and-product .input-group {
-    width: 50%;
-}
-
-#lux-and-product .input-group input {
+  }
+  
+  .input-group input {
     width: 100%;
-}
-
-#results {
+  }
+  
+  #lux-and-product .input-group {
+    width: 50%;
+  }
+  
+  #lux-and-product .input-group input {
+    width: 100%;
+  }
+  
+  #results {
     border: 2mm ridge rgba(211, 220, 50, .6);
     padding: 20px;
     margin: 20px auto;
@@ -78,18 +94,18 @@ input {
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.6);
-}
-
-#results h2 {
+  }
+  
+  #results h2 {
     align-self: flex-start;
     margin-left: 10px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     /* Shadow to the text */
-}
-
-#results > div {
+  }
+  
+  #results > div {
     padding: 10px;
-    font-size: 18px;
+    font-size: 16px;
     font-family: 'Georgia', serif;
     background-color: rgba(255, 255, 255, 0.7);
     /* semi-transparent white */
@@ -104,4 +120,5 @@ input {
     align-items: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     /* Shadow to the text */
-}
+  }
+  

@@ -2,6 +2,10 @@
     --color-primary: #ffffff;
     --color-secondary: #0e0000;
 }
+@media screen and (max-width: 768px) {
+    /* CSS styles for screens up to 768px wide */
+  }
+  
 
 body {
     background-color: #0e0000;
