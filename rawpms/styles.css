@@ -1,0 +1,229 @@
+:root {
+  --color-primary: #ffffff;
+  --color-secondary: #0e0000;
+  --header-height: 70px;
+  --main-container-width: 300px;
+}
+
+@media screen and (max-width: 768px) {
+  /* CSS styles for screens up to 768px wide */
+}
+
+body {
+  background-attachment: scroll;
+  font-family: 'Open Sans', sans-serif;
+  margin: 40;
+  padding: 40;
+}
+
+header {
+  background-color: var(--color-secondary);
+  height: var(--header-height);
+  padding: 20px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+}
+
+#logo {
+  width: 80px;
+  height: auto;
+  margin-right: 10px;
+}
+
+header h1 {
+  color: var(--color-primary);
+  font-weight: 500;
+  margin: 15px 0 0;
+  font-size: 2rem;
+}
+
+header p {
+  color: var(--color-primary);
+  font-weight: 200;
+  margin: 5px 0 0;
+  font-size: 1.5rem;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-item {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #998e17;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  margin-left: 30px;
+  text-decoration: none;
+  font-weight: 300;
+  transition: background-color 0.3s ease;
+}
+
+.nav-item:hover {
+  background-color: #494303;
+  text-decoration: none;
+}
+
+
+.nav-item:first-child {
+  margin-left: 0;
+}
+
+
+
+main {
+  background-image: url("home.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100vh;
+}
+
+.section {
+  background-color: #0e0000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100vh;
+  padding: 10px 50px 20px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+
+}
+
+.section .content-container {
+  margin: 40px 80px 40px;
+}
+
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-top: 20px;
+
+}
+
+.image-container img {
+  max-width: 40%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.image {
+  max-width: 40%;
+  height: auto;
+}
+
+.content-container {
+  margin-top: 20px;
+  display: grid;
+  justify-content: center;
+
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.button-container button {
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #998e17;
+  ;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+  background-color: #494303;
+}
+
+.myButton {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  background-color: #998e17;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.myButton:hover {
+  background-color: #494303;
+}
+
+@media screen and (max-width: 768px) {
+  .main-container {
+    flex-direction: column-reverse;
+    padding: 0 20px;
+  }
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+input,
+textarea {
+  padding: 10px;
+  border: 1px solid #998e17;
+  ;
+  border-radius: 4px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  flex: 1;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #998e17;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: hsl(127, 90%, 16%);
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="report.css">
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+      }
+
+      #report {
+        margin: 0 auto;
+        max-width: 800px;
+        background: #fff;
+        padding: 20px 40px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        font-size: 2.2em;
+        font-weight: bold;
+        color: #444;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+      }
+
+      h2 {
+        font-size: 1.8em;
+        font-weight: bold;
+        color: #444;
+        margin-top: 40px;
+      }
+
+      hr {
+        border: none;
+        border-bottom: 1px solid #ddd;
+      }
+
+      table {
+        width: 100%;
+      }
+
+      td {
+        vertical-align: top;
+        padding: 10px;
+      }
+      
+      p {
+        margin: 0;
+        margin-bottom: 10px;
+      }
+
+      button#download {
+        font-size: 1em;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button#download:hover {
+        background-color: #45a049;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+  </head>
+  <body>
+    <div id="report">
+      <h1>Lighting Calculation Report</h1>
+      <hr>
+      <div id="results">
+        <h2>Results</h2>
+        <table>
+          <tr>
+            <td>
+              <p>Length: NaN</p>
+              <p>Width: NaN</p>
+              <p>Height: NaN</p>
+            </td>
+            <td>
+              <p>Product Details: null</p>
+              <p>Luminaire Lumen: NaN</p>
+              <p>Luminaire Wattage: NaN</p>
+            </td>
+            <td>
+              <p>Required Lux: null</p>
+              <p>Required Lux Level: NaN</p>
+            </td>
+            <td>
+              <p>Total Required Luminaires: NaN</p>
+              <p>Total Consumption: NaN</p>
+              <p>Lumen per sqm: NaN</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <button id="download">Generate PDF</button>
+    <script src="report.js"></script>
+    <script>
+      window.onload = function () {
+        document.getElementById('download').addEventListener('click', function () {
+          var report = document.getElementById('report');
+          html2pdf().from(report).save('report.pdf');
+        });
+      }
+    </script>
+  </body>
+</html>
