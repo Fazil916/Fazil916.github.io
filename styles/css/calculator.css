@@ -81,15 +81,15 @@
   }
   
   #room-geometry {
-    background-image: url("/styles/image/roomgeo.jpg");
+    background-image: url("/styles/image/roomgeo.jpeg");
   }
   
   #lux {
-    background-image: url("/styles/image/lux.jpg");
+    background-image: url("/styles/image/lux.jpeg");
   }
   
   #product {
-    background-image: url("/styles/image/spot.jpg");
+    background-image: url("/styles/image/spot.jpeg");
   }
   
   .input-group input {

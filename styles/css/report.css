@@ -92,16 +92,15 @@ input {
 }
 
 #results {
-  border: thick double #113543;
+  
   padding: 20px;
   margin: 20px auto;
-  width: 60%;
-  border-radius: 70px;
+  width: 90%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.6);
+  
 }
 
 #results h2 {
