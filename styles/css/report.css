@@ -4,10 +4,17 @@
 }
 
 @media screen and (max-width: 480px) {
+
   /* CSS styles for screens up to 480px wide */
   body {
     font-size: 12px;
-    display: inline-block;
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    flex-direction: column;
+    max-width: fit-content;
+    height: 100%;
+    padding: 100px;
   }
 
   .container {
@@ -36,12 +43,12 @@ h1,
 label,
 select,
 button {
-  color: #ffffff;
+  color: var(--color-primary);
   text-align: center;
 }
 
 h2 {
-  color: #ffffff;
+  color: var(--color-primary);
   text-align: left;
 }
 
@@ -54,7 +61,7 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: 100%;
 }
 
 #calculator {
@@ -85,7 +92,7 @@ input {
 }
 
 #results {
-  border: 2mm ridge rgba(211, 220, 50, .6);
+  border: thick double #113543;
   padding: 20px;
   margin: 20px auto;
   width: 60%;
@@ -104,7 +111,7 @@ input {
   /* Shadow to the text */
 }
 
-#results > div {
+#results>div {
   padding: 10px;
   font-size: 16px;
   font-family: 'Georgia', serif;
