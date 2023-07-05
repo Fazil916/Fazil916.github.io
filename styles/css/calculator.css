@@ -69,34 +69,16 @@ input {
 }
 
 .input-group {
-  width: 50%;
+  width: 100%;
   margin-bottom: 10px;
 }
 
 .input-group .color-input {
-  width: 50%;
+  width: 100%;
 }
 
 #room-geometry {
   background-image: url("/styles/image/roomgeo.jpeg");
-  border: 1mm ridge rgba(211, 220, 50, .6);
-  padding: 100px;
-  margin: 50px auto;
-  width: 75%;
-  border-radius: 70px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  flex-wrap: wrap;
-  height: 70%;
-  color: azure;
-}
-
-#lux {
-  background-image: url("/styles/image/lux.jpeg");
   border: 1mm ridge rgba(211, 220, 50, .6);
   padding: 100px;
   margin: 50px auto;
@@ -131,55 +113,42 @@ input {
   color: azure;
 }
 
-.input-group input {
-  width: 50%;
-  border: 1px solid rgba(246, 246, 246, 0.818);
-  /* Border color with transparency */
-  background-color: rgba(247, 227, 227, 0.966);
-  /* Background color with transparency */
-  padding: 8px;
-  color: #0a0a0a;
-}
 
-#lux-and-product .input-group {
-  width: 50%;
-}
-
-#lux-and-product .input-group input {
-  width: 50%;
-}
-
-#results {
-  border: 2mm ridge rgba(211, 220, 50, .6);
-  padding: 20px;
-  margin: 20px auto;
-  width: 80%;
+#lux {
+  background-image: url("/styles/image/lux.jpeg");
+  border: 1mm ridge rgba(211, 220, 50, .6);
+  padding: 100px;
+  margin: 50px auto;
+  width: 75%;
   border-radius: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-image: url("/styles/image/report.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  flex-wrap: wrap;
+  height: 70%;
+  color: azure;
 }
 
-#results h2 {
-  align-self: flex-start;
-  margin-left: 10px;
-  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.993);
-  /* Shadow to the text */
+
+#results {
+
+  padding: 80px;
+  margin: 40px auto;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
 }
 
-#results > div {
+#results>div {
   padding: 10px;
   font-size: 18px;
   font-family: 'Georgia', serif;
-  background-color: rgba(248, 174, 1, 0.746);
-  /* semi-transparent white */
-  border: none;
-  border-radius: 4px;
   transition: all 0.3s ease-in-out;
   margin-bottom: 10px;
   line-height: 1.6;
@@ -187,9 +156,81 @@ input {
   width: 100%;
   justify-content: center;
   align-items: center;
-  text-shadow: 2px 2px 4px rgb(255, 255, 255);
-  /* Shadow to the text */
+
 }
+
+.input-group input {
+  width: 100%;
+  border: 1px solid rgba(246, 246, 246, 0.818);
+  background-color: rgba(247, 227, 227, 0.966);
+  padding: 8px;
+  color: #0a0a0a;
+  gap: 10px;
+
+  /* Additional styling */
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease-in-out;
+
+  /* Placeholder styling */
+  ::placeholder {
+    color: #999999;
+  }
+
+  /* Focus state */
+  :focus {
+    outline: none;
+    border-color: rgba(246, 246, 246, 0.5);
+    background-color: rgba(247, 227, 227, 0.8);
+  }
+}
+
+.input-group label,
+.input-group select {
+  display: block;
+}
+
+.input-group label {
+  margin-bottom: 5px;
+}
+
+.input-group select {
+  width: 100%;
+  border: 1px solid rgba(246, 246, 246, 0.818);
+  background-color: rgba(247, 227, 227, 0.966);
+  padding: 8px;
+  color: #0a0a0a;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease-in-out;
+  appearance: none;
+}
+
+.input-group select:focus {
+  outline: none;
+  border-color: rgba(246, 246, 246, 0.5);
+  background-color: rgba(247, 227, 227, 0.8);
+}
+
+#room-geometry .input-group input[type="number"],
+#room-geometry .color-input select {
+  width: 100%;
+  border: 1px solid rgba(246, 246, 246, 0.818);
+  background-color: rgba(247, 227, 227, 0.966);
+  padding: 8px;
+  color: #0a0a0a;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease-in-out;
+}
+
+#room-geometry .input-group input[type="number"]:focus,
+#room-geometry .color-input select:focus {
+  outline: none;
+  border-color: rgba(246, 246, 246, 0.5);
+  background-color: rgba(247, 227, 227, 0.8);
+}
+
 
 button#calculate,
 #report {
@@ -273,9 +314,7 @@ nav {
 }
 
 .nav-item:hover {
-  background-color
-
-  .nav-item:first-child {
+  background-color .nav-item:first-child {
     margin-left: 0;
   }
 
@@ -307,4 +346,3 @@ nav {
     margin: 0;
   }
 }
-
