@@ -3,7 +3,16 @@
 
 <head>
   <title>Lumen Calculator</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+  <!-- Include Spectrum JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
+  <!-- Include color-picker.js -->
+  <script src="/java/pickr.js"></script>
+  
+
   <link rel="stylesheet" href="/styles/css/calculator.css">
+ 
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -178,29 +187,31 @@
   <div class="grid-container">
     <div class="input-group">
       <label for="length">Length</label>
-      <input type="number" id="length" placeholder="Enter the length of the room">
+      <input type="number" id="length" placeholder="in m">
     </div>
     <div class="input-group">
       <label for="width">Width</label>
-      <input type="number" id="width" placeholder="Enter the width of the room">
+      <input type="number" id="width" placeholder="in m">
     </div>
     <div class="input-group">
       <label for="height">Height</label>
-      <input type="number" id="height" placeholder="Enter the height of the room">
+      <input type="number" id="height" placeholder="in m">
     </div>
-    <div class="input-group">
-      <label for="height">Height</label>
-      <input type="number" id="height" placeholder="Enter the height of the room">
+    <div class="color-input">
+      <label for="wall">Wall</label>
+      <select id="wall">
+      </select>
     </div>
-    <div class="input-group">
-      <label for="height">Height</label>
-      <input type="number" id="height" placeholder="Enter the height of the room">
+    <div class="color-input">
+      <label for="floor">Floor</label>
+      <select id="floor">
+      </select>
     </div>
-    <div class="input-group">
-      <label for="height">Height</label>
-      <input type="number" id="height" placeholder="Enter the height of the room">
+    <div class="color-input">
+      <label for="ceiling">Ceiling</label>
+      <select id="ceiling">
+      </select>
     </div>
-  </div>
 </div>
 
 <!-- Product Details Section -->
@@ -297,6 +308,7 @@
   
   <script src="/java/calculator.js"></script>
   <script src="/java/brand.js"></script>
+  <script src="/java/pickr.js"></script>
 
 </body>
 
