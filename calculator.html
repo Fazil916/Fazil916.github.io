@@ -27,126 +27,121 @@
   </header>
 
   <!-- Room Geometry Section -->
-  <div id="room-geometry-container">
-    <div id="room-geometry">
-      <h2>Room Geometry</h2>
-      <div class="grid-container">
-        <div class="input-group">
-          <label for="length">Length</label>
-          <input type="number" id="length" placeholder="in m">
-        </div>
-        <div class="input-group">
-          <label for="width">Width</label>
-          <input type="number" id="width" placeholder="in m">
-        </div>
-        <div class="input-group">
-          <label for="height">Height</label>
-          <input type="number" id="height" placeholder="in m">
-        </div>
-        <div class="color-input">
-          <label for="wall">Wall</label>
-          <select id="wall">
-          </select>
-        </div>
-        <div class="color-input">
-          <label for="floor">Floor</label>
-          <select id="floor">
-          </select>
-        </div>
-        <div class="color-input">
-          <label for="ceiling">Ceiling</label>
-          <select id="ceiling">
-          </select>
-        </div>
+
+  <div id="room-geometry">
+    <h2>Room Geometry</h2>
+    <div class="grid-container">
+      <div class="input-group">
+        <label for="length">Length</label>
+        <input type="number" id="length" placeholder="in m">
+      </div>
+      <div class="input-group">
+        <label for="width">Width</label>
+        <input type="number" id="width" placeholder="in m">
+      </div>
+      <div class="input-group">
+        <label for="height">Height</label>
+        <input type="number" id="height" placeholder="in m">
+      </div>
+      <div class="color-input">
+        <label for="wall">Wall</label>
+        <select id="wall">
+        </select>
+      </div>
+      <div class="color-input">
+        <label for="floor">Floor</label>
+        <select id="floor">
+        </select>
+      </div>
+      <div class="color-input">
+        <label for="ceiling">Ceiling</label>
+        <select id="ceiling">
+        </select>
       </div>
     </div>
-
-    <!-- Product Details Section -->
-    <div id="product">
-      <h2>Luminaire Details</h2>
-      <div class="grid-container">
-        <div class="input-group">
-          <label for="luminaire-lumen">Lumen</label>
-          <input type="number" id="luminaire-lumen" placeholder="in lm" style="width: 90%">
-        </div>
-        <div class="input-group">
-          <label for="luminaire-wattage">Power</label>
-          <input type="number" id="luminaire-wattage" placeholder="in W" style="width: 90%">
-        </div>
-        <div class="input-group">
-          <label for="luminaire-voltage">Voltage</label>
-          <input type="number" id="luminaire-voltage" placeholder="in V" style="width: 90%">
-        </div>
-        <div class="input-group">
-          <label for="luminaire-mounting">Mounting</label>
-          <select id="luminaire-mounting">
-            <option value="recessed">Recessed</option>
-            <option value="surface">Surface</option>
-            <option value="wall">Wall Mounted</option>
-            <option value="track">Track Mounted</option>
-          </select>
-        </div>
-        <div class="input-group">
-          <label for="luminaire-beam">Beam</label>
-          <select id="luminaire-beam">
-            <option value="narrow">Narrow</option>
-            <option value="spot">Spot</option>
-            <option value="wide">Wide</option>
-            <option value="flood">Flood</option>
-          </select>
-        </div>
-        <div class="input-group">
-          <label for="luminaire-brand">Brand</label>
-          <select id="luminaire-brand">
-          </select>
-        </div>
-        <div class="input-group">
-          <label for="luminaire-category">Category</label>
-          <select id="luminaire-category">
-          </select>
-        </div>
-        <div class="input-group">
-          <label for="luminaire-model">Model</label>
-          <select id="luminaire-model">
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <!-- Output Section -->
-    <div id="lux">
-      <h2>Required Lux</h2>
-      <div class="grid-container">
-        <div class="input-group">
-          <label for="required-lux-level">Required Lux Level</label>
-          <input type="number" id="required-lux-level" placeholder="Enter the target lux level" style="width: 100%">
-
-        </div>
-        <div id="total-required-luminaires">
-          <div id="results">
-            <button id="calculate">Calculate</button>
-            <h2>Results</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <!-- Results Section -->
-
-
-    <!-- Report Button -->
-    <button id="report">Generate Report</button>
   </div>
+
+  <!-- Product Details Section -->
+  <div id="product">
+    <h2>Luminaire Details</h2>
+    <div class="grid-container">
+      <div class="input-group">
+        <label for="luminaire-lumen">Lumen</label>
+        <input type="number" id="luminaire-lumen" placeholder="in lm" style="width: 90%">
+      </div>
+      <div class="input-group">
+        <label for="luminaire-wattage">Power</label>
+        <input type="number" id="luminaire-wattage" placeholder="in W" style="width: 90%">
+      </div>
+      <div class="input-group">
+        <label for="luminaire-voltage">Voltage</label>
+        <input type="number" id="luminaire-voltage" placeholder="in V" style="width: 90%">
+      </div>
+      <div class="input-group">
+        <label for="luminaire-mounting">Mounting</label>
+        <select id="luminaire-mounting">
+          <option value="recessed">Recessed</option>
+          <option value="surface">Surface</option>
+          <option value="wall">Wall Mounted</option>
+          <option value="track">Track Mounted</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="luminaire-beam">Beam</label>
+        <select id="luminaire-beam">
+          <option value="narrow">Narrow</option>
+          <option value="spot">Spot</option>
+          <option value="wide">Wide</option>
+          <option value="flood">Flood</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="luminaire-brand">Brand</label>
+        <select id="luminaire-brand">
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="luminaire-category">Category</label>
+        <select id="luminaire-category">
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="luminaire-model">Model</label>
+        <select id="luminaire-model">
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Output Section -->
+  <div id="lux">
+    <h2>Required Lux</h2>
+    <div class="grid-container">
+      <div class="input-group">
+        <label for="required-lux-level">Required Lux Level</label>
+        <input type="number" id="required-lux-level" placeholder="Enter the target lux level" style="width: 100%">
+      </div>
+
+      <div id="total-required-luminaires">
+        <div id="results">
+          <button id="calculate">Calculate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button id="report">Generate Report</button>
   <footer>
     <p class="disclaimer">Please note that the lux level calculated based on these inputs provides an approximate
       estimation and may not account for all possible factors and variations. For accurate and detailed lighting
-      calculations, it is highly recommended to consult qualified lighting professionals or engineers who can consider
+      calculations, it is highly recommended to consult qualified lighting professionals or engineers who can
+      consider
       additional factors and utilize advanced lighting design software. The calculated lux level should be used as a
-      general guideline and not as a substitute for professional advice. The developers of this application shall not be
+      general guideline and not as a substitute for professional advice. The developers of this application shall
+      not
+      be
       held liable for any inaccuracies, damages, or losses resulting from the use or reliance on the lux level
       calculations provided.</p>
+
   </footer>
   <script src="/java/calculator.js"></script>
   <script src="/java/brand.js"></script>

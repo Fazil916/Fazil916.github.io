@@ -64,9 +64,17 @@ input {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 5fr);
   gap: 10px;
+  margin-top: 20px;
 }
+
+@media (max-width: 768px) {
+  #room-geometry .grid-container {
+    grid-template-columns: 8fr;
+  }
+}
+
 
 .input-group {
   width: 100%;
@@ -91,9 +99,45 @@ input {
   background-size: cover;
   background-position: center;
   flex-wrap: wrap;
-  height: 70%;
+  height: auto;
   color: azure;
 }
+
+#room-geometry .input-group {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#room-geometry .input-group label,
+#room-geometry .color-input label {
+  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#room-geometry .input-group input[type="number"],
+#room-geometry .color-input select {
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgba(246, 246, 246, 0.818);
+  background-color: rgba(247, 227, 227, 0.966);
+  padding: 8px;
+  color: #0a0a0a;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease-in-out;
+}
+
+#room-geometry .color-input select {
+  height: 40px;
+}
+
+#room-geometry h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+
 
 #product {
   background-image: url("/styles/image/spot.jpeg");
@@ -109,10 +153,9 @@ input {
   background-size: cover;
   background-position: center;
   flex-wrap: wrap;
-  height: 70%;
+  height: auto;
   color: azure;
 }
-
 
 #lux {
   background-image: url("/styles/image/lux.jpeg");
@@ -125,17 +168,16 @@ input {
   flex-direction: column;
   align-items: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 80%;
   background-position: center;
   flex-wrap: wrap;
-  height: 70%;
+  height: auto;
   color: azure;
 }
 
 
 #results {
 
-  padding: 80px;
   margin: 40px auto;
   width: 80%;
   display: flex;
@@ -211,26 +253,6 @@ input {
   border-color: rgba(246, 246, 246, 0.5);
   background-color: rgba(247, 227, 227, 0.8);
 }
-
-#room-geometry .input-group input[type="number"],
-#room-geometry .color-input select {
-  width: 100%;
-  border: 1px solid rgba(246, 246, 246, 0.818);
-  background-color: rgba(247, 227, 227, 0.966);
-  padding: 8px;
-  color: #0a0a0a;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: border-color 0.3s ease-in-out;
-}
-
-#room-geometry .input-group input[type="number"]:focus,
-#room-geometry .color-input select:focus {
-  outline: none;
-  border-color: rgba(246, 246, 246, 0.5);
-  background-color: rgba(247, 227, 227, 0.8);
-}
-
 
 button#calculate,
 #report {
