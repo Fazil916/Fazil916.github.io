@@ -39,3 +39,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
     window.location.href = "report.html";
   });
 });
+const disclaimer = document.getElementById("disclaimer");
+const footer = document.querySelector("footer");
+
+footer.addEventListener("click", () => {
+  disclaimer.style.display = "block";
+});
+
