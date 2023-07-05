@@ -164,18 +164,18 @@
       <div class="title-container">
         <img src="/styles/image/Logo.png" alt="Company Logo" id="logo">
         <div class="header-text">
-          <h1>ROKN AL WAHDA</h1>
-          <p>Your Lighting Solution Experts</p>
+          <h1>EVALux</h1>
+          <p>Simple Lux Calculation Tool</p>
         </div>
       </div>
     </div>
   </header>
+</body>
 
-  <h1>Lumen Calculator</h1>
-
-  <!-- Room Geometry Section -->
-  <div id="room-geometry">
-    <h2>Room Geometry</h2>
+<!-- Room Geometry Section -->
+<div id="room-geometry">
+  <h2>Room Geometry</h2>
+  <div class="grid-container">
     <div class="input-group">
       <label for="length">Length</label>
       <input type="number" id="length" placeholder="Enter the length of the room">
@@ -188,28 +188,93 @@
       <label for="height">Height</label>
       <input type="number" id="height" placeholder="Enter the height of the room">
     </div>
-  </div>
-
-  <!-- Product Details Section -->
-  <div id="product">
-    <h2>Product Details</h2>
     <div class="input-group">
-      <label for="luminaire-lumen">Luminaire Lumen</label>
-      <input type="number" id="luminaire-lumen" placeholder="Enter the lumen output of the luminaire">
+      <label for="height">Height</label>
+      <input type="number" id="height" placeholder="Enter the height of the room">
     </div>
     <div class="input-group">
-      <label for="luminaire-wattage">Luminaire Wattage</label>
-      <input type="number" id="luminaire-wattage" placeholder="Enter the wattage of the luminaire">
+      <label for="height">Height</label>
+      <input type="number" id="height" placeholder="Enter the height of the room">
+    </div>
+    <div class="input-group">
+      <label for="height">Height</label>
+      <input type="number" id="height" placeholder="Enter the height of the room">
     </div>
   </div>
+</div>
 
-  <div id="lux">
-    <h2>Required Lux</h2>
+<!-- Product Details Section -->
+<div id="product">
+  <h2>Luminaire Details</h2>
+  <div class="grid-container">
+    <div class="input-group">
+      <label for="luminaire-lumen">Lumen</label>
+      <input type="number" id="luminaire-lumen" placeholder="in lm" style="width: 90%">
+    </div>
+    <div class="input-group">
+      <label for="luminaire-wattage">Power</label>
+      <input type="number" id="luminaire-wattage" placeholder="in W" style="width: 90%">
+    </div>
+    <div class="input-group">
+      <label for="luminaire-voltage">Voltage</label>
+      <input type="number" id="luminaire-voltage" placeholder="in V" style="width: 90%">
+    </div>
+    <div class="input-group">
+      <label for="luminaire-shape">Shape</label>
+      <select id="luminaire-shape">
+        <option value="round">Round</option>
+        <option value="rectangular">Rectangular</option>
+      </select>
+    </div>
+        
+    <div class="input-group">
+      <label for="luminaire-mounting">Shape</label>
+      <select id="luminaire-mounting">
+        <option value="recessed">Recessed</option>
+        <option value="surface">Surface</option>
+        <option value="wall">Wall Mounted</option>
+        <option value="track">Track Mounted</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <label for="luminaire-beam">Shape</label>
+      <select id="luminaire-beam">
+        <option value="narrow">Narrow</option>
+        <option value="spot">Spot</option>
+        <option value="wide">Wide</option>
+        <option value="Flood">Flood</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <label for="luminaire-brand">Brand</label>
+      <select id="luminaire-brand">        
+      </select>
+    </div>
+    <div class="input-group">
+      <label for="luminaire-category">Category</label>
+      <select id="luminaire-category">
+      </select>
+    </div>
+    <div class="input-group">
+      <label for="luminaire-model">Model</label>
+      <select id="luminaire-model">        
+      </select>
+    </div>
+        
+  </div>
+</div>
+
+<!-- Output Section -->
+<div id="lux">
+  <h2>Required Lux</h2>
+  <div class="grid-container">
     <div class="input-group">
       <label for="required-lux-level">Required Lux Level</label>
-      <input type="number" id="required-lux-level" placeholder="Enter the required lux level">
+      <input type="number" id="required-lux-level" placeholder="Enter the required lux level" style="width: 100%">
     </div>
   </div>
+</div>
+
 
   <!-- Calculation Button -->
   <button id="calculate">Calculate</button>
@@ -226,7 +291,13 @@
   <!-- Report Button -->
   <button id="report">Generate Report</button>
 
+  <footer>
+    <p class="disclaimer">Please note that the lux level calculated based on these inputs provides an approximate estimation and may not account for all possible factors and variations. For accurate and detailed lighting calculations, it is highly recommended to consult qualified lighting professionals or engineers who can consider additional factors and utilize advanced lighting design software. The calculated lux level should be used as a general guideline and not as a substitute for professional advice. The developers of this application shall not be held liable for any inaccuracies, damages, or losses resulting from the use or reliance on the lux level calculations provided.</p>
+  </footer>
+  
   <script src="/java/calculator.js"></script>
+  <script src="/java/brand.js"></script>
+
 </body>
 
 </html>

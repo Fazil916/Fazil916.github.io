@@ -1,242 +1,281 @@
 :root {
-    --color-primary: #ffffff;
-    --color-secondary: #0e0000;
-  }
-  
-  @media screen and (max-width: 480px) {
-    /* CSS styles for screens up to 768px wide */
-    body {
-      font-size: 14px;
-      display: grid;
-      justify-content: flex-end;
-      align-items: stretch;
-      flex-direction: column;
-      max-width: fit-content;
-      height: 100%;
-      padding: 100px;
-    }
-  }
-  
+  --color-primary: #ffffff;
+  --color-secondary: #0e0000;
+  --header-height: 60px;
+}
+
+@media screen and (max-width: 480px) {
   body {
-    background-color: #0e0000;
-    color: #ffffff;
-    font-family: 'Open Sans', sans-serif;
     font-size: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-  }
-  
-  h1,
-  label,
-  select,
-  button {
-    text-align: left;
-  }
-  
-  h2 {
-    text-align: left;
-  }
-  
-  input {
-    color: #000000;
-    text-align: left;
-  }
-  
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-  
-  #calculator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    border-radius: 10px;
-    color: var(--color-primary);
-  }
-  
-  #room-geometry,
-  #lux,
-  #product {
-    border: 2mm ridge rgba(211, 220, 50, .6);
-    padding: 20px;
-    margin: 20px auto;
-    width: 75%;
-    border-radius: 70px;
-    display: flex;
-    flex-direction: column;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    flex-wrap: wrap;
-    height: 80%;
-    color: azure;
-  }
-  
-  #room-geometry {
-    background-image: url("/styles/image/roomgeo.jpeg");
-  }
-  
-  #lux {
-    background-image: url("/styles/image/lux.jpeg");
-  }
-  
-  #product {
-    background-image: url("/styles/image/spot.jpeg");
-  }
-  
-  .input-group input {
-    width: 80%;
-    border: 1px solid rgba(246, 246, 246, 0.818); /* Border color with transparency */
-    background-color: rgba(247, 227, 227, 0.966); /* Background color with transparency */
-    padding: 8px;
-    color: #fff;
-   
-  }
-  
-
-  #lux-and-product .input-group {
-    width: 50%;
-  }
-  
-  #lux-and-product .input-group input {
-    width: 100%;
-  }
-  
-  #results {
-    border: 2mm ridge rgba(211, 220, 50, .6);
-    padding: 20px;
-    margin: 20px auto;
-    width: 80%;
-    border-radius: 70px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-image: url("/report.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-  
-  #results h2 {
-    align-self: flex-start;
-    margin-left: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    /* Shadow to the text */
-  }
-  
-  #results > div {
-    padding: 10px;
-    font-size: 18px;
-    font-family: 'Georgia', serif;
-    background-color: rgba(255, 255, 255, 0.7);
-    /* semi-transparent white */
-    border: none;
-    border-radius: 4px;
-    transition: all 0.3s ease-in-out;
-    margin-bottom: 10px;
-    line-height: 1.6;
-    text-align: center;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    /* Shadow to the text */
-  }
-  
-  button#calculate,
-  #report {
-    padding: 10px 20px;
-    background-color: #998e17;
-    border: none;
-    border-radius: 4px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: block;
-    /* to make the button block-level */
-    margin-left: auto;
-    /* left margin set to auto */
-    margin-right: auto;
-    /* right margin set to auto */
-  }
-  
-  button#calculate:hover {
-    background-color: #494303;
-  }
-  
-  header {
-    background-color: var(--color-secondary);
-    height: var(--header-height);
-    padding: 20px;
-  }
-  
-  .header-content {
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    }
-    
-    .title-container {
-    display: flex;
-    align-items: center;
-    }
-    
-    #logo {
-    width: 80px;
-    height: auto;
-    margin-right: 10px;
-    }
-    
-    header h1 {
-    font-weight: 500;
-    margin: 15px 0 0;
-    font-size: 2rem;
-    }
-
-    header p {
-    color: #8e4b4b;
-    font-weight: 200;
-    margin: 5px 0 0;
-    font-size: 1.5rem;
-    }
-    
-    nav {
-    display: flex;
+    display: grid;
     justify-content: flex-end;
-    }
-    
-    .nav-item {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #998e17;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    margin-left: 30px;
-    text-decoration: none;
-    font-weight: 300;
-    transition: background-color 0.3s ease;
-    }
-    
-    .nav-item:hover {
-    background-color: #494303;
-    text-decoration: none;
-    }
-    
-    .nav-item:first-child {
-    margin-left: 0;
-    }
-  
+    align-items: stretch;
+    flex-direction: column;
+    max-width: fit-content;
+    height: 95%;
+    padding: 100px;
+  }
+}
+
+body {
+  background-color: #0e0000;
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: first baseline;
+  flex-direction: column;
+  height: 95%;
+}
+
+h1,
+label,
+select,
+button {
+  text-align: left;
+}
+
+h2 {
+  text-align: left;
+}
+
+input {
+  color: #000000;
+  text-align: left;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#calculator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  color: var(--color-primary);
+}
+
+#room-geometry,
+#lux,
+#product {
+  border: 1mm ridge rgba(211, 220, 50, .6);
+  padding: 100px;
+  margin: 50px auto;
+  width: 75%;
+  border-radius: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  flex-wrap: wrap;
+  height: 70%;
+  color: azure;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.input-group {
+  width: 40%;
+}
+
+
+#room-geometry {
+  background-image: url("/styles/image/roomgeo.jpeg");
+}
+
+#lux {
+  background-image: url("/styles/image/lux.jpeg");
+}
+
+#product {
+  background-image: url("/styles/image/spot.jpeg");
+}
+
+.input-group input {
+  width: 50%;
+  border: 1px solid rgba(246, 246, 246, 0.818);
+  /* Border color with transparency */
+  background-color: rgba(247, 227, 227, 0.966);
+  /* Background color with transparency */
+  padding: 8px;
+  color: #0a0a0a;
+}
+
+#lux-and-product .input-group {
+  width: 50%;
+}
+
+#lux-and-product .input-group input {
+  width: 50%;
+}
+
+#results {
+  border: 2mm ridge rgba(211, 220, 50, .6);
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("/report.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#results h2 {
+  align-self: flex-start;
+  margin-left: 10px;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.993);
+  /* Shadow to the text */
+}
+
+#results > div {
+  padding: 10px;
+  font-size: 18px;
+  font-family: 'Georgia', serif;
+  background-color: rgba(248, 174, 1, 0.746);;
+  /* semi-transparent white */
+  border: none;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 10px;
+  line-height: 1.6;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 2px 2px 4px rgb(255, 255, 255);
+  /* Shadow to the text */
+}
+
+button#calculate,
+#report {
+  padding: 10px 20px;
+  background-color: #187969;
+  ;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  /* to make the button block-level */
+  margin-left: auto;
+  /* left margin set to auto */
+  margin-right: auto;
+  /* right margin set to auto */
+}
+
+button#calculate:hover {
+  background-color:rgba(248, 174, 1, 0.746);;
+}
+
+header {
+  background-color: var(--color-secondary);
+  height: var(--header-height);
+  padding: 20px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+}
+
+#logo {
+  width: 80px;
+  height: auto;
+  margin-right: 10px;
+}
+
+header h1 {
+  font-weight: 500;
+  margin: 15px 0 0;
+  font-size: 2rem;
+}
+
+header p {
+  color: rgba(248, 174, 1, 0.746);;
+  font-weight: 200;
+  margin: 5px 0 0;
+  font-size: 1.5rem;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-item {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color:rgba(248, 174, 1, 0.746);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  margin-left: 30px;
+  text-decoration: none;
+  font-weight: 300;
+  transition: background-color 0.3s ease;
+}
+
+.nav-item:hover {
+  background-color: rgba(248, 174, 1, 0.746);
+  text-decoration: none;
+}
+
+.nav-item:first-child {
+  margin-left: 0;
+}
+
+.input-group input[type="file"] {
+  display: none;
+}
+
+.input-group label {
+  display: inline-block;
+  padding: 8px 20px;
+  background-color: rgba(248, 174, 1, 0.746);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.input-group label:hover {
+  background-color: rgba(248, 174, 1, 0.746);;
+}
+
+footer {
+  padding: 10px;
+  text-align: center;
+  font-size: 6px;
+  color: rgba(248, 174, 1, 0.746);;
+}
+
+.disclaimer {
+  margin: 0;
+}
