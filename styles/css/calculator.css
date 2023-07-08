@@ -77,12 +77,12 @@ input {
 
 
 .input-group {
-  width: 100%;
+  width: 90%;
   margin-bottom: 10px;
 }
 
 .input-group .color-input {
-  width: 100%;
+  width: 90%;
 }
 
 #room-geometry {
@@ -104,20 +104,20 @@ input {
 }
 
 #room-geometry .input-group {
-  width: 100%;
+  width: 90%;
   margin-bottom: 20px;
 }
 
 #room-geometry .input-group label,
 #room-geometry .color-input label {
-  width: 100%;
+  width: 90%;
   font-size: 18px;
   font-weight: bold;
 }
 
 #room-geometry .input-group input[type="number"],
 #room-geometry .color-input select {
-  width: 100%;
+  width: 90%;
   height: 40px;
   border: 1px solid rgba(246, 246, 246, 0.818);
   background-color: rgba(247, 227, 227, 0.966);
@@ -137,8 +137,6 @@ input {
   margin-bottom: 10px;
 }
 
-
-
 #product {
   background-image: url("/styles/image/spot.jpeg");
   border: 1mm ridge rgba(211, 220, 50, .6);
@@ -156,6 +154,13 @@ input {
   height: auto;
   color: azure;
 }
+
+#total-required-luminaires {
+  position: sticky;
+  right: 20px;
+  bottom: 20px;
+}
+
 
 #lux {
   background-image: url("/styles/image/lux.jpeg");
@@ -202,7 +207,7 @@ input {
 }
 
 .input-group input {
-  width: 100%;
+  width: 90%;
   border: 1px solid rgba(246, 246, 246, 0.818);
   background-color: rgba(247, 227, 227, 0.966);
   padding: 8px;
@@ -237,7 +242,7 @@ input {
 }
 
 .input-group select {
-  width: 100%;
+  width: 90%;
   border: 1px solid rgba(246, 246, 246, 0.818);
   background-color: rgba(247, 227, 227, 0.966);
   padding: 8px;
@@ -357,6 +362,15 @@ nav {
     background-color: rgba(248, 174, 1, 0.746);
   }
 
+  .output-container {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: rgba(248, 174, 1, 0.746);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
   footer {
     padding: 10px;
     text-align: center;
@@ -365,17 +379,41 @@ nav {
   }
 }
 
-  .disclaimer {
-    display: none;
-  }
-  
-  .footer-comment-box {
-    background-color: #f2f2f2;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .footer-comment-box:hover {
-    background-color: #e0e0e0;
-  }
-  
+.disclaimer {
+  display: none;
+}
+
+.footer-comment-box {
+  background-color: #f2f2f2;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.footer-comment-box:hover {
+  background-color: #e0e0e0;
+}
+
+#svg-container {
+  display: none;
+  justify-content: right;
+  align-items: center;
+  height: 50%;
+  margin-left: 20px;
+}
+
+#svg-container svg {
+  border: thick double #f2f6f8;
+
+}
+
+#svg-container rect {
+  stroke: #ff5722;
+  stroke-width: 2px;
+  fill: steelblue;
+}
+
+#svg-container text {
+  fill: white;
+  font-size: 18px;
+  text-anchor: middle;
+}
