@@ -395,25 +395,29 @@ nav {
 
 #svg-container {
   display: none;
-  justify-content: right;
+  justify-content: center;
   align-items: center;
-  height: 50%;
-  margin-left: 20px;
+  height: 50%; /* Adjust to fit SVG */
+  width: 80; /* Adjust to fit SVG */
+  margin: auto auto; /* Modified to center container */
+  padding: 0; /* No padding */
+  border: none; /* No visible border */
 }
 
 #svg-container svg {
-  border: thick double #f2f6f8;
-
+  max-width: 100%;
+  max-height: 100%;
 }
 
 #svg-container rect {
-  stroke: #ff5722;
-  stroke-width: 2px;
-  fill: steelblue;
+  stroke: #ffffff;
+  stroke-width: 1px;  
+  filter: url(#dropshadow);
 }
 
 #svg-container text {
   fill: white;
   font-size: 18px;
   text-anchor: middle;
+  filter: url(#textshadow);
 }
