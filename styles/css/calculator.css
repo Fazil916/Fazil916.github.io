@@ -398,7 +398,7 @@ nav {
   justify-content: center;
   align-items: center;
   height: 50%; /* Adjust to fit SVG */
-  width: 80; /* Adjust to fit SVG */
+  width: 80%; /* Adjust to fit SVG */
   margin: auto auto; /* Modified to center container */
   padding: 0; /* No padding */
   border: none; /* No visible border */

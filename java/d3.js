@@ -36,6 +36,7 @@ d3.select("#calculate").on("click", function() {
     // Remove any existing rectangle and text
     svg.selectAll("rect").remove();
     svg.selectAll("text").remove();
+    svg.selectAll("circle").remove(); // Added to remove any existing luminaires
 
     // Fetch the length and width from input fields
     var length = d3.select("#length").property("value");
@@ -74,4 +75,28 @@ d3.select("#calculate").on("click", function() {
         .attr("y", widthScale(width) / 2 + 50)
         .text(length + "m x " + width + "m")
         .attr("fill", "black");
+
+    // Define number of luminaires and luminaire radius
+    var numLuminaires = 10; // Change this according to your needs
+    var luminaireRadius = 5; // Radius of the luminaire circles
+
+    // The distance from the wall, converted to pixels
+    var offset = 30; // Here, 30 cm = 30 px, adjust this according to your conversion factor
+
+    // Calculate the available space and spacing between luminaires
+    var availableLength = lengthScale(length) - 2 * offset;
+    var availableWidth = widthScale(width) - 2 * offset;
+    var spacingX = availableLength / (numLuminaires - 1);
+    var spacingY = availableWidth / (numLuminaires - 1);
+
+    // Generate luminaires
+    for (var i = 0; i < numLuminaires; i++) {
+        for (var j = 0; j < numLuminaires; j++) {
+            svg.append("circle")
+                .attr("cx", 50 + offset + i * spacingX)
+                .attr("cy", 50 + offset + j * spacingY)
+                .attr("r", luminaireRadius)
+                .attr("fill", "yellow");
+        }
+    }
 });
