@@ -10,10 +10,10 @@ document.getElementById('place').addEventListener('click', function () {
     var width = parseFloat(localStorage.getItem('Width'));
     var rows = parseInt(localStorage.getItem('Row'));
     var cols = parseInt(localStorage.getItem('Column'));
-  
+
     // Call the function to create the room
     createRoom(length, width, rows, cols);
-  });
+});
 
 
 // Function to create the room
@@ -63,25 +63,46 @@ function createRoom(length, width, rows, cols) {
         .attr("y", d => yScale(d[1] * (width / cols)))
         .attr("width", svgWidth / rows)
         .attr("height", svgHeight / cols)
-        .attr("stroke", "black")
+        .attr("stroke", "white")
         .attr("stroke-width", 1)
         .attr("fill", "none");
 
+    var luminaires = [];
+
     // Place lights in the center of each grid cell
-    document.getElementById('calculate').addEventListener('click', function() {
-        var lights = svg.selectAll(".light")
-            .data(d3.cross(d3.range(rows), d3.range(cols)))
-            .join("circle")
-            .attr("class", "light")
-            .attr("cx", d => xScale((d[0] + 0.5) * (length / rows)))
-            .attr("cy", d => yScale((d[1] + 0.5) * (width / cols)))
-            .attr("r", lightRadius)
-            .attr("fill", "red");
-    });
+    var lights = svg.selectAll(".light")
+        .data(d3.cross(d3.range(rows), d3.range(cols)))
+        .join("circle")
+        .attr("class", "light")
+        .attr("cx", d => {
+            var cx = (d[0] + 0.5) * (length / rows);
+            luminaires.push({ x: cx });
+            return xScale(cx);
+        })
+        .attr("cy", d => {
+            var cy = (d[1] + 0.5) * (width / cols);
+            luminaires[luminaires.length - 1].y = cy;
+            return yScale(cy);
+        })
+        .attr("r", lightRadius)
+        .attr("fill", "red");
 
     // Add dimension text outside the SVG
     d3.select("#length").text(`Length: ${length} m`);
     d3.select("#width").text(`Width: ${width} m`);
     d3.select("#rows").text(`Rows: ${rows}`);
     d3.select("#cols").text(`Columns: ${cols}`);
+
+    return luminaires;
 }
+
+// Event listener for the 'place' button
+document.getElementById('place').addEventListener('click', function () {
+    var length = parseFloat(localStorage.getItem('Length'));
+    var width = parseFloat(localStorage.getItem('Width'));
+    var rows = parseInt(localStorage.getItem('Row'));
+    var cols = parseInt(localStorage.getItem('Column'));
+
+    // Call the function to create the room
+    createRoom(length, width, rows, cols);
+});

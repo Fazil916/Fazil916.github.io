@@ -1,5 +1,5 @@
 // Event listener for the 'save-room' button
-document.getElementById('save-room').addEventListener('click', function() {
+document.getElementById('save-room').addEventListener('click', function () {
   // Retrieve values
   var roomName = document.getElementById('room').value;
   var length = parseFloat(localStorage.getItem('Length'));
@@ -20,6 +20,10 @@ document.getElementById('save-room').addEventListener('click', function() {
   // Save object to local storage
   localStorage.setItem(roomName, JSON.stringify(roomData));
 
+  // Retrieve and save the luminaire data
+  var luminaires = createRoom(length, width, rows, cols);
+  localStorage.setItem(roomName + '_luminaires', JSON.stringify(luminaires));
+
   // Create new element for the saved room
   var roomElement = document.createElement('div');
   roomElement.textContent = roomName;
@@ -31,11 +35,21 @@ document.getElementById('save-room').addEventListener('click', function() {
 });
 
 // Event delegation for the 'saved-room' elements
-document.getElementById('saved-rooms').addEventListener('click', function(e) {
+document.getElementById('saved-rooms').addEventListener('click', function (e) {
   if (e.target && e.target.classList.contains('saved-room')) {
     // Retrieve room data
     var roomName = e.target.id;
     var roomData = JSON.parse(localStorage.getItem(roomName));
+
+    // Retrieve and redraw the luminaires
+    var luminaires = JSON.parse(localStorage.getItem(roomName + '_luminaires'));
+    luminaires.forEach(function (luminaire) {
+      svg.append("circle")
+        .attr("cx", luminaire.x)
+        .attr("cy", luminaire.y)
+        .attr("r", 5)
+        .style("fill", "red");
+    });
 
     // Repopulate input fields or recalculate as necessary
     document.getElementById('room').value = roomName;
@@ -48,4 +62,5 @@ document.getElementById('saved-rooms').addEventListener('click', function(e) {
     // Call the function to create the room
     createRoom(roomData.length, roomData.width, roomData.rows, roomData.cols);
   }
+
 });
