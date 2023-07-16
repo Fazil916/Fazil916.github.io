@@ -1,102 +1,87 @@
-// Select the container
+// Get the container to append the SVG to
 var svgContainer = d3.select("#svg-container");
 
-// Define the SVG within the container
-var svg = svgContainer
-    .append("svg")
-    .attr("width", '100%')
-    .attr("height", '100%')
-    .attr("viewBox", "0 0 300 300");
+// Define the radius of the lights
+var lightRadius = 5;
 
-// Define the gradient
-var gradient = svg.append("defs")
-  .append("linearGradient")
-    .attr("id", "gradient")
-    .attr("x1", "0%")
-    .attr("y1", "0%")
-    .attr("x2", "100%")
-    .attr("y2", "100%")
-    .attr("spreadMethod", "pad");
+// Event listener for the 'place' button
+document.getElementById('place').addEventListener('click', function () {
+    var length = parseFloat(localStorage.getItem('Length'));
+    var width = parseFloat(localStorage.getItem('Width'));
+    var rows = parseInt(localStorage.getItem('Row'));
+    var cols = parseInt(localStorage.getItem('Column'));
+  
+    // Call the function to create the room
+    createRoom(length, width, rows, cols);
+  });
 
-gradient.append("stop")
-    .attr("offset", "0%")
-    .attr("stop-color", "#7db9e8")
-    .attr("stop-opacity", 1);
 
-gradient.append("stop")
-    .attr("offset", "100%")
-    .attr("stop-color", "#1a237e")
-    .attr("stop-opacity", 1);
+// Function to create the room
+function createRoom(length, width, rows, cols) {
+    // Clear previous SVG if any
+    svgContainer.selectAll('svg').remove();
 
-// On click event for the "Calculate" button
-d3.select("#calculate").on("click", function() {
-    // Make the SVG container visible
-    svgContainer.style("display", "flex");
+    // Calculate the room dimensions based on input
+    var svgWidth = length == width ? 300 : (length > width ? 500 : 300);
+    var svgHeight = length == width ? 300 : (length > width ? 300 : 500);
 
-    // Remove any existing rectangle and text
-    svg.selectAll("rect").remove();
-    svg.selectAll("text").remove();
-    svg.selectAll("circle").remove(); // Added to remove any existing luminaires
+    // Create scales for x and y
+    var xScale = d3.scaleLinear().domain([0, length]).range([0, svgWidth]);
+    var yScale = d3.scaleLinear().domain([0, width]).range([0, svgHeight]);
 
-    // Fetch the length and width from input fields
-    var length = d3.select("#length").property("value");
-    var width = d3.select("#width").property("value");
+    // Append a new SVG to the container
+    var svg = svgContainer.append("svg")
+        .attr("width", svgWidth)
+        .attr("height", svgHeight);
 
-    // Define scales based on input values
-    var lengthScale = d3.scaleLinear()
-        .domain([0, Math.max(length, width)])
-        .range([0, 200]);
-
-    var widthScale = d3.scaleLinear()
-        .domain([0, Math.max(length, width)])
-        .range([0, 200]);
-
-    var borderThickness = 10; // you can adjust this
-
-    // Append a rectangle for border
+    // Add outer border to resemble a wall
     svg.append("rect")
-        .attr("width", lengthScale(length) + 2 * borderThickness)
-        .attr("height", widthScale(width) + 2 * borderThickness)
-        .attr("x", 50 - borderThickness)
-        .attr("y", 50 - borderThickness)
-        .attr("fill", "url(#gradient)"); // Apply gradient to border
+        .attr("width", svgWidth)
+        .attr("height", svgHeight)
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("stroke", "black")
+        .attr("stroke-width", 1)
+        .attr("fill", "none");
 
-    // Append a rectangle for room (white color)
+    // Add inner border to resemble a wall
     svg.append("rect")
-        .attr("width", lengthScale(length))
-        .attr("height", widthScale(width))
-        .attr("x", 50)
-        .attr("y", 50)
-        .attr("fill", "white");
+        .attr("width", svgWidth - 8)
+        .attr("height", svgHeight - 8)
+        .attr("x", 4)
+        .attr("y", 4)
+        .attr("stroke", "black")
+        .attr("stroke-width", 2)
+        .attr("fill", "none");
 
-    // Append text to SVG
-    svg.append("text")
-        .attr("x", lengthScale(length) / 2 + 50)
-        .attr("y", widthScale(width) / 2 + 50)
-        .text(length + "m x " + width + "m")
-        .attr("fill", "black");
+    // Draw the grid
+    var grid = svg.selectAll(".grid")
+        .data(d3.cross(d3.range(rows), d3.range(cols)))
+        .join("rect")
+        .attr("class", "grid")
+        .attr("x", d => xScale(d[0] * (length / rows)))
+        .attr("y", d => yScale(d[1] * (width / cols)))
+        .attr("width", svgWidth / rows)
+        .attr("height", svgHeight / cols)
+        .attr("stroke", "black")
+        .attr("stroke-width", 1)
+        .attr("fill", "none");
 
-    // Define number of luminaires and luminaire radius
-    var numLuminaires = 10; // Change this according to your needs
-    var luminaireRadius = 5; // Radius of the luminaire circles
+    // Place lights in the center of each grid cell
+    document.getElementById('calculate').addEventListener('click', function() {
+        var lights = svg.selectAll(".light")
+            .data(d3.cross(d3.range(rows), d3.range(cols)))
+            .join("circle")
+            .attr("class", "light")
+            .attr("cx", d => xScale((d[0] + 0.5) * (length / rows)))
+            .attr("cy", d => yScale((d[1] + 0.5) * (width / cols)))
+            .attr("r", lightRadius)
+            .attr("fill", "red");
+    });
 
-    // The distance from the wall, converted to pixels
-    var offset = 30; // Here, 30 cm = 30 px, adjust this according to your conversion factor
-
-    // Calculate the available space and spacing between luminaires
-    var availableLength = lengthScale(length) - 2 * offset;
-    var availableWidth = widthScale(width) - 2 * offset;
-    var spacingX = availableLength / (numLuminaires - 1);
-    var spacingY = availableWidth / (numLuminaires - 1);
-
-    // Generate luminaires
-    for (var i = 0; i < numLuminaires; i++) {
-        for (var j = 0; j < numLuminaires; j++) {
-            svg.append("circle")
-                .attr("cx", 50 + offset + i * spacingX)
-                .attr("cy", 50 + offset + j * spacingY)
-                .attr("r", luminaireRadius)
-                .attr("fill", "yellow");
-        }
-    }
-});
+    // Add dimension text outside the SVG
+    d3.select("#length").text(`Length: ${length} m`);
+    d3.select("#width").text(`Width: ${width} m`);
+    d3.select("#rows").text(`Rows: ${rows}`);
+    d3.select("#cols").text(`Columns: ${cols}`);
+}

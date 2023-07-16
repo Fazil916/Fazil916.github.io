@@ -1,167 +1,124 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/styles/css/report.css">
-    <style>
-      body {
-        font-family: 'Arial', sans-serif;
-        color: #333;
-        line-height: 1.6;
-        padding: 20px;
-        display: contents;
 
-      }
+<head>
+  <title>Lumen Calculator</title>
+  <link rel="stylesheet" href="/styles/css/report.css">
+</head>
 
-      #report {
-        margin: 0 auto;
-        max-width: 800px;
-        background: #fcf8f8;
-        padding: 20px 40px;
-        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-        display: contents;
-        
-      }
+<body>
+  <header>
+    <div class="header-content">
+      <div class="title-container">
+        <div class="header-text">
 
-      h1 {
-        font-size: 2.2em;
-        font-weight: bold;
-        color: #444;
-        border-bottom: 1px solid #ddd;
-        margin-bottom: 20px;
-        padding-bottom: 10px;
-      }
-
-      h2 {
-        font-size: 1.8em;
-        font-weight: bold;
-        color: #444;
-        margin-top: 40px;
-      }
-
-      hr {
-        border: none;
-        border-bottom: 1px solid #ddd;
-      }
-
-      table {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-td {
-  vertical-align: top;
-  padding: 10px;
-  width: calc(50% - 20px);
-  margin-bottom: 20px;
-  box-sizing: border-box;
-}
-
-p {
-  margin: 0;
-  margin-bottom: 10px;
-  line-height: 1.5;
-}
-
-/* Optional: Add some background color or border to the table cells for visual appeal */
-td {
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-
-      button#download {
-        font-size: 1em;
-        padding: 10px 20px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
-
-      button#download:hover {
-        background-color: #45a049;
-      }
-
-      /* Mobile styles */
-      @media (max-width: 767px) {
-        #report {
-          padding: 10px;
-        }
-
-        h1 {
-          font-size: 1.8em;
-          margin-bottom: 10px;
-        }
-
-        h2 {
-          font-size: 1.4em;
-          margin-top: 20px;
-        }
-
-        table {
-          font-size: 14px;
-        }
-
-        td {
-          padding: 5px;
-        }
-
-        button#download {
-          font-size: 14px;
-          padding: 8px 16px;
-        }
-      }
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
-  </head>
-  <body>
-    <div id="report">
-      <h1>Lighting Calculation Report</h1>
-      <hr>
-      <div id="results">
-        <h2>Results</h2>
-        <table>
-          <tr>
-            <td>
-              <p>Length: NaN</p>
-              <p>Width: NaN</p>
-              <p>Height: NaN</p>
-            </td>
-            <td>
-              <p>Product Details: null</p>
-              <p>Luminaire Lumen: NaN</p>
-              <p>Luminaire Wattage: NaN</p>
-            </td>
-            <td>
-              <p>Required Lux: null</p>
-              <p>Required Lux Level: NaN</p>
-            </td>
-            <td>
-              <p>Total Required Luminaires: NaN</p>
-              <p>Total Consumption: NaN</p>
-              <p>Lumen per sqm: NaN</p>
-            </td>
-          </tr>
-        </table>
+          <h1>EVALux</h1>
+          <p>Lux Calculation Tool</p>
+        </div>
       </div>
     </div>
-    <button id="download">Generate PDF</button>
-    <script src="/java/report.js"></script>
+  </header>
+
+  <div id="project-name">
+    <div class="grid-container">
+      <div class="input-group">
+        <label for="project">Project Name</label>
+        <input type="text" id="project" placeholder="write your project name">
+      </div>
+      <div class="input-group">
+        <label for="project-description">Project-description</label>
+        <input type="text" id="project-description" placeholder="write your project-description">
+      </div>
+    </div>
+  </div>
+
+  <!-- Input Section -->
+  <div id="room-name">
+    <div class="input-group">
+      <label for="room">Room Name</label>
+      <input type="text" id="room" placeholder="eg; living room">
+    </div>
+  </div>
+  
+  <div class="geometry">
+    <div class="input-group">
+      <label for="length">Length</label>
+      <input type="number" id="length" placeholder="in m">
+    </div>
+    <div class="input-group">
+      <label for="width">Width</label>
+      <input type="number" id="width" placeholder="in m">
+    </div>
+    <div class="input-group">
+      <label for="height">Height</label>
+      <input type="number" id="height" placeholder="in m">
+    </div>
+  </div>
+
+  <!-- Target Lux selection section -->
+  <div class="input-group">
+    <label for="illumination">Target Lux</label>
+    <input type="number" id="illumination" placeholder="in lux">
+  </div>
+
+  <!-- Luminaire selection section -->
+  <div class="lights">
+    <div class="input-group">
+      <label for="luminaire-brand">Brand</label>
+      <select id="luminaire-brand">
+      </select>
+    </div>
+    <div class="input-group">
+      <label for="luminaire-category">Category</label>
+      <select id="luminaire-category">
+      </select>
+    </div>
+    <div class="input-group">
+      <label for="luminaire-model">Model</label>
+      <select id="luminaire-model">
+      </select>
+    </div>
+  </div>
+
+  <!-- SVG section -->
+  <div id="lux">
+    <div id="svg-container"></div>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <script>
-      window.onload = function () {
-        document.getElementById('download').addEventListener('click', function () {
-          var report = document.getElementById('report');
-          html2pdf().from(report).save('report.pdf');
-        });
-      }
+      var svg = d3.select("#svg-container")
     </script>
-  </body>
+  </div>
+
+  <!-- Suggest Section -->
+  <div id="suggest">
+
+    <button id="arrangment">Arrange</button>
+    <table>
+      <tr>
+        <td id="row">0</td>
+        <td id="column">0</td>
+      </tr>
+    </table>
+    <button id="place">Place Luminaires</button>
+    <button id="calculate">Calculate</button>
+  </div>
+
+  <button id="save-room">Save Room</button>
+  <button id="save-project">Save Project</button>
+
+  <aside id="saved-rooms" class="sidebar">
+    <h3>Saved Rooms</h3>
+    <!-- Saved rooms will be dynamically added here by JavaScript -->
+  </aside>
+
+  <script src="/java/brand.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>   
+  <script src="/java/luminaireplacer.js"></script>
+  <script src="/java/d3.js"></script> 
+  <script src="/java/save-room.js"></script>
+
+
+
+</body>
+
 </html>

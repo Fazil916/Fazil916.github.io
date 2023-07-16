@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const luminaireLumen = parseFloat(document.getElementById('luminaire-lumen').value);
     const luminaireWattage = parseFloat(document.getElementById('luminaire-wattage').value);
 
+    // Declaring it as a global variable
+    window.totalRequiredLuminaires = 0;
+
     // Perform calculations
     let totalRequiredLuminaires = (length * width * requiredLuxLevel) / luminaireLumen;
     totalRequiredLuminaires = Math.round(totalRequiredLuminaires);
@@ -27,22 +30,26 @@ document.addEventListener('DOMContentLoaded', (event) => {
     localStorage.setItem('totalConsumption', totalConsumption.toFixed(2));
     localStorage.setItem('lumenPerSqm', lumenPerSqm.toFixed(2));
 
+    // After you calculate the totalRequiredLuminaires, you assign it to the global variable
+    window.totalRequiredLuminaires = totalRequiredLuminaires; // The calculated value should replace this placeholder
+
     // Display results
     document.getElementById('total-required-luminaires').textContent = `Total Required Luminaires: ${totalRequiredLuminaires}`;
-    document.getElementById('total-consumption').textContent = `Total Consumption: ${totalConsumption.toFixed(2)}`;
-    document.getElementById('lumen-per-sqm').textContent = `Lumen per sqm: ${lumenPerSqm.toFixed(2)}`;
   });
 
-  const reportButton = document.getElementById('report');
+  document.getElementById("report").addEventListener("click", function () {
+    var length = document.getElementById("length").value;
+    var width = document.getElementById("width").value;
 
-  reportButton.addEventListener('click', () => {
+    localStorage.setItem('roomLength', length);
+    localStorage.setItem('roomWidth', width);
+
+    // Navigate to report.html
     window.location.href = "report.html";
   });
+
+
 });
 const disclaimer = document.getElementById("disclaimer");
 const footer = document.querySelector("footer");
-
-footer.addEventListener("click", () => {
-  disclaimer.style.display = "block";
-});
 

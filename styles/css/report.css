@@ -1,130 +1,79 @@
-:root {
-  --color-primary: #ffffff;
-  --color-secondary: #0e0000;
-}
-
-@media screen and (max-width: 480px) {
-
-  /* CSS styles for screens up to 480px wide */
-  body {
-    font-size: 12px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: stretch;
-    flex-direction: column;
-    max-width: fit-content;
-    height: 100%;
-    padding: 100px;
-  }
-
-  .container {
-    width: 80%;
-  }
-
-  #calculator,
-  #results {
-    width: 90%;
-  }
-}
-
+<style>
 body {
-  background-color: #0e0000;
-  color: #ffffff;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
+  background-color: #ffffff;
+  color: #333333;
+  font-family: sans-serif;
+  font-size: 16px;
 }
 
-h1,
-label,
-select,
-button {
-  color: var(--color-primary);
-  text-align: center;
+h1 {
+  font-size: 24px;
 }
 
 h2 {
-  color: var(--color-primary);
-  text-align: left;
+  font-size: 20px;
 }
 
-input {
-  color: #000000;
-  text-align: left;
+label {
+  font-weight: bold;
 }
 
-.container {
+input, button {
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #008CBA;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.header-content {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
 }
 
-#calculator {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 20px;
-  border-radius: 10px;
-  color: var(--color-primary);
+.title-container {
+  margin-bottom: 20px;
+}
+
+.header-text {
+  font-size: 20px;
 }
 
 .input-group {
-  width: 80%;
-  margin-bottom: 15px;
-}
-
-.input-group input {
-  width: 100%;
-}
-
-#lux-and-product .input-group {
-  width: 50%;
-}
-
-#lux-and-product .input-group input {
-  width: 100%;
-}
-
-#results {
-  
-  padding: 20px;
-  margin: 20px auto;
-  width: 90%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  
-}
-
-#results h2 {
-  align-self: flex-start;
-  margin-left: 10px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  /* Shadow to the text */
-}
-
-#results>div {
-  padding: 10px;
-  font-size: 16px;
-  font-family: 'Georgia', serif;
-  background-color: rgba(255, 255, 255, 0.7);
-  /* semi-transparent white */
-  border: none;
-  border-radius: 4px;
-  transition: all 0.3s ease-in-out;
   margin-bottom: 10px;
-  line-height: 1.6;
-  text-align: center;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  /* Shadow to the text */
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.lights {
+  margin-top: 20px;
+}
+
+.svg-container {
+  width: 100%;
+  height: 300px;
+}
+
+#suggest {
+  margin-top: 20px;
+}
+
+#saved-rooms {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.sidebar {
+  width: 200px;
+  float: left;
+}
+</style>

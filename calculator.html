@@ -6,7 +6,10 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+  <!-- Include Spectrum JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
+  <!-- Include color-picker.js -->
+  <script src="/java/pickr.js"></script>
 
   <link rel="stylesheet" href="/styles/css/calculator.css">
 </head>
@@ -14,16 +17,33 @@
 <body>
   <header>
     <div class="header-content">
-      <div class="title-container">
+      <div class="title-container">        
         <img src="/styles/image/evalog.png" alt="Company Logo" id="logo">
         <div class="header-text">
+          <button id="report">Create Room</button>
           <h1>EVALux</h1>
           <p>Simple Lux Calculation Tool</p>
         </div>
       </div>
-    </div>
+    </div>    
   </header>
 
+  <!--Project Section-->
+
+  <div id="project-name">
+    <h2>Project Name</h2>
+    <div class="grid-container">
+      <div class="input-group">
+        <label for="project">Project Name</label>
+        <input type="text" id="project" placeholder="write your project name">
+      </div>
+      <div class="input-group">
+        <label for="project-description">Project-description</label>
+        <input type="text" id="project-description" placeholder="write your project-description">
+      </div>
+    </div>
+  </div>
+  
   <!-- Room Geometry Section -->
 
   <div id="room-geometry">
@@ -122,22 +142,20 @@
         <div id="results">
           <button id="calculate">Calculate</button>
         </div>
-        <div id="total-required-luminaires">
-        </div>
+
+      </div>
+    </div>
+    <div id="lux">
+      <div id="output"></div>
+      <div id="total-required-luminaires">
       </div>
     </div>
   </div>
+    
+  <script src="/java/calculator.js"></script>
+  <script src="/java/brand.js"></script>
+  <script src="/java/pickr.js"></script>
 
-  <!-- Output Section -->
-
-  <div id="lux">
-    <div id="renderer-container"></div>
-    <script type="module">
-      import * as THREE from 'https://threejs.org/build/three.module.js';
-      import '/java/three.js';
-    </script>
-  </div>
-  <button id="report">Generate Report</button>
 </body>
 
 </html>
