@@ -101,15 +101,39 @@ button:hover {
 }
 
 #saved-rooms {
+    display: inline-block;
     padding: 1em;
     background-color: #008CBA;
     color: #ffffff;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-top: 1em;
-}
-
-#saved-rooms h3 {
     text-align: center;
+    width: 100%; /* You may adjust this according to your needs */
+  }
+  
+  #saved-rooms:hover {
+    background-color: #007B9A;
+  }
+  
+  #saved-rooms h3 {
     font-size: 2em;
-    margin-bottom: 1em;
-}
+    margin-bottom: 0;
+  }
+
+  #saved-rooms .saved-room {
+    display: inline-block;
+    margin-top: 1em;
+    padding: 1em;
+    background-color: #008CBA;
+    color: #ffffff;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Adjust this according to your needs */
+  }
+  
+  #saved-rooms .room:hover {
+    background-color: #007B9A;
+  }
+  
