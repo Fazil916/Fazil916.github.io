@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
-  let dropdownButtonBrand = document.querySelector('.dropdown .dropdown-button');
-  let dropdownContentBrand = document.querySelector('#dropdown-content');
+  let dropdownButtonBrand = document.querySelector('.dropdown-brand .dropdown-button');
+  let dropdownContentBrand = document.querySelector('.dropdown-brand .dropdown-content');
 
-  let dropdownButtonModel = document.querySelector('.dropdown + .dropdown .dropdown-button');
-  let dropdownContentModel = document.querySelector('#dropdown-model');
-
+  let dropdownButtonModel = document.querySelector('.dropdown-model .dropdown-button');
+  let dropdownContentModel = document.querySelector('.dropdown-model .dropdown-content');
 
 
   // Populate the brand dropdown

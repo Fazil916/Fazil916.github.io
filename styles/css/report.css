@@ -153,7 +153,7 @@ button#save-room {
     display: none;
 }
 
-.dropdown {
+.dropdown-brand, .dropdown-model {
     position: relative;
     display: inline-block;
     width: 200px; /* Adjust the width of the dropdown button */
@@ -191,7 +191,7 @@ button#save-room {
     background-color: #000000;
 }
 
-.dropdown:hover #dropdown-content,
-.dropdown:hover #dropdown-model {
+.dropdown-brand:hover .dropdown-content,
+.dropdown-model:hover .dropdown-content {
     display: block;
 }
