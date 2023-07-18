@@ -1,22 +1,10 @@
-{
-  "brands": [
-    "Pimcat",
-    "Alef",
-    "Lumibright",
-    "Lumideco"
-  ],
-  "categories": [
-    "Spot Light",
-    "Down Light",
-    "Track Light",
-    "Panel Ligt"
-  ],
-  "models": [
-    "Model 1",
-    "Model 2",
-    "Model 3",
-    "Model 4"
-  ]
-}
-
-  
+[
+  {
+    "brand": "pimcat",
+    "logo": "/data/logos/pimcat.jpg"
+  },
+  {
+    "brand": "Alif",
+    "logo": "/data/logos/alif.jpg"
+  }
+]

@@ -41,7 +41,7 @@ function createRoom(length, width, rows, cols) {
         .attr("x", 0)
         .attr("y", 0)
         .attr("stroke", "black")
-        .attr("stroke-width", 1)
+        .attr("stroke-width", 2)
         .attr("fill", "none");
 
     // Add inner border to resemble a wall
@@ -89,9 +89,7 @@ function createRoom(length, width, rows, cols) {
 
     // Add dimension text outside the SVG
     d3.select("#length").text(`Length: ${length} m`);
-    d3.select("#width").text(`Width: ${width} m`);
-    d3.select("#rows").text(`Rows: ${rows}`);
-    d3.select("#cols").text(`Columns: ${cols}`);
+    d3.select("#width").text(`Width: ${width} m`);    
 
     return luminaires;
 }

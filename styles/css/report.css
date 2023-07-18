@@ -8,7 +8,7 @@ body {
     font-family: 'Arial', sans-serif;
     font-size: 16px;
     line-height: 1.5;
-    color: #333333;
+    color: #383535;
     background-color: #f5f5f5;
     padding: 1em;
 }
@@ -50,7 +50,7 @@ select {
     padding: 0.5em;
     font-size: 1em;
     border: 2px solid #008CBA;
-    border-radius: 5px;
+    border-radius: 50px;
 }
 
 label {
@@ -61,18 +61,22 @@ label {
 button {
     background-color: #008CBA;
     color: #ffffff;
-    padding: 1em;
+    padding: 2em;
     font-size: 1em;
     border: none;
-    border-radius: 5px;
+    border-radius: 100px;
     cursor: pointer;
     margin-bottom: 1em;
     width: 100%;
+    text-align: center;
+
+
 }
 
 button:hover {
     background-color: #007B9A;
 }
+
 
 .lights,
 .geometry {
@@ -83,7 +87,7 @@ button:hover {
 
 #svg-container {
     width: 100%;
-    height: 400px;
+    height: 600px;
     background: #ffffff;
     border-radius: 5px;
     margin-bottom: 1em;
@@ -103,37 +107,91 @@ button:hover {
 #saved-rooms {
     display: inline-block;
     padding: 1em;
-    background-color: #008CBA;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #000000;
     border-radius: 5px;
     margin-top: 1em;
     text-align: center;
-    width: 100%; /* You may adjust this according to your needs */
-  }
-  
-  #saved-rooms:hover {
-    background-color: #007B9A;
-  }
-  
-  #saved-rooms h3 {
+    width: 100%;
+    /* You may adjust this according to your needs */
+}
+
+
+#saved-rooms h3 {
     font-size: 2em;
     margin-bottom: 0;
-  }
+}
 
-  #saved-rooms .saved-room {
+
+
+#saved-rooms .saved-room {
     display: inline-block;
     margin-top: 1em;
     padding: 1em;
-    background-color: #008CBA;
+    background-color: #04080a;
     color: #ffffff;
     border-radius: 5px;
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%; /* Adjust this according to your needs */
-  }
-  
-  #saved-rooms .room:hover {
+    width: 100%;
+    /* Adjust this according to your needs */
+}
+
+#saved-rooms .room:hover {
     background-color: #007B9A;
-  }
-  
+}
+
+table,
+td {
+    display: none;
+
+}
+
+button#place,
+button#save-room {
+    display: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 200px; /* Adjust the width of the dropdown button */
+}
+
+.dropdown-button {
+    padding: 10px; /* Adjust the padding around the dropdown button text */
+    width: 100%; /* Fill the width of the dropdown container */
+    text-align: left; /* Align the text to the left */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%; /* Make the dropdown content the same width as the button */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    z-index: 1;
+}
+
+.dropdown-content .dropdown-item {
+    color: rgb(0, 0, 0);
+    padding: 5px 5px; /* Reduce padding around each dropdown item */
+    text-decoration: none;
+    display: flex; /* Use flex layout for better control of item content */
+    align-items: center; /* Vertically center the text and the image */
+}
+
+.dropdown-content .dropdown-item img {
+    width: 50px; /* Reduce the width of the brand logos */
+    height: auto; /* Adjust the height of the brand logos */
+    margin-right: 40px; /* Reduce space between the logo and the text */
+}
+
+.dropdown-content .dropdown-item:hover {
+    background-color: #000000;
+}
+
+.dropdown:hover #dropdown-content,
+.dropdown:hover #dropdown-model {
+    display: block;
+}

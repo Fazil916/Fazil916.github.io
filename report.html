@@ -13,7 +13,7 @@
         <div class="header-text">
 
           <h1>EVALux</h1>
-          <p>Lux Calculation Tool</p>
+          <p>Light Estimation Tool</p>
         </div>
       </div>
     </div>
@@ -62,23 +62,20 @@
   </div>
 
   <!-- Luminaire selection section -->
-  <div class="lights">
-    <div class="input-group">
-      <label for="luminaire-brand">Brand</label>
-      <select id="luminaire-brand">
-      </select>
-    </div>
-    <div class="input-group">
-      <label for="luminaire-category">Category</label>
-      <select id="luminaire-category">
-      </select>
-    </div>
-    <div class="input-group">
-      <label for="luminaire-model">Model</label>
-      <select id="luminaire-model">
-      </select>
+  <div class="dropdown-brand">
+    <button class="dropdown-button">Select a brand</button>
+    <div class="dropdown-content">
+      <!-- Items will be generated here -->
     </div>
   </div>
+  <div class="dropdown-model">
+    <button class="dropdown-button">Select a Model</button>
+    <div class="dropdown-content">
+      <!-- Items will be generated here -->
+    </div>
+  </div>
+
+
 
   <!-- SVG section -->
   <div id="lux">
@@ -91,30 +88,32 @@
 
   <!-- Suggest Section -->
   <div id="suggest">
+    <div id="button-container">
+      <button id="arrangment">Luminaires Arrangment</button>
+      <button id="place">Place Luminaires</button>
+      <button id="save-room">Add Room</button>
+    </div>
 
-    <button id="arrangment">Arrange</button>
     <table>
       <tr>
         <td id="row">0</td>
         <td id="column">0</td>
       </tr>
     </table>
-    <button id="place">Place Luminaires</button>
-    <button id="calculate">Calculate</button>
   </div>
 
-  <button id="save-room">Save Room</button>
-  <button id="save-project">Save Project</button>
-
   <aside id="saved-rooms" class="sidebar">
-    <h3>Saved Rooms</h3>    
+    <h3>Rooms</h3>
   </aside>
+  <button id="calculate">Calculate</button>
+  <button id="save-project">Save Project</button>
 
   <script src="/java/brand.js"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="/java/luminaireplacer.js"></script>
   <script src="/java/d3.js"></script>
   <script src="/java/save-room.js"></script>
+  <script src="/java/button.js"></script>
 
 </body>
 
