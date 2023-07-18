@@ -103,8 +103,12 @@
   </div>
 
   <aside id="saved-rooms" class="sidebar">
-    <h3>Rooms</h3>
-  </aside>
+    <h3>Saved Rooms</h3>
+    <!-- Saved rooms will be dynamically added here by JavaScript -->
+    <input type="file" accept="image/*" capture="camera" id="cameraInput" style="display: none;">  
+    <img id="cameraIcon" src="/styles/image/camico.png" style="width: 24px; height: 24px;">
+</aside>
+
   <button id="calculate">Calculate</button>
   <button id="save-project">Save Project</button>
 
@@ -114,6 +118,7 @@
   <script src="/java/d3.js"></script>
   <script src="/java/save-room.js"></script>
   <script src="/java/button.js"></script>
+  <script src="/java/camera.js"></script>
 
 </body>
 
