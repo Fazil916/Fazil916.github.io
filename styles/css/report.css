@@ -122,8 +122,6 @@ button:hover {
     margin-bottom: 0;
 }
 
-
-
 #saved-rooms .saved-room {
     display: inline-block;
     margin-top: 1em;
@@ -150,6 +148,11 @@ td {
 
 button#place,
 button#save-room {
+    display: none;
+}
+
+#dropdown-content,
+#dropdown-model {
     display: none;
 }
 
@@ -190,5 +193,3 @@ button#save-room {
     height: auto;
     margin-right: 10px; /* Space between the image and the text */
 }
-
-
