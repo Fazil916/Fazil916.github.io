@@ -156,40 +156,57 @@ button#save-room {
     display: none;
 }
 
-.dropdown-brand, .dropdown-model {
-    position: relative;
-    display: inline-block;
-    width: 100%; /* Adjust the width of the dropdown button */
+.dropdown-content {
+
+    display: none;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    /* Ensure the dropdown appears above other content */
+
+}
+
+.dropdown-model {
+
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    /* Ensure the dropdown appears above other content */
 }
 
 .dropdown-button {
-    padding: 10px; /* Adjust the padding around the dropdown button text */
-    width: 100%; /* Fill the width of the dropdown container */
-    text-align: center; /* Align the text to the left */
-}
-
-.dropdown-content {
-    background-color: #f9f9f9; /* Light background */
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Add a shadow for a "floating" effect */
-    padding: 12px 16px; /* Add some padding to the dropdown content */
-    z-index: 1; /* Ensure the dropdown appears above other content */
+    padding: 20px;
+    /* Adjust the padding around the dropdown button text */
+    width: 100%;
+    /* Fill the width of the dropdown container */
+    text-align: center;
+    /* Align the text to the left */
 }
 
 .dropdown-item {
-    color: #333; /* Darker text color */
-    padding: 5px 0; /* Add some vertical padding to each item */
-    margin: 5px 0; /* Add some vertical margin to each item */
+    color: #333;
+    /* Darker text color */
+    padding: 5px 0;
+    /* Add some vertical padding to each item */
+    margin: 5px 0;
+    /* Add some vertical margin to each item */
     display: flex;
     align-items: center;
-    cursor: pointer; /* Change the cursor to a pointer when hovering over an item */
+    cursor: pointer;
+    /* Change the cursor to a pointer when hovering over an item */
 }
 
 .dropdown-item:hover {
-    background-color: #ddd; /* Light background on hover */
+    background-color: #ddd;
+    /* Light background on hover */
 }
 
 .dropdown-item img {
-    width: 100%; /* Adjust as needed */
+    width: 100%;
+    /* Adjust as needed */
     height: auto;
-    margin-right: 10px; /* Space between the image and the text */
+    margin-right: 10px;
+    /* Space between the image and the text */
 }

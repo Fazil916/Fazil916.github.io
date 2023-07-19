@@ -7,17 +7,19 @@
 </head>
 
 <body>
+
+  <!-- Header Section -->
   <header>
     <div class="header-content">
       <div class="title-container">
         <div class="header-text">
-
-          <h1>EVALux</h1>
-          <p>Light Estimation Tool</p>
+          <h1>Quick Online Lighting Quantity Estimator</h1>          
         </div>
       </div>
     </div>
   </header>
+
+  <!-- Project Input Section -->
 
   <div id="project-name">
     <div class="grid-container">
@@ -32,7 +34,7 @@
     </div>
   </div>
 
-  <!-- Input Section -->
+  <!-- Name Input Section -->
   <div id="room-name">
     <div class="input-group">
       <label for="room">Room Name</label>
@@ -40,6 +42,7 @@
     </div>
   </div>
 
+  <!-- Room Geometry Input Section -->
   <div class="geometry">
     <div class="input-group">
       <label for="length">Length</label>
@@ -75,8 +78,6 @@
     </div>
   </div>
 
-
-
   <!-- SVG section -->
   <div id="lux">
     <div id="svg-container"></div>
@@ -105,9 +106,9 @@
   <aside id="saved-rooms" class="sidebar">
     <h3>Saved Rooms</h3>
     <!-- Saved rooms will be dynamically added here by JavaScript -->
-    <input type="file" accept="image/*" capture="camera" id="cameraInput" style="display: none;">  
+    <input type="file" accept="image/*" capture="camera" id="cameraInput" style="display: none;">
     <img id="cameraIcon" src="/styles/image/camico.png" style="width: 24px; height: 24px;">
-</aside>
+  </aside>
 
   <button id="calculate">Calculate</button>
   <button id="save-project">Save Project</button>
