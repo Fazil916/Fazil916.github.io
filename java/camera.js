@@ -1,12 +1,14 @@
-document.getElementById('cameraIcon').addEventListener('click', function() {
-    document.getElementById('cameraInput').click();
+document.addEventListener('change', function (event) {
+    if (event.target && event.target.matches('[id^="cameraInput"]')) {
+        // If the event target is a camera input (its id starts with "cameraInput"), handle the camera input
+        handleCameraInput(event.target);
+    }
 });
-
 // Initialize Dexie.js and create a new database
 var db = new Dexie('ImageDB');
-db.version(1).stores({images: ''});
+db.version(1).stores({ images: '' });
 
-document.getElementById('cameraIcon').addEventListener('click', function() {
+document.getElementById('cameraIcon').addEventListener('click', function () {
     document.getElementById('cameraInput').click();
 });
 
@@ -17,9 +19,9 @@ document.getElementById('cameraInput').addEventListener('change', function (even
     reader.onload = function () {
         var data = reader.result;
         // Use Dexie.js to store the data in IndexedDB
-        db.images.put({id: "image" + roomName, image: data}).then(function(){
+        db.images.put({ id: "image" + roomName, image: data }).then(function () {
             console.log("Image stored successfully!");
-        }).catch(function(error) {
+        }).catch(function (error) {
             console.error("Error storing image: ", error);
         });
     };

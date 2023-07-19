@@ -38,7 +38,6 @@ document.getElementById('save-room').addEventListener('click', function () {
   cameraIcon.id = 'cameraIcon' + roomName; // Make sure the id is unique
   cameraIcon.style.display = 'none'; // Make the icon initially hidden
 
-
   cameraIcon.addEventListener('click', function () {
     document.getElementById('cameraInput' + roomName).click();
   });
