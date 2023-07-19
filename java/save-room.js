@@ -30,37 +30,45 @@ document.getElementById('save-room').addEventListener('click', function () {
   roomElement.className = 'saved-room'; // For styling purposes
   roomElement.id = roomName; // To uniquely identify the element
 
+  // Create camera icon for each saved room
+  var cameraIcon = document.createElement('img'); // Create an image for the camera icon
+  cameraIcon.src = '/styles/image/camico.png';
+  cameraIcon.style.width = '24px';
+  cameraIcon.style.height = '24px';
+  cameraIcon.id = 'cameraIcon' + roomName; // Make sure the id is unique
+  cameraIcon.style.display = 'none'; // Make the icon initially hidden
+
+
+  cameraIcon.addEventListener('click', function () {
+    document.getElementById('cameraInput' + roomName).click();
+  });
+
+  roomElement.appendChild(cameraIcon);
+
   // Append the new element to a designated area
   document.getElementById('saved-rooms').appendChild(roomElement);
-});
+  cameraIcon.style.display = 'block';
 
-// Event delegation for the 'saved-room' elements
-document.getElementById('saved-rooms').addEventListener('click', function (e) {
-  if (e.target && e.target.classList.contains('saved-room')) {
-    // Retrieve room data
-    var roomName = e.target.id;
-    var roomData = JSON.parse(localStorage.getItem(roomName));
+  // Create delete icon for each saved room
+  var deleteIcon = document.createElement('img'); // Create an image for the delete icon
+  deleteIcon.src = '/styles/image/deleteico.png'; // Replace with your delete icon source
+  deleteIcon.style.width = '24px';
+  deleteIcon.style.height = '24px';
+  deleteIcon.id = 'deleteIcon' + roomName; // Make sure the id is unique
+  deleteIcon.style.display = 'none'; // Make the icon initially hidden
 
-    // Retrieve and redraw the luminaires
-    var luminaires = JSON.parse(localStorage.getItem(roomName + '_luminaires'));
-    luminaires.forEach(function (luminaire) {
-      svg.append("circle")
-        .attr("cx", luminaire.x)
-        .attr("cy", luminaire.y)
-        .attr("r", 5)
-        .style("fill", "red");
-    });
+  // Append the delete icon to the room element
+  roomElement.appendChild(deleteIcon);
 
-    // Repopulate input fields or recalculate as necessary
-    document.getElementById('room').value = roomName;
-    document.getElementById('length').value = roomData.length;
-    document.getElementById('width').value = roomData.width;
-    document.getElementById('row').textContent = roomData.rows;
-    document.getElementById('column').textContent = roomData.cols;
-    document.getElementById('illumination').value = roomData.illumination;
+  // Add event listener for the delete icon
+  deleteIcon.addEventListener('click', function () {
+    // Delete room data from local storage
+    localStorage.removeItem(roomName);
+    localStorage.removeItem(roomName + '_luminaires');
 
-    // Call the function to create the room
-    createRoom(roomData.length, roomData.width, roomData.rows, roomData.cols);
-  }
+    // Remove the room element from the document
+    document.getElementById('saved-rooms').removeChild(roomElement);
+  });
 
+  deleteIcon.style.display = 'block';
 });
