@@ -10,7 +10,7 @@ body {
     line-height: 1.5;
     color: #383535;
     background-color: #f5f5f5;
-    padding: 1em;    
+    padding: 1em;
 }
 
 header {
@@ -133,7 +133,7 @@ button:hover {
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 50%;
+    width: 30%;
     /* Adjust this according to your needs */
 }
 
@@ -153,9 +153,11 @@ button#save-room {
 }
 
 
-.dropdown-model, .dropdown-brand {
+.dropdown-model,
+.dropdown-brand {
 
-    background-color: #f5f5f5;;
+    background-color: #f5f5f5;
+    ;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     padding: 12px 16px;
     z-index: 1;
@@ -180,7 +182,7 @@ button#save-room {
     z-index: 1;
     align-items: center;
     cursor: pointer;
-    margin: 5px 5px ;
+    margin: 5px 5px;
     border: #09cadc;
     /* Ensure the dropdown appears above other content */
 
@@ -216,7 +218,7 @@ div[data-value] {
     padding: 10px;
     color: #333;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     cursor: pointer;
 }
 
@@ -225,12 +227,11 @@ div[data-value]:hover {
 }
 
 div[data-value] img {
-    vertical-align: middle; /* Vertically aligns the image with the text */
-    width: auto; /* Adjust as needed */
+    vertical-align: middle;
+    /* Vertically aligns the image with the text */
+    width: auto;
+    /* Adjust as needed */
     height: auto;
-    margin-right: 300px; /* Space between the image and the text */
+    margin-right: 200px;
+    /* Space between the image and the text */
 }
-
-.saved-room {   
-    align-items: right;
-  }

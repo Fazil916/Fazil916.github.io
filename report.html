@@ -4,6 +4,8 @@
 <head>
   <title>Lumen Calculator</title>
   <link rel="stylesheet" href="/styles/css/report.css">
+  <script src="https://unpkg.com/dexie@latest/dist/dexie.min.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 
 <body>
@@ -81,7 +83,7 @@
   <!-- SVG section -->
   <div id="lux">
     <div id="svg-container"></div>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
+    
     <script>
       var svg = d3.select("#svg-container")
     </script>

@@ -1,7 +1,7 @@
 // Event listener for the 'save-room' button
 document.getElementById('save-room').addEventListener('click', function () {
   // Retrieve values
-  var roomName = document.getElementById('room').value;
+  var roomName = document.getElementById('room').value || 'Room-' + Date.now();
   var length = parseFloat(localStorage.getItem('Length'));
   var width = parseFloat(localStorage.getItem('Width'));
   var rows = parseInt(localStorage.getItem('Row'));
