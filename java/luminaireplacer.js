@@ -1,12 +1,12 @@
 // Event listener for the 'arrangement' button
 
 document.getElementById('arrangment').addEventListener('click', function () {
-  var length = parseFloat(document.getElementById('length').value);
-  var width = parseFloat(document.getElementById('width').value);
+  var length = parseFloat(document.getElementById('edit-room-length').value);
+  var width = parseFloat(document.getElementById('edit-room-width').value);
   var illumination = parseFloat(document.getElementById('illumination').value);
 
   // Check if the inputs are too large
-  if (length > 100000 || width > 100000 || illumination > 100000) {
+  if (length > 2000 || width > 2000 || illumination > 10000) {
     alert("The input values are too large. Please enter smaller values.");
     return;
   }

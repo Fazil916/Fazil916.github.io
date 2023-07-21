@@ -7,7 +7,6 @@ document.addEventListener('change', function (event) {
 // Initialize Dexie.js and create a new database
 var db = new Dexie('ImageDB');
 db.version(1).stores({ images: '' });
-
 document.getElementById('cameraIcon').addEventListener('click', function () {
     document.getElementById('cameraInput').click();
 });

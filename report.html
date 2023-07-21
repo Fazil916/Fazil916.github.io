@@ -15,7 +15,7 @@
     <div class="header-content">
       <div class="title-container">
         <div class="header-text">
-          <h1>Quick Online Lighting Quantity Estimator</h1>          
+          <h1>Quick Online Lighting Quantity Estimator</h1>
         </div>
       </div>
     </div>
@@ -36,29 +36,30 @@
     </div>
   </div>
 
-  <!-- Name Input Section -->
-  <div id="room-name">
-    <div class="input-group">
-      <label for="room">Room Name</label>
-      <input type="text" id="room" placeholder="eg; living room">
+  <div id="room-creation">
+    <aside id="saved-rooms" class="sidebar">
+      <!-- Saved rooms will be dynamically added here by JavaScript -->
+      <input type="file" accept="image/*" capture="camera" id="cameraInput" style="display: none;">
+      <img id="cameraIcon;">
+    </aside>
+    <!-- The Modal -->
+    <div id="modal" style="display: none;">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <label for="edit-room-name">Name</label>
+        <input type="text" id="edit-room-name">
+        <label for="edit-room-length">Length</label>
+        <input type="number" id="edit-room-length">
+        <label for="edit-room-width">Width</label>
+        <input type="number" id="edit-room-width">
+        <label for="edit-room-height">Height</label>
+        <input type="number" id="edit-room-height">
+        <button id="edit-room">Edit Room</button>
+      </div>
     </div>
+    <button id="save-room">Add Rooms</button>
   </div>
 
-  <!-- Room Geometry Input Section -->
-  <div class="geometry">
-    <div class="input-group">
-      <label for="length">Length</label>
-      <input type="number" id="length" placeholder="in m">
-    </div>
-    <div class="input-group">
-      <label for="width">Width</label>
-      <input type="number" id="width" placeholder="in m">
-    </div>
-    <div class="input-group">
-      <label for="height">Height</label>
-      <input type="number" id="height" placeholder="in m">
-    </div>
-  </div>
 
   <!-- Target Lux selection section -->
   <div class="input-group">
@@ -83,7 +84,6 @@
   <!-- SVG section -->
   <div id="lux">
     <div id="svg-container"></div>
-    
     <script>
       var svg = d3.select("#svg-container")
     </script>
@@ -94,9 +94,7 @@
     <div id="button-container">
       <button id="arrangment">Luminaires Arrangment</button>
       <button id="place">Place Luminaires</button>
-      <button id="save-room">Add Room</button>
     </div>
-
     <table>
       <tr>
         <td id="row">0</td>
@@ -104,13 +102,6 @@
       </tr>
     </table>
   </div>
-
-  <aside id="saved-rooms" class="sidebar">
-    <h3>Saved Rooms</h3>
-    <!-- Saved rooms will be dynamically added here by JavaScript -->
-    <input type="file" accept="image/*" capture="camera" id="cameraInput" style="display: none;">
-    <img id="cameraIcon;">
-  </aside>
 
   <button id="calculate">Calculate</button>
   <button id="save-project">Save Project</button>

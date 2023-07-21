@@ -133,7 +133,7 @@ button:hover {
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 30%;
+    width: 50%;
     /* Adjust this according to your needs */
 }
 
@@ -146,12 +146,6 @@ td {
     display: none;
 
 }
-
-button#place,
-button#save-room {
-    display: none;
-}
-
 
 .dropdown-model,
 .dropdown-brand {
@@ -234,4 +228,30 @@ div[data-value] img {
     height: auto;
     margin-right: 200px;
     /* Space between the image and the text */
+}
+
+/* The Modal */
+#modal {
+    display: none;
+    position: relative;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(224, 219, 219);
+    background-color: rgba(246, 243, 243, 0.4);
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
 }
