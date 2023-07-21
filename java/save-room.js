@@ -59,6 +59,60 @@ function createRoomElement(roomName, length, width, height) {
       document.getElementById('modal').style.display = "none";
     }, { once: true }); // The {once: true} option ensures the event will only fire once per click
   });
+
+  // Create camera icon for each saved room
+  var cameraIcon = document.createElement('img'); // Create an image for the camera icon
+  cameraIcon.src = '/styles/image/camico.png';
+  cameraIcon.style.width = '24px';
+  cameraIcon.style.height = '24px';
+  cameraIcon.id = 'cameraIcon' + roomName; // Make sure the id is unique
+  cameraIcon.style.display = 'none'; // Make the icon initially hidden
+
+
+  // Create camera input field
+  var cameraInput = document.createElement('input');
+  cameraInput.type = 'file';
+  cameraInput.accept = 'image/*';
+  cameraInput.capture = 'camera';
+  cameraInput.id = 'cameraInput' + roomName;
+  cameraInput.style.display = 'none';
+
+  // Append the camera input field to the room element
+  roomElement.appendChild(cameraInput);
+
+  // Update the event listener to use the new input field
+  cameraIcon.addEventListener('click', function () {
+    cameraInput.click();
+  });
+
+  roomElement.appendChild(cameraIcon);
+
+  // Append the new element to a designated area
+  document.getElementById('saved-rooms').appendChild(roomElement);
+  cameraIcon.style.display = 'block';
+
+  // Create delete icon for each saved room
+  var deleteIcon = document.createElement('img'); // Create an image for the delete icon
+  deleteIcon.src = '/styles/image/deleteico.png'; // Replace with your delete icon source
+  deleteIcon.style.width = '24px';
+  deleteIcon.style.height = '24px';
+  deleteIcon.id = 'deleteIcon' + roomName; // Make sure the id is unique
+  deleteIcon.style.display = 'none'; // Make the icon initially hidden
+
+  // Append the delete icon to the room element
+  roomElement.appendChild(deleteIcon);
+
+  // Add event listener for the delete icon
+  deleteIcon.addEventListener('click', function () {
+    // Delete room data from local storage
+    localStorage.removeItem(roomName);
+    localStorage.removeItem(roomName + '_luminaires');
+
+    // Remove the room element from the document
+    document.getElementById('saved-rooms').removeChild(roomElement);
+  });
+
+  deleteIcon.style.display = 'block';
 }
 
 // Event listener for the 'save-room' button
@@ -70,50 +124,4 @@ document.getElementById('save-room').addEventListener('click', function () {
   var height = 3.0;
 
   createRoomElement(roomName, length, width, height);
-
-
-// Retrieve and save the luminaire data
-var luminaires = createRoom(length, width, rows, cols);
-localStorage.setItem(roomName + '_luminaires', JSON.stringify(luminaires));
-
-// Create camera icon for each saved room
-var cameraIcon = document.createElement('img'); // Create an image for the camera icon
-cameraIcon.src = '/styles/image/camico.png';
-cameraIcon.style.width = '24px';
-cameraIcon.style.height = '24px';
-cameraIcon.id = 'cameraIcon' + roomName; // Make sure the id is unique
-cameraIcon.style.display = 'none'; // Make the icon initially hidden
-
-cameraIcon.addEventListener('click', function () {
-  document.getElementById('cameraInput' + roomName).click();
-});
-
-roomElement.appendChild(cameraIcon);
-
-// Append the new element to a designated area
-document.getElementById('saved-rooms').appendChild(roomElement);
-cameraIcon.style.display = 'block';
-
-// Create delete icon for each saved room
-var deleteIcon = document.createElement('img'); // Create an image for the delete icon
-deleteIcon.src = '/styles/image/deleteico.png'; // Replace with your delete icon source
-deleteIcon.style.width = '24px';
-deleteIcon.style.height = '24px';
-deleteIcon.id = 'deleteIcon' + roomName; // Make sure the id is unique
-deleteIcon.style.display = 'none'; // Make the icon initially hidden
-
-// Append the delete icon to the room element
-roomElement.appendChild(deleteIcon);
-
-// Add event listener for the delete icon
-deleteIcon.addEventListener('click', function () {
-  // Delete room data from local storage
-  localStorage.removeItem(roomName);
-  localStorage.removeItem(roomName + '_luminaires');
-
-  // Remove the room element from the document
-  document.getElementById('saved-rooms').removeChild(roomElement);
-});
-
-deleteIcon.style.display = 'block';
 });

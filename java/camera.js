@@ -1,19 +1,22 @@
-document.addEventListener('change', function (event) {
-    if (event.target && event.target.matches('[id^="cameraInput"]')) {
-        // If the event target is a camera input (its id starts with "cameraInput"), handle the camera input
-        handleCameraInput(event.target);
-    }
-});
 // Initialize Dexie.js and create a new database
 var db = new Dexie('ImageDB');
 db.version(1).stores({ images: '' });
-document.getElementById('cameraIcon').addEventListener('click', function () {
-    document.getElementById('cameraInput').click();
+
+document.addEventListener('click', function (event) {
+    if (event.target && event.target.matches('[id^="cameraIcon"]')) {
+        var roomName = event.target.id.replace('cameraIcon', ''); // Extract roomName from id
+        document.getElementById('cameraInput' + roomName).click();
+    }
 });
 
-// When a new file is selected...
-document.getElementById('cameraInput').addEventListener('change', function (event) {
-    // Use a FileReader to read the file data
+document.addEventListener('change', function (event) {
+    if (event.target && event.target.matches('[id^="cameraInput"]')) {
+        var roomName = event.target.id.replace('cameraInput', ''); // Extract roomName from id
+        handleCameraInput(roomName, event.target);
+    }
+});
+
+function handleCameraInput(roomName, inputElement) {
     var reader = new FileReader();
     reader.onload = function () {
         var data = reader.result;
@@ -24,7 +27,5 @@ document.getElementById('cameraInput').addEventListener('change', function (even
             console.error("Error storing image: ", error);
         });
     };
-    reader.readAsDataURL(event.target.files[0]);
-});
-
-
+    reader.readAsDataURL(inputElement.files[0]);
+}
