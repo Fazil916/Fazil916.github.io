@@ -6,7 +6,8 @@
 }
 
 /* Global styles */
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -152,6 +153,7 @@ section {
 label {
   font-weight: 600;
   margin-bottom: 10px;
+
 }
 
 input,
@@ -190,3 +192,4 @@ button[type="submit"]:hover {
   height: auto;
   margin-right: 10px;
 }
+

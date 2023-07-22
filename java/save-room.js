@@ -90,9 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('modal').style.display = 'none';
   });
 
-  // Event listener for the 'cameraIcon' button
-  document.getElementById('cameraIcon').addEventListener('click', function () {
-    // This should trigger the file input for the camera
+  // Event listener for the custom 'Upload Image' button
+  document.getElementById('custom-button').addEventListener('click', function () {
     document.getElementById('cameraInput').click();
   });
 
@@ -101,11 +100,19 @@ document.addEventListener('DOMContentLoaded', function () {
     // This will be triggered when user takes a photo
     var file = event.target.files[0]; // The taken photo
 
-    var reader = new FileReader();
-    reader.onloadend = function () {
-      // Here, reader.result contains the file data as a base64 encoded string
-      localStorage.setItem(currentRoomName + '_photo', reader.result);
+    if (file) {
+      var reader = new FileReader();
+      reader.onloadend = function () {
+        // Here, reader.result contains the file data as a base64 encoded string
+        localStorage.setItem(currentRoomName + '_photo', reader.result);
+      }
+      reader.readAsDataURL(file);
+
+      // Display the chosen file's name
+      document.getElementById('custom-text').innerText = file.name;
+    } else {
+      // If no file is chosen
+      document.getElementById('custom-text').innerText = 'No file chosen, yet.';
     }
-    reader.readAsDataURL(file);
   });
 });
