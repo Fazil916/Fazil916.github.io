@@ -1,127 +1,111 @@
-function createRoomElement(roomName, length, width, height) {
-  // Store data in an object
-  var roomData = {
-    name: roomName,
-    length: length,
-    width: width,
-    height: height
-  };
+document.addEventListener('DOMContentLoaded', function () {
+  var currentRoomName = ""; // store the current room name globally
 
-  // Save object to local storage
-  localStorage.setItem(roomName, JSON.stringify(roomData));
+  function createRoomElement(roomName, length, width, height) {
+    // Create new room data object
+    var roomData = {
+      name: roomName,
+      length: length,
+      width: width,
+      height: height
+    };
 
-  // Create new element for the saved room
-  var roomElement = document.createElement('div');
-  roomElement.textContent = roomName;
-  roomElement.className = 'saved-room'; // For styling purposes
-  roomElement.id = roomName; // To uniquely identify the element
+    // Save room data object to local storage
+    localStorage.setItem(roomName, JSON.stringify(roomData));
 
-  // Append the new element to a designated area
-  document.getElementById('saved-rooms').appendChild(roomElement);
+    // Create new room element
+    var roomElement = document.createElement('div');
+    roomElement.textContent = roomName;
+    roomElement.className = 'saved-room';
+    roomElement.id = roomName;
 
-  // Add an event listener to each room element for editing
-  // Add an event listener to each room element for editing
-  roomElement.addEventListener('click', function () {
-    // Open modal for editing
-    document.getElementById('modal').style.display = "flex";
-    document.getElementById('edit-room-name').value = roomElement.textContent; // use roomElement.textContent instead of roomName
-    document.getElementById('edit-room-length').value = length;
-    document.getElementById('edit-room-width').value = width;
-    document.getElementById('edit-room-height').value = height;
+    // Attach event listener to room element
+    roomElement.addEventListener('click', function () {
+      currentRoomName = roomName; // update the global room name
 
-    // Set an event listener for the 'edit-room' button inside the modal
-    document.getElementById('edit-room').addEventListener('click', function () {
-      // Retrieve values
-      var newRoomName = document.getElementById('edit-room-name').value;
-      var newLength = document.getElementById('edit-room-length').value;
-      var newWidth = document.getElementById('edit-room-width').value;
-      var newHeight = document.getElementById('edit-room-height').value;
+      // Open edit room modal
+      document.getElementById('modal').style.display = 'flex';
 
-      // Create new room data object
-      var newRoomData = {
-        name: newRoomName,
-        length: newLength,
-        width: newWidth,
-        height: newHeight
-      };
+      // Load current room data into modal
+      var roomData = JSON.parse(localStorage.getItem(roomName));
+      document.getElementById('edit-room-name').value = roomData.name;
+      document.getElementById('edit-room-length').value = roomData.length;
+      document.getElementById('edit-room-width').value = roomData.width;
+      document.getElementById('edit-room-height').value = roomData.height;
+    });
 
-      // Remove old room data from local storage
-      localStorage.removeItem(roomName);
+    // Append new room element to saved rooms
+    document.getElementById('saved-rooms').appendChild(roomElement);
+  }
 
-      // Save new room data to local storage
-      localStorage.setItem(newRoomName, JSON.stringify(newRoomData));
+  // Event listener for the 'save-room' button
+  document.getElementById('save-room').addEventListener('click', function () {
+    // Default room parameters
+    var roomName = "default";
+    var length = 5.0;
+    var width = 5.0;
+    var height = 3.0;
 
-      // Update room element
-      roomElement.textContent = newRoomName;
-      roomElement.id = newRoomName;
-
-      // Close the modal
-      document.getElementById('modal').style.display = "none";
-    }, { once: true }); // The {once: true} option ensures the event will only fire once per click
+    createRoomElement(roomName, length, width, height);
   });
 
-  // Create camera icon for each saved room
-  var cameraIcon = document.createElement('img'); // Create an image for the camera icon
-  cameraIcon.src = '/styles/image/camico.png';
-  cameraIcon.style.width = '24px';
-  cameraIcon.style.height = '24px';
-  cameraIcon.id = 'cameraIcon' + roomName; // Make sure the id is unique
-  cameraIcon.style.display = 'none'; // Make the icon initially hidden
+  // Event listener for the 'edit-room' button
+  document.getElementById('edit-room').addEventListener('click', function () {
+    // Save edited room data to local storage
+    var newRoomData = {
+      name: document.getElementById('edit-room-name').value,
+      length: document.getElementById('edit-room-length').value,
+      width: document.getElementById('edit-room-width').value,
+      height: document.getElementById('edit-room-height').value
+    };
 
+    // Remove the old room data from local storage
+    localStorage.removeItem(currentRoomName);
 
-  // Create camera input field
-  var cameraInput = document.createElement('input');
-  cameraInput.type = 'file';
-  cameraInput.accept = 'image/*';
-  cameraInput.capture = 'camera';
-  cameraInput.id = 'cameraInput' + roomName;
-  cameraInput.style.display = 'none';
+    // Save the new room data to local storage
+    localStorage.setItem(newRoomData.name, JSON.stringify(newRoomData));
 
-  // Append the camera input field to the room element
-  roomElement.appendChild(cameraInput);
+    // Update the room element
+    var roomElement = document.getElementById(currentRoomName);
+    roomElement.id = newRoomData.name;
+    roomElement.textContent = newRoomData.name;
 
-  // Update the event listener to use the new input field
-  cameraIcon.addEventListener('click', function () {
-    cameraInput.click();
+    // Close edit room modal
+    document.getElementById('modal').style.display = 'none';
+
+    // Update the global room name
+    currentRoomName = newRoomData.name;
   });
 
-  roomElement.appendChild(cameraIcon);
-
-  // Append the new element to a designated area
-  document.getElementById('saved-rooms').appendChild(roomElement);
-  cameraIcon.style.display = 'block';
-
-  // Create delete icon for each saved room
-  var deleteIcon = document.createElement('img'); // Create an image for the delete icon
-  deleteIcon.src = '/styles/image/deleteico.png'; // Replace with your delete icon source
-  deleteIcon.style.width = '24px';
-  deleteIcon.style.height = '24px';
-  deleteIcon.id = 'deleteIcon' + roomName; // Make sure the id is unique
-  deleteIcon.style.display = 'none'; // Make the icon initially hidden
-
-  // Append the delete icon to the room element
-  roomElement.appendChild(deleteIcon);
-
-  // Add event listener for the delete icon
-  deleteIcon.addEventListener('click', function () {
+  // Event listener for the 'delete-room' button
+  document.getElementById('delete-room').addEventListener('click', function () {
     // Delete room data from local storage
-    localStorage.removeItem(roomName);
-    localStorage.removeItem(roomName + '_luminaires');
+    localStorage.removeItem(currentRoomName);
 
     // Remove the room element from the document
-    document.getElementById('saved-rooms').removeChild(roomElement);
+    var roomElement = document.getElementById(currentRoomName);
+    roomElement.parentNode.removeChild(roomElement);
+
+    // Close edit room modal
+    document.getElementById('modal').style.display = 'none';
   });
 
-  deleteIcon.style.display = 'block';
-}
+  // Event listener for the 'cameraIcon' button
+  document.getElementById('cameraIcon').addEventListener('click', function () {
+    // This should trigger the file input for the camera
+    document.getElementById('cameraInput').click();
+  });
 
-// Event listener for the 'save-room' button
-document.getElementById('save-room').addEventListener('click', function () {
-  // Default room parameters
-  var roomName = "default";
-  var length = 5.0;
-  var width = 5.0;
-  var height = 3.0;
+  // Event listener for the 'cameraInput' onchange
+  document.getElementById('cameraInput').addEventListener('change', function (event) {
+    // This will be triggered when user takes a photo
+    var file = event.target.files[0]; // The taken photo
 
-  createRoomElement(roomName, length, width, height);
+    var reader = new FileReader();
+    reader.onloadend = function () {
+      // Here, reader.result contains the file data as a base64 encoded string
+      localStorage.setItem(currentRoomName + '_photo', reader.result);
+    }
+    reader.readAsDataURL(file);
+  });
 });
