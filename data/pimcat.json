@@ -1,8 +1,16 @@
 {
-    "models": [
-      "Model 1",
-      "Model 2",
-      "Model 3"
-    ]
-  }
-  
+  "models": [
+    {
+      "name": "Model 1",
+      "lumen": 1000
+    },
+    {
+      "name": "Model 2",
+      "lumen": 1200
+    },
+    {
+      "name": "Model 3",
+      "lumen": 1100
+    }
+  ]
+}

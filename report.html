@@ -53,38 +53,35 @@
         <input type="number" id="edit-room-width">
         <label for="edit-room-height">Height</label>
         <input type="number" id="edit-room-height">
-        <!-- Luminaire selection section -->
-        <div class="dropdown-brand">
-          <button class="dropdown-button">Select a brand</button>
-          <div class="dropdown-content">
-            <!-- Items will be generated here -->
-          </div>
+        <label for="illumination">Target Lux</label>
+        <input type="number" id="illumination" placeholder="in lux">
+      </div>
+      <!-- Luminaire selection section -->
+      <div class="dropdown">
+        <button class="dropdown-button">Select a Brand/Model</button>
+        <div class="dropdown-content-brand">
+          <!-- Brand Items will be generated here -->
         </div>
-        <div class="dropdown-model">
-          <button class="dropdown-button">Select a Model</button>
-          <div class="dropdown-content">
-            <!-- Items will be generated here -->
-          </div>
+        <div class="dropdown-content-model">
+          <!-- Model Items will be generated here once a brand is selected -->
         </div>
-        <label for="illumination">Target Lux
-          <input type="number" id="illumination" placeholder="in lux">
-        </label>
-        <div id="button-container">
-          <button id="arrangment">Luminaires Arrangment</button>
-          <button id="place">Place Luminaires</button>
-        </div>
-        <div class="custom-file-upload">
-          <input type="file" accept="image/*" capture="camera" id="cameraInput" style="display: none;">
-          <button id="custom-button">Upload Image</button>
-          <span id="custom-text">No file chosen, yet.</span>
-        </div>
-        <div>
-          <button id="edit-room">Save</button>
-          <button id="delete-room">Delete</button>
-        </div>
+      </div>
+      <div id="button-container">
+        <button id="arrangment">Luminaires Arrangment</button>
+        <button id="place">Place Luminaires</button>
+      </div>
+      <div class="custom-file-upload">
+        <input type="file" accept="image/*" capture="camera" id="cameraInput" style="display: none;">
+        <button id="custom-button">Upload Image</button>
+        <span id="custom-text">No file chosen, yet.</span>
+      </div>
+      <div>
+        <button id="edit-room">Save</button>
+        <button id="delete-room">Delete</button>
       </div>
     </div>
   </div>
+
 
   <!-- SVG section -->
   <div id="lux">
@@ -107,11 +104,10 @@
   <button id="calculate">Prepare Estimate</button>
   <button id="save-project">Save Project</button>
 
+  <script src="/java/save-room.js"></script>
   <script src="/java/brand.js"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="/java/luminaireplacer.js"></script>
   <script src="/java/d3.js"></script>
-  <script src="/java/save-room.js"></script>
   <script src="/java/camera.js"></script>
 
 </body>

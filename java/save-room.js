@@ -1,13 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
   var currentRoomName = ""; // store the current room name globally
 
-  function createRoomElement(roomName, length, width, height) {
+  function createRoomElement(roomName, length, width, height, illumination) {
     // Create new room data object
     var roomData = {
       name: roomName,
       length: length,
       width: width,
-      height: height
+      height: height,
+      illumination: illumination
     };
 
     // Save room data object to local storage
@@ -17,36 +18,45 @@ document.addEventListener('DOMContentLoaded', function () {
     var roomElement = document.createElement('div');
     roomElement.textContent = roomName;
     roomElement.className = 'saved-room';
-    roomElement.id = roomName;
+    roomElement.id = "room-" + roomName;
 
     // Attach event listener to room element
     roomElement.addEventListener('click', function () {
       currentRoomName = roomName; // update the global room name
 
       // Open edit room modal
-      document.getElementById('modal').style.display = 'flex';
+      document.getElementById('modal').style.display = 'inline-block';
 
       // Load current room data into modal
       var roomData = JSON.parse(localStorage.getItem(roomName));
-      document.getElementById('edit-room-name').value = roomData.name;
-      document.getElementById('edit-room-length').value = roomData.length;
-      document.getElementById('edit-room-width').value = roomData.width;
-      document.getElementById('edit-room-height').value = roomData.height;
+      if (roomData) { // Check if roomData is not null
+        document.getElementById('edit-room-name').value = roomData.name;
+        document.getElementById('edit-room-length').value = roomData.length;
+        document.getElementById('edit-room-width').value = roomData.width;
+        document.getElementById('edit-room-height').value = roomData.height;
+        document.getElementById('illumination').value = roomData.illumination;
+      }
     });
 
     // Append new room element to saved rooms
     document.getElementById('saved-rooms').appendChild(roomElement);
   }
 
-  // Event listener for the 'save-room' button
+  let roomCounter = 1;
+
+
   document.getElementById('save-room').addEventListener('click', function () {
     // Default room parameters
-    var roomName = "default";
+    var roomName = "Room " + roomCounter;
     var length = 5.0;
     var width = 5.0;
     var height = 3.0;
+    var illumination = 150;
 
-    createRoomElement(roomName, length, width, height);
+    // Increment the room counter for next time
+    roomCounter++;
+
+    createRoomElement(roomName, length, width, height, illumination);
   });
 
   // Event listener for the 'edit-room' button
@@ -56,39 +66,52 @@ document.addEventListener('DOMContentLoaded', function () {
       name: document.getElementById('edit-room-name').value,
       length: document.getElementById('edit-room-length').value,
       width: document.getElementById('edit-room-width').value,
-      height: document.getElementById('edit-room-height').value
+      height: document.getElementById('edit-room-height').value,
+      illumination: document.getElementById('illumination').value
     };
 
-    // Remove the old room data from local storage
-    localStorage.removeItem(currentRoomName);
+    // Check if the room name has been changed
+    if (newRoomData.name !== currentRoomName) {
+      // If yes, remove the old room data from local storage
+      localStorage.removeItem(currentRoomName);
+
+      // Update the room element
+      var roomElement = document.getElementById("room-" + currentRoomName);
+      if (roomElement) {
+        roomElement.id = "room-" + newRoomData.name;
+        roomElement.textContent = newRoomData.name;
+      }
+
+      // Update the global room name
+      currentRoomName = newRoomData.name;
+    }
 
     // Save the new room data to local storage
     localStorage.setItem(newRoomData.name, JSON.stringify(newRoomData));
 
-    // Update the room element
-    var roomElement = document.getElementById(currentRoomName);
-    roomElement.id = newRoomData.name;
-    roomElement.textContent = newRoomData.name;
-
     // Close edit room modal
     document.getElementById('modal').style.display = 'none';
-
-    // Update the global room name
-    currentRoomName = newRoomData.name;
   });
+
 
   // Event listener for the 'delete-room' button
   document.getElementById('delete-room').addEventListener('click', function () {
+    // Get new room name from the input field
+    var newRoomName = document.getElementById('edit-room-name').value;
+
     // Delete room data from local storage
-    localStorage.removeItem(currentRoomName);
+    localStorage.removeItem(newRoomName);
 
     // Remove the room element from the document
-    var roomElement = document.getElementById(currentRoomName);
-    roomElement.parentNode.removeChild(roomElement);
+    var roomElement = document.getElementById("room-" + newRoomName);
+    if (roomElement) { // Check if roomElement is not null
+      roomElement.parentNode.removeChild(roomElement);
+    }
 
     // Close edit room modal
     document.getElementById('modal').style.display = 'none';
   });
+
 
   // Event listener for the custom 'Upload Image' button
   document.getElementById('custom-button').addEventListener('click', function () {
