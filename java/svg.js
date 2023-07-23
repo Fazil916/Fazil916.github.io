@@ -6,15 +6,18 @@ var lightRadius = 5;
 
 // Event listener for the 'place' button
 document.getElementById('place').addEventListener('click', function () {
-    var length = parseFloat(localStorage.getItem('Length'));
-    var width = parseFloat(localStorage.getItem('Width'));
-    var rows = parseInt(localStorage.getItem('Row'));
-    var cols = parseInt(localStorage.getItem('Column'));
+    // Get the current room data
+    var roomData = JSON.parse(localStorage.getItem(currentRoomName));
+
+    // Extract the necessary values
+    var length = roomData.length;
+    var width = roomData.width;
+    var rows = roomData.row;
+    var cols = roomData.column;
 
     // Call the function to create the room
     createRoom(length, width, rows, cols);
 });
-
 
 // Function to create the room
 function createRoom(length, width, rows, cols) {
@@ -89,17 +92,21 @@ function createRoom(length, width, rows, cols) {
 
     // Add dimension text outside the SVG
     d3.select("#length").text(`Length: ${length} m`);
-    d3.select("#width").text(`Width: ${width} m`);    
+    d3.select("#width").text(`Width: ${width} m`);
 
     return luminaires;
 }
 
 // Event listener for the 'place' button
 document.getElementById('place').addEventListener('click', function () {
-    var length = parseFloat(localStorage.getItem('Length'));
-    var width = parseFloat(localStorage.getItem('Width'));
-    var rows = parseInt(localStorage.getItem('Row'));
-    var cols = parseInt(localStorage.getItem('Column'));
+    // Get the current room data
+    var roomData = JSON.parse(localStorage.getItem(currentRoomName));
+
+    // Extract the necessary values
+    var length = roomData.length;
+    var width = roomData.width;
+    var rows = roomData.row;
+    var cols = roomData.column;
 
     // Call the function to create the room
     createRoom(length, width, rows, cols);

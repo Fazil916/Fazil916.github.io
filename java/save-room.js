@@ -1,5 +1,6 @@
+var currentRoomName = ""; // store the current room name globally
+
 document.addEventListener('DOMContentLoaded', function () {
-  var currentRoomName = ""; // store the current room name globally
 
   function createRoomElement(roomName, length, width, height, illumination) {
     // Create new room data object
@@ -8,8 +9,11 @@ document.addEventListener('DOMContentLoaded', function () {
       length: length,
       width: width,
       height: height,
-      illumination: illumination
+      illumination: illumination,
+      brand: localStorage.getItem('selectedBrand'), // add this line
+      model: JSON.parse(localStorage.getItem('selectedModel')) // and this line
     };
+
 
     // Save room data object to local storage
     localStorage.setItem(roomName, JSON.stringify(roomData));
@@ -22,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Attach event listener to room element
     roomElement.addEventListener('click', function () {
+      var roomName = this.innerText.trim(); // get room name from the room element
       currentRoomName = roomName; // update the global room name
 
       // Open edit room modal
@@ -35,6 +40,13 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('edit-room-width').value = roomData.width;
         document.getElementById('edit-room-height').value = roomData.height;
         document.getElementById('illumination').value = roomData.illumination;
+        // If there is brand and model data, load it into the modal
+        if (roomData.brand) {
+          document.getElementById('edit-room-brand').value = roomData.brand;
+        }
+        if (roomData.model) {
+          document.getElementById('edit-room-model').value = JSON.stringify(roomData.model);
+        }
       }
     });
 
@@ -43,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   let roomCounter = 1;
-
 
   document.getElementById('save-room').addEventListener('click', function () {
     // Default room parameters
@@ -67,7 +78,8 @@ document.addEventListener('DOMContentLoaded', function () {
       length: document.getElementById('edit-room-length').value,
       width: document.getElementById('edit-room-width').value,
       height: document.getElementById('edit-room-height').value,
-      illumination: document.getElementById('illumination').value
+      illumination: document.getElementById('illumination').value,
+      model: JSON.parse(localStorage.getItem('selectedModel'))
     };
 
     // Check if the room name has been changed

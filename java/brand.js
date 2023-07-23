@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
           dropdownButton.innerText = this.getAttribute('data-value');
           dropdownButton.dispatchEvent(new Event('change'));
           dropdownContentBrand.style.display = "none"; // hide dropdown content after selection
+          localStorage.setItem('selectedBrand', this.getAttribute('data-value'));
         });
 
         dropdownContentBrand.appendChild(dropdownItem);
@@ -48,6 +49,8 @@ document.addEventListener('DOMContentLoaded', function () {
             dropdownButton.innerText = combinedName; // set the button's text to the combined brand and model
             dropdownButton.dataset.value = JSON.stringify(model); // store the model object as a string
             dropdownContentModel.style.display = "none"; // hide dropdown content after selection
+            let selectedModel = JSON.stringify(model); // store the model object as a string
+            localStorage.setItem('selectedModel', selectedModel);
           });
 
           dropdownContentModel.appendChild(dropdownItem);

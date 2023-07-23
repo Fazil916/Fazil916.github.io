@@ -1,13 +1,11 @@
 document.getElementById('arrangment').addEventListener('click', function () {
-  var length = parseFloat(document.getElementById('edit-room-length').value);
-  var width = parseFloat(document.getElementById('edit-room-width').value);
-  var illumination = parseFloat(document.getElementById('illumination').value);
-
-  // fetch the model from the dropdown button
-  var dropdownButtonModel = document.querySelector('.dropdown-model .dropdown-button');
-  var selectedModel = JSON.parse(dropdownButtonModel.dataset.value); // get the selected model as an object
-
-  // Model lumen is directly accessible from the selected model
+  // Get the current room data
+  var roomData = JSON.parse(localStorage.getItem(currentRoomName));
+  var selectedModel = JSON.parse(localStorage.getItem('selectedModel'));
+  // Get the room dimensions and illumination
+  var length = roomData.length;
+  var width = roomData.width;
+  var illumination = roomData.illumination;
   var modelLumen = selectedModel.lumen;
 
   // Check if the inputs are too large
@@ -22,13 +20,10 @@ document.getElementById('arrangment').addEventListener('click', function () {
   var x = Math.ceil(Math.sqrt(requiredLuminaire));
   var y = Math.ceil(requiredLuminaire / x);
 
-  // Store in input fields
-  document.getElementById('row').textContent = x;
-  document.getElementById('column').textContent = y;
+  // Store row and column in room data
+  roomData.row = x;
+  roomData.column = y;
 
-  // Store the input values in localStorage
-  localStorage.setItem('Length', length);
-  localStorage.setItem('Width', width);
-  localStorage.setItem('Row', x);
-  localStorage.setItem('Column', y);
+  // Update the room data in localStorage
+  localStorage.setItem(currentRoomName, JSON.stringify(roomData));
 });
