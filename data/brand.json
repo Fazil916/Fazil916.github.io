@@ -1,10 +1,10 @@
 [
   {
-    "brand": "Pimcat",
+    "brand": "pimcat",
     "logo": "/data/logos/pimcat.png"
   },
   {
-    "brand": "Alif",
+    "brand": "alif",
     "logo": "/data/logos/alif.png"
   }
 ]
