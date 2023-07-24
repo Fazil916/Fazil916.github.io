@@ -9,9 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
       length: length,
       width: width,
       height: height,
-      illumination: illumination,
-      brand: localStorage.getItem('selectedBrand'), // add this line
-      model: JSON.parse(localStorage.getItem('selectedModel')) // and this line
+      illumination: illumination
     };
 
 
@@ -40,12 +38,11 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('edit-room-width').value = roomData.width;
         document.getElementById('edit-room-height').value = roomData.height;
         document.getElementById('illumination').value = roomData.illumination;
-        // If there is brand and model data, load it into the modal
         if (roomData.brand) {
-          document.getElementById('edit-room-brand').value = roomData.brand;
+          localStorage.setItem('selectedBrand', roomData.brand);
         }
         if (roomData.model) {
-          document.getElementById('edit-room-model').value = JSON.stringify(roomData.model);
+          localStorage.setItem('selectedModel', JSON.stringify(roomData.model));
         }
       }
     });
@@ -72,6 +69,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Event listener for the 'edit-room' button
   document.getElementById('edit-room').addEventListener('click', function () {
+    var selectedBrand = localStorage.getItem('selectedBrand');
+    var selectedModel = JSON.parse(localStorage.getItem('selectedModel'));
     // Save edited room data to local storage
     var newRoomData = {
       name: document.getElementById('edit-room-name').value,
@@ -79,7 +78,8 @@ document.addEventListener('DOMContentLoaded', function () {
       width: document.getElementById('edit-room-width').value,
       height: document.getElementById('edit-room-height').value,
       illumination: document.getElementById('illumination').value,
-      model: JSON.parse(localStorage.getItem('selectedModel'))
+      brand: selectedBrand,  
+      model: selectedModel  
     };
 
     // Check if the room name has been changed
