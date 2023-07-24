@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
       illumination: illumination
     };
 
-
     // Save room data object to local storage
     localStorage.setItem(roomName, JSON.stringify(roomData));
 
@@ -40,9 +39,11 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('illumination').value = roomData.illumination;
         if (roomData.brand) {
           localStorage.setItem('selectedBrand', roomData.brand);
+          document.querySelector('.dropdown-button').innerText = roomData.brand;  // Set the brand dropdown button value
         }
         if (roomData.model) {
           localStorage.setItem('selectedModel', JSON.stringify(roomData.model));
+          document.querySelector('.dropdown-button').innerText += '/' + roomData.model.name;  // Append the model dropdown button value
         }
       }
     });
@@ -78,8 +79,8 @@ document.addEventListener('DOMContentLoaded', function () {
       width: document.getElementById('edit-room-width').value,
       height: document.getElementById('edit-room-height').value,
       illumination: document.getElementById('illumination').value,
-      brand: selectedBrand,  
-      model: selectedModel  
+      brand: selectedBrand,
+      model: selectedModel
     };
 
     // Check if the room name has been changed
