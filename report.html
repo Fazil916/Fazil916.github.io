@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
   <title>Lumen Calculator</title>
   <link rel="stylesheet" href="/styles/css/report.css">
   <script src="https://unpkg.com/dexie@latest/dist/dexie.min.js"></script>
@@ -9,32 +11,22 @@
 </head>
 
 <body>
-
   <!-- Header Section -->
   <header>
-    <div class="header-content">
-      <div class="title-container">
-        <div class="header-text">
-          <h1>Quick Online Lighting Quantity Estimator</h1>
-        </div>
-      </div>
-    </div>
+    <h1 class="header-content title-container header-text">Quick Online Lighting Quantity Estimator</h1>
   </header>
 
   <!-- Project Input Section -->
-
-  <div id="project-name">
-    <div class="grid-container">
-      <div class="input-group">
-        <label for="project">Project Name</label>
-        <input type="text" id="project" placeholder="write your project name">
-      </div>
-      <div class="input-group">
-        <label for="project-description">Project-description</label>
-        <input type="text" id="project-description" placeholder="write your project-description">
-      </div>
+  <section id="project-name" class="grid-container">
+    <div class="input-group">
+      <label for="project">Project Name</label>
+      <input type="text" id="project" placeholder="write your project name">
     </div>
-  </div>
+    <div class="input-group">
+      <label for="project-description">Project-description</label>
+      <input type="text" id="project-description" placeholder="write your project-description">
+    </div>
+  </section>
 
   <div id="room-creation">
     <button id="save-room">Add Rooms</button>
@@ -67,7 +59,7 @@
           <!-- Model Items will be generated here once a brand is selected -->
         </div>
       </div>
-      <div id="button-container">        
+      <div id="button-container">
         <button id="place">Place Luminaires</button>
         <button id="arrangment">Luminaires Arrangment</button>
       </div>
@@ -105,7 +97,7 @@
   <button id="calculate">Prepare Estimate</button>
   <button id="save-project">Save Project</button>
 
-   <!-- Java Script Section -->
+  <!-- Java Script Section -->
   <script src="/java/brand.js"></script>
   <script src="/java/save-room.js"></script>
   <script src="/java/luminaireplacer.js"></script>

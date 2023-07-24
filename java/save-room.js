@@ -22,12 +22,17 @@ document.addEventListener('DOMContentLoaded', function () {
     roomElement.id = "room-" + roomName;
 
     // Attach event listener to room element
-    roomElement.addEventListener('click', function () {
+    roomElement.addEventListener('click', function (event) {
       var roomName = this.innerText.trim(); // get room name from the room element
       currentRoomName = roomName; // update the global room name
+      // Position the modal
+      var modal = document.getElementById('modal');
+      modal.style.display = 'block';
+      modal.style.left = event.pageX + 'px';
+      modal.style.top = (event.pageY + 20) + 'px'; // 20px below the click point
 
       // Open edit room modal
-      document.getElementById('modal').style.display = 'inline-block';
+      document.getElementById('modal').style.display = 'flex';
 
       // Load current room data into modal
       var roomData = JSON.parse(localStorage.getItem(roomName));

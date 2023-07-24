@@ -22,6 +22,16 @@ header {
     margin-bottom: 1em;
 }
 
+.header-content {
+    font-size: 2em;
+}
+
+@media (max-width: 500px) {
+    .header-content {
+        font-size: 1.2em;
+    }
+}
+
 h1 {
     font-size: 2.5em;
     margin-bottom: 0.5em;
@@ -41,15 +51,21 @@ p {
 .input-group {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 100%;
     margin-bottom: 1em;
+}
+
+@media (min-width: 700px) {
+    .input-group {
+        width: 45%;
+    }
 }
 
 input,
 select {
     padding: 0.5em;
     font-size: 1em;
-    border: 2px solid #01526d;;
+    border: 2px solid #01526d;
     border-radius: 50px;
 }
 
@@ -59,7 +75,7 @@ label {
 }
 
 button {
-    background-color: #01526d;;
+    background-color: #01526d;
     color: #ffffff;
     padding: 1em;
     font-size: 1em;
@@ -69,40 +85,22 @@ button {
     margin-bottom: 1em;
     width: 100%;
     text-align: center;
-
-
 }
 
 button:hover {
     background-color: #38a5ff;
 }
 
-
-.lights,
-.geometry {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
 #svg-container {
     width: 100%;
-    height: 600px;
+    height: 500px;
     background: #ffffff;
     border: 2px solid #000000;
     border-radius: 5px;
     margin-bottom: 2em;
     display: flex;
-    /* Make this a flex container */
     justify-content: center;
-    /* Center children horizontally */
     align-items: center;
-    /* Center children vertically */
-}
-
-
-#suggest {
-    text-align: center;
 }
 
 #saved-rooms {
@@ -112,13 +110,6 @@ button:hover {
     margin-top: 1em;
     text-align: center;
     width: 100%;
-    /* You may adjust this according to your needs */
-}
-
-
-#saved-rooms h3 {
-    font-size: 2em;
-    margin-bottom: 0;
 }
 
 #saved-rooms .saved-room {
@@ -133,31 +124,20 @@ button:hover {
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: 50%;
-    /* Adjust this according to your needs */
 }
 
 #saved-rooms .room:hover {
     background-color: #065367;
 }
 
-table,
-td {
-    display: none;
-
-}
-
 .dropdown-button {
     padding: 20px;
-    /* Adjust the padding around the dropdown button text */
     width: 100%;
-    /* Fill the width of the dropdown container */
     text-align: center;
-    /* Align the text to the left */
 }
 
 .dropdown-content-brand,
 .dropdown-content-model {
-
     display: none;
     background-color: #ffffff;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -167,72 +147,41 @@ td {
     cursor: pointer;
     margin: 5px 5px;
     border: #09cadc;
-
 }
 
 .dropdown-item {
     color: #ffffff;
-    /* Darker text color */
     padding: 5px 0;
-    /* Add some vertical padding to each item */
     margin: 5px 0;
-    /* Add some vertical margin to each item */
     display: flex;
     align-items: center;
     cursor: pointer;
-    /* Change the cursor to a pointer when hovering over an item */
 }
 
 .dropdown-item:hover {
     background-color: #ddd;
-    /* Light background on hover */
 }
 
-
-div[data-value] {
-    padding: 10px;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-}
-
-div[data-value]:hover {
-    background-color: #ddd;
-}
-
-div[data-value] img {
-    vertical-align: text-top;
-    width: auto;
-    height: auto;
-    margin-right: 100px;    /* Space between the image and the text */
-
-}
-
-/* The Modal */
 #modal {
     display: none;
-    position: relative;
+    position: static;
     z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
+    padding-top: 10px;
     width: 100%;
-    height: 100%;
-    overflow: auto;
+    flex-direction: column;
+    /* adjust as needed */
     background-color: rgb(224, 219, 219);
-    background-color: rgba(246, 243, 243, 0.4);
+    background-color: rgba(246, 243, 243, 0.9);
+    border: 1px solid #888;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
-/* Modal Content */
 .modal-content {
-    
-    margin: auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 90%;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .custom-file-upload {
@@ -240,8 +189,6 @@ div[data-value] img {
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    width: 100%;
-    
     padding: 5px;
     box-sizing: border-box;
 }
@@ -249,7 +196,6 @@ div[data-value] img {
 #custom-button {
     padding: 5px 10px;
     background-color: #067698;
-    
     border: none;
     cursor: pointer;
 }
