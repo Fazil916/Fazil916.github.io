@@ -48,27 +48,27 @@
         <label for="illumination">Target Lux</label>
         <input type="number" id="illumination" placeholder="in lux">
         <label for="edit-room-brand">Brand</label>
-      </div>
-      <!-- Luminaire selection section -->
-      <div class="dropdown">
-        <button class="dropdown-button">Select a Brand/Model</button>
-        <div class="dropdown-content-brand">
-          <!-- Brand Items will be generated here -->
+        <!-- Luminaire selection section -->
+        <div class="dropdown">
+          <button class="dropdown-button">Select a Brand/Model</button>
+          <div class="dropdown-content-brand">
+            <!-- Brand Items will be generated here -->
+          </div>
+          <div class="dropdown-content-model">
+            <!-- Model Items will be generated here once a brand is selected -->
+          </div>
         </div>
-        <div class="dropdown-content-model">
-          <!-- Model Items will be generated here once a brand is selected -->
+        <div id="button-container">
+          <button id="place">Place Luminaires</button>
+          <button id="arrangment">Luminaires Arrangment</button>
         </div>
-      </div>
-      <div id="button-container">
-        <button id="place">Place Luminaires</button>
-        <button id="arrangment">Luminaires Arrangment</button>
-      </div>
-      <div class="custom-file-upload">
-        <input type="file" accept="image/*" capture="camera" id="cameraInput" style="display: none;">
-        <button id="custom-button">Upload Image</button>
-        <span id="custom-text">No file chosen, yet.</span>
-      </div>
-      <div>
+        <div class="custom-file-upload">
+          <input type="file" accept="image/*" capture="camera" id="cameraInput" style="display: none;">
+          <button id="custom-button">Upload Image</button>
+          <span id="custom-text">No file chosen, yet.</span>
+        </div>
+        <div>
+        </div>
         <button id="edit-room">Save</button>
         <button id="delete-room">Delete</button>
       </div>
