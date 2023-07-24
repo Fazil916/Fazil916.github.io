@@ -1,4 +1,4 @@
-document.getElementById('arrangment').addEventListener('click', function () {
+document.getElementById('place').addEventListener('click', function () {
   // Get the current room data
   var roomData = JSON.parse(localStorage.getItem(currentRoomName));
   var selectedModel = JSON.parse(localStorage.getItem('selectedModel'));
@@ -20,10 +20,7 @@ document.getElementById('arrangment').addEventListener('click', function () {
   var x = Math.ceil(Math.sqrt(requiredLuminaire));
   var y = Math.ceil(requiredLuminaire / x);
 
-  // Store row and column in room data
-  roomData.row = x;
-  roomData.column = y;
-
-  // Update the room data in localStorage
-  localStorage.setItem(currentRoomName, JSON.stringify(roomData));
+  // Store row and column in localStorage
+  localStorage.setItem('x', JSON.stringify(x));
+  localStorage.setItem('y', JSON.stringify(y));
 });

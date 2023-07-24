@@ -5,9 +5,11 @@ var svgContainer = d3.select("#svg-container");
 var lightRadius = 5;
 
 // Event listener for the 'place' button
-document.getElementById('place').addEventListener('click', function () {
+document.getElementById('arrangment').addEventListener('click', function () {
     // Get the current room data
     var roomData = JSON.parse(localStorage.getItem(currentRoomName));
+    // Log the room data
+    console.log(roomData);
 
     // Extract the necessary values
     var length = roomData.length;
@@ -62,8 +64,14 @@ function createRoom(length, width, rows, cols) {
         .data(d3.cross(d3.range(rows), d3.range(cols)))
         .join("rect")
         .attr("class", "grid")
-        .attr("x", d => xScale(d[0] * (length / rows)))
-        .attr("y", d => yScale(d[1] * (width / cols)))
+        .attr("x", d => {
+            console.log('x:', d[0] * (length / rows));
+            return xScale(d[0] * (length / rows));
+        })
+        .attr("y", d => {
+            console.log('y:', d[1] * (width / cols));
+            return yScale(d[1] * (width / cols));
+        })
         .attr("width", svgWidth / rows)
         .attr("height", svgHeight / cols)
         .attr("stroke", "white")
@@ -96,18 +104,3 @@ function createRoom(length, width, rows, cols) {
 
     return luminaires;
 }
-
-// Event listener for the 'place' button
-document.getElementById('place').addEventListener('click', function () {
-    // Get the current room data
-    var roomData = JSON.parse(localStorage.getItem(currentRoomName));
-
-    // Extract the necessary values
-    var length = roomData.length;
-    var width = roomData.width;
-    var rows = roomData.row;
-    var cols = roomData.column;
-
-    // Call the function to create the room
-    createRoom(length, width, rows, cols);
-});

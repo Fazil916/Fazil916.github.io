@@ -67,11 +67,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     createRoomElement(roomName, length, width, height, illumination);
   });
-
   // Event listener for the 'edit-room' button
-  document.getElementById('edit-room').addEventListener('click', function () {
+  document.getElementById('place').addEventListener('click', function () {
     var selectedBrand = localStorage.getItem('selectedBrand');
     var selectedModel = JSON.parse(localStorage.getItem('selectedModel'));
+    var x = JSON.parse(localStorage.getItem('x'));
+    var y = JSON.parse(localStorage.getItem('y'));
     // Save edited room data to local storage
     var newRoomData = {
       name: document.getElementById('edit-room-name').value,
@@ -80,8 +81,11 @@ document.addEventListener('DOMContentLoaded', function () {
       height: document.getElementById('edit-room-height').value,
       illumination: document.getElementById('illumination').value,
       brand: selectedBrand,
-      model: selectedModel
+      model: selectedModel,
+      row: x,
+      column: y
     };
+
 
     // Check if the room name has been changed
     if (newRoomData.name !== currentRoomName) {
@@ -103,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem(newRoomData.name, JSON.stringify(newRoomData));
 
     // Close edit room modal
-    document.getElementById('modal').style.display = 'none';
+    document.getElementById('modal').style.display = 'block';
   });
 
 
