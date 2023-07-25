@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var modelBeam = 50;
     var modelColortemp = 3000;
     var modelCri = 80;
-    var row = x;
-    var column = y;
+    var row = 'x';
+    var column = 'y';
 
 
     // Increment the room counter for next time
@@ -182,45 +182,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Call the function from svg.js
   window.createSvg();
+});
 
   // Event listener for the 'edit-room' button
   document.getElementById('edit-room').addEventListener('click', function () {
-    // Get new room data from the input fields
-    var newRoomData = {
-      name: document.getElementById('edit-room-name').value,
-      length: document.getElementById('edit-room-length').value,
-      width: document.getElementById('edit-room-width').value,
-      height: document.getElementById('edit-room-height').value,
-      illumination: document.getElementById('illumination').value,
-      brand: localStorage.getItem('selectedBrand'),
-      model: JSON.parse(localStorage.getItem('selectedModel')),
-      requiredLuminaire: localStorage.getItem('requiredLuminaire'),
-      row: x,
-      column: y   
-    };
-
-    // Save the new room data to local storage
-    localStorage.setItem(newRoomData.name, JSON.stringify(newRoomData));
-
-    // Check if the room name has been changed
-    if (newRoomData.name !== currentRoomName) {
-      // If yes, remove the old room data from local storage
-      localStorage.removeItem(currentRoomName);
-
-      // Update the room element
-      var roomElement = document.getElementById("room-" + currentRoomName);
-      if (roomElement) {
-        roomElement.id = "room-" + newRoomData.name;
-        roomElement.textContent = newRoomData.name;
-      }
-
-      // Update the global room name
-      currentRoomName = newRoomData.name;
-    }
-
     // Close edit room modal
     document.getElementById('modal').style.display = 'none';
 
   });
 
-});
+

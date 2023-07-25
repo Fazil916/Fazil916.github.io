@@ -119,11 +119,11 @@ button:hover {
     padding: 1em;
     background-color: #38a5ff;
     color: #ffffff;
-    border-radius: 100px;
+    border-radius: 40px;
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 25%;
+    width: 30%;
 }
 
 #saved-rooms .room:hover {
