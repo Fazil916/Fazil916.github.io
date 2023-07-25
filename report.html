@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=0.5">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lumen Calculator</title>
   <link rel="stylesheet" href="/styles/css/report.css">
   <script src="https://unpkg.com/dexie@latest/dist/dexie.min.js"></script>
@@ -30,7 +30,7 @@
 
   <div id="room-creation">
     <button id="save-room">Add Rooms</button>
-    <div id="saved-rooms" class="sidebar">
+    <div id="saved-rooms" class="saved-rooms">
       <!-- Saved rooms will be dynamically added here by JavaScript -->
     </div>
     <!-- The Modal -->
@@ -47,7 +47,6 @@
         <input type="number" id="edit-room-height">
         <label for="illumination">Target Lux</label>
         <input type="number" id="illumination" placeholder="in lux">
-        <label for="edit-room-brand">Brand</label>
         <!-- Luminaire selection section -->
         <div class="dropdown">
           <button class="dropdown-button">Select a Brand/Model</button>
@@ -60,7 +59,6 @@
         </div>
         <div id="button-container">
           <button id="place">Place Luminaires</button>
-          <button id="arrangment">Luminaires Arrangment</button>
         </div>
         <div class="custom-file-upload">
           <input type="file" accept="image/*" capture="camera" id="cameraInput" style="display: none;">
@@ -100,7 +98,6 @@
   <!-- Java Script Section -->
   <script src="/java/brand.js"></script>
   <script src="/java/save-room.js"></script>
-  <script src="/java/luminaireplacer.js"></script>
   <script src="/java/svg.js"></script>
   <script src="/java/camera.js"></script>
 

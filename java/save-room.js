@@ -1,15 +1,51 @@
 var currentRoomName = ""; // store the current room name globally
 
-document.addEventListener('DOMContentLoaded', function () {
 
-  function createRoomElement(roomName, length, width, height, illumination) {
+document.addEventListener('DOMContentLoaded', function () {
+  // Adding Room
+  let roomCounter = 1;
+
+  document.getElementById('save-room').addEventListener('click', function () {
+    // Default room parameters
+    var roomName = "Room " + roomCounter;
+    var length = 5.0;
+    var width = 5.0;
+    var height = 3.0;
+    var illumination = 150;
+    var selectedBrand = "";
+    var selectedModel = "";
+    var modelPower = 23;
+    var modelLumen = 1343;
+    var modelBeam = 50;
+    var modelColortemp = 3000;
+    var modelCri = 80;
+    var row = "";
+    var column = "";
+
+
+    // Increment the room counter for next time
+    roomCounter++;
+
+    createRoomElement(roomName, length, width, height, illumination, selectedBrand, selectedModel, modelPower, modelLumen, modelBeam, modelColortemp, modelCri, row, column);
+  });
+
+  function createRoomElement(roomName, length, width, height, illumination, selectedBrand, selectedModel, modelPower, modelLumen, modelBeam, modelColortemp, modelCri, row, column) {
     // Create new room data object
     var roomData = {
       name: roomName,
       length: length,
       width: width,
       height: height,
-      illumination: illumination
+      illumination: illumination,
+      brand: selectedBrand,
+      model: selectedModel,
+      power: modelPower,
+      lumen: modelLumen,
+      beam: modelBeam,
+      colortemp: modelColortemp,
+      cri: modelCri,
+      row: row,
+      column: column
     };
 
     // Save room data object to local storage
@@ -22,18 +58,11 @@ document.addEventListener('DOMContentLoaded', function () {
     roomElement.id = "room-" + roomName;
 
     // Attach event listener to room element
-    roomElement.addEventListener('click', function (event) {
+    roomElement.addEventListener('click', function () {
       var roomName = this.innerText.trim(); // get room name from the room element
       currentRoomName = roomName; // update the global room name
-      // Position the modal
-      var modal = document.getElementById('modal');
-      modal.style.display = 'block';
-      modal.style.left = event.pageX + 'px';
-      modal.style.top = (event.pageY + 20) + 'px'; // 20px below the click point
-
       // Open edit room modal
-      document.getElementById('modal').style.display = 'flex';
-
+      document.getElementById('modal').style.display = 'block';
       // Load current room data into modal
       var roomData = JSON.parse(localStorage.getItem(roomName));
       if (roomData) { // Check if roomData is not null
@@ -42,55 +71,46 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('edit-room-width').value = roomData.width;
         document.getElementById('edit-room-height').value = roomData.height;
         document.getElementById('illumination').value = roomData.illumination;
-        if (roomData.brand) {
-          localStorage.setItem('selectedBrand', roomData.brand);
-          document.querySelector('.dropdown-button').innerText = roomData.brand;  // Set the brand dropdown button value
-        }
-        if (roomData.model) {
-          localStorage.setItem('selectedModel', JSON.stringify(roomData.model));
-          document.querySelector('.dropdown-button').innerText += '/' + roomData.model.name;  // Append the model dropdown button value
-        }
+
       }
     });
-
     // Append new room element to saved rooms
     document.getElementById('saved-rooms').appendChild(roomElement);
   }
 
-  let roomCounter = 1;
-
-  document.getElementById('save-room').addEventListener('click', function () {
-    // Default room parameters
-    var roomName = "Room " + roomCounter;
-    var length = 5.0;
-    var width = 5.0;
-    var height = 3.0;
-    var illumination = 150;
-
-    // Increment the room counter for next time
-    roomCounter++;
-
-    createRoomElement(roomName, length, width, height, illumination);
-  });
   // Event listener for the 'edit-room' button
   document.getElementById('place').addEventListener('click', function () {
     var selectedBrand = localStorage.getItem('selectedBrand');
     var selectedModel = JSON.parse(localStorage.getItem('selectedModel'));
-    var x = JSON.parse(localStorage.getItem('x'));
-    var y = JSON.parse(localStorage.getItem('y'));
+
+    // Get room dimensions and illumination from input fields
+    var length = document.getElementById('edit-room-length').value;
+    var width = document.getElementById('edit-room-width').value;
+    var illumination = document.getElementById('illumination').value;
+
+    // Calculate required luminaire
+    var requiredLuminaire = Math.ceil((length * width * illumination) / selectedModel.lumen);
+
+    // Calculate x and y (row and column)
+    var x = Math.ceil(Math.sqrt(requiredLuminaire));
+    var y = Math.ceil(requiredLuminaire / x);
+
     // Save edited room data to local storage
     var newRoomData = {
       name: document.getElementById('edit-room-name').value,
-      length: document.getElementById('edit-room-length').value,
-      width: document.getElementById('edit-room-width').value,
+      length: length,
+      width: width,
       height: document.getElementById('edit-room-height').value,
-      illumination: document.getElementById('illumination').value,
+      illumination: illumination,
       brand: selectedBrand,
       model: selectedModel,
+      requiredLuminaire: requiredLuminaire,
       row: x,
       column: y
     };
 
+    // Save the new room data to local storage
+    localStorage.setItem(newRoomData.name, JSON.stringify(newRoomData));
 
     // Check if the room name has been changed
     if (newRoomData.name !== currentRoomName) {
@@ -113,8 +133,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Close edit room modal
     document.getElementById('modal').style.display = 'block';
-  });
 
+    // Call the function from svg.js
+
+  });
 
   // Event listener for the 'delete-room' button
   document.getElementById('delete-room').addEventListener('click', function () {
@@ -160,4 +182,5 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('custom-text').innerText = 'No file chosen, yet.';
     }
   });
+  window.createSvg();
 });

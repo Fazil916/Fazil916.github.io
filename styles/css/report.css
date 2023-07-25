@@ -129,9 +129,13 @@ button:hover {
 #saved-rooms .room:hover {
     background-color: #065367;
 }
+.dropdown {
+    padding: 1em;
+    width: 100%;
+}
 
 .dropdown-button {
-    padding: 20px;
+    padding: 1em;
     width: 100%;
     text-align: center;
 }
