@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var roomName = this.innerText.trim(); // get room name from the room element
       currentRoomName = roomName; // update the global room name
       // Open edit room modal
-      document.getElementById('modal').style.display = 'block';
+      document.getElementById('modal').style.display = 'flex';
       // Load current room data into modal
       var roomData = JSON.parse(localStorage.getItem(roomName));
       if (roomData) { // Check if roomData is not null
