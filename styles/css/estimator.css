@@ -16,6 +16,7 @@ body {
     justify-content: space-around;
     /* Distributes items evenly with space around them */
     flex-wrap: wrap;
+    position: sticky;
     /* Allows the items to wrap onto multiple lines if necessary */
 }
 
@@ -30,6 +31,7 @@ button {
     text-align: center;
     background-color: #333;
     color: #fff;
+    position: sticky;
 }
 
 .room-report {
