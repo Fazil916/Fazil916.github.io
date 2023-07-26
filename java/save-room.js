@@ -184,11 +184,13 @@ document.addEventListener('DOMContentLoaded', function () {
   window.createSvg();
 });
 
-  // Event listener for the 'edit-room' button
-  document.getElementById('edit-room').addEventListener('click', function () {
-    // Close edit room modal
-    document.getElementById('modal').style.display = 'none';
+// Event listener for the 'edit-room' button
+document.getElementById('edit-room').addEventListener('click', function () {
+  // Close edit room modal
+  document.getElementById('modal').style.display = 'none';
 
-  });
+});
 
-
+document.getElementById('calculate').addEventListener('click', function () {
+  window.location.href = 'estimator.html';
+});

@@ -2,15 +2,28 @@
   "models": [
     {
       "name": "Model 1",
-      "lumen": 500
+      "lumen": 500,
+      "power": 3000,
+      "beam": 30,
+      "Colortemp": 3000,
+      "Cri": 3000,
+      "modelPic": "/data/logos/model1.jpg"
     },
     {
       "name": "Model 2",
-      "lumen": 1000
+      "lumen": 1000,
+      "power": 3000,
+      "beam": 30,
+      "Colortemp": 3000,
+      "Cri": 3000
     },
     {
       "name": "Model 3",
-      "lumen": 3000
+      "lumen": 3000,
+      "power": 3000,
+      "beam": 30,
+      "Colortemp": 3000,
+      "Cri": 3000    
     }
   ]
 }

@@ -1,0 +1,99 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+}
+
+.results {
+    display: flex;
+    flex-direction: row;
+    /* Aligns items horizontally */
+    justify-content: space-around;
+    /* Distributes items evenly with space around them */
+    flex-wrap: wrap;
+    /* Allows the items to wrap onto multiple lines if necessary */
+}
+
+button {
+    padding: 10px;
+    font-size: small;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: .5em;
+    width: 25%;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+}
+
+.room-report {
+    width: 210mm;
+    height: 297mm;
+    padding: 20mm;
+    margin-bottom: 10mm;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.room-report h1 {
+    margin: 3;
+    padding-bottom: 10mm;
+    border-bottom: 1px solid #0d0d0d;
+}
+
+.room-report p {
+    margin: 5mm 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table td {
+    border: none;
+    padding: 10px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table,
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .room-report {
+        width: 90%;
+        padding: 10mm;
+    }
+
+    button {
+        padding: 0.6em;
+        font-size: 0.8em;
+    }
+}
