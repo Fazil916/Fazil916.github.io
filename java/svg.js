@@ -29,8 +29,8 @@ window.createSvg = function () {
         svgContainer.selectAll('svg').remove();
 
         // Calculate the room dimensions based on input
-        var svgWidth = length == width ? 300 : (length > width ? 500 : 300);
-        var svgHeight = length == width ? 300 : (length > width ? 300 : 500);
+        var svgWidth = length == width ? 300 : (length > width ? 350 : 250);
+        var svgHeight = length == width ? 300 : (length > width ? 250 : 350);
 
         // Create scales for x and y
         var xScale = d3.scaleLinear().domain([0, length]).range([0, svgWidth]);

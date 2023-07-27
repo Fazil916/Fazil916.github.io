@@ -9,21 +9,37 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 
-
-
 <body>
+    <!-- Pre-existing structure for a room report -->
+    <div id="room-report-template" class="room-report" style="display: none;">
+        <h1 class="room-name"></h1>
+        <table>
+            <!-- Other rows... -->
+            <tr>
+                <td>Length:</td>
+                <td class="room-length"></td>
+            </tr>
+            <tr>
+                <td>Width:</td>
+                <td class="room-width"></td>
+            </tr>
+            <!-- Other rows... -->
+        </table>
+    </div>
+
+    <!-- Container for all room reports -->
+    <div id="room-reports-container">
+    </div>
+
     <div id="results" class="results">
         <button id="luxreport">Lux Report</button>
         <button id="quotation">Quotation</button>
         <button id="techsub">Technical Submittals</button>
         <button id="energy">Energy Conseration</button>
     </div>
-    <div id="reportsvg">
-        <!-- SVG container -->
-        <div id="svg-container"></div>
-        <!-- Room reports will be dynamically added here by JavaScript -->
-        <script src="/java/estimator.js"></script>
-    </div>
+
+    <script src="/java/estimator.js"></script>
+
 </body>
 
 

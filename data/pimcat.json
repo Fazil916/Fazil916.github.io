@@ -2,28 +2,30 @@
   "models": [
     {
       "name": "Model 1",
-      "lumen": 500,
-      "power": 3000,
+      "lumen": 400,
+      "power": 3,
       "beam": 30,
-      "Colortemp": 3000,
-      "Cri": 3000,
+      "colortemp": 3000,
+      "cri": 90,
       "modelPic": "/data/logos/model1.jpg"
     },
     {
       "name": "Model 2",
-      "lumen": 1000,
-      "power": 3000,
+      "lumen": 1300,
+      "power": 12,
       "beam": 30,
-      "Colortemp": 3000,
-      "Cri": 3000
+      "colortemp": 3000,
+      "cri": 80,
+      "modelPic": "/data/logos/model1.jpg"
     },
     {
       "name": "Model 3",
-      "lumen": 3000,
-      "power": 3000,
+      "lumen": 2100,
+      "power": 17,
       "beam": 30,
-      "Colortemp": 3000,
-      "Cri": 3000    
+      "colortemp": 3000,
+      "cri": 90,
+      "modelPic": "/data/logos/model1.jpg"
     }
   ]
 }

@@ -145,7 +145,7 @@
         border: none;
         cursor: pointer;
         width: 100%;
-        text-align: left;
+        text-align: center;
         font-size: 16px;
         border-radius: 5px;
     }
@@ -206,16 +206,17 @@
     #modal {
         display: none;
         position: absolute;
-        top: 190px;
+        top: 20px;
         z-index: 1;
         padding-top: 20px;
-        width: 85%;
+        width: 92%;
         /* adjust as needed */
         background-color: rgb(224, 219, 219);
         background-color: rgba(246, 243, 243, 0.9);
         border: 1px solid #888;
         border-radius: 5px;
         box-shadow: 0px 8px 16px 0px rgba(30, 29, 29, 0.2);
+        justify-content: space-around;
     }
 
     .modal-content {
