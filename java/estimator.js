@@ -78,7 +78,7 @@ function calculateIlluminance(roomData) {
             totalIlluminance += grid[i][j];
         }
     }
-    var averageIlluminance = totalIlluminance / 100; // Because it's a 10x10 grid
+    var averageIlluminance = Math.floor(totalIlluminance / 100); // Because it's a 10x10 grid
 
     return averageIlluminance;
 } document.addEventListener('DOMContentLoaded', function () {
@@ -112,7 +112,7 @@ function calculateIlluminance(roomData) {
             clone.querySelector('.room-height').textContent = roomData.height;
             clone.querySelector('.calculated-illuminance').textContent = illuminance; // Add the calculated illuminance
             clone.querySelector('.target-illuminance').textContent = roomData.illumination;
-            clone.querySelector('.target-illuminance').textContent = illuminance >= roomData.illumination ? '✅' : '❌';
+            clone.querySelector('.check-illuminance').textContent = illuminance >= roomData.illumination ? '✅' : '❌';
             // Populate other data...
 
             // Append the clone to the container
