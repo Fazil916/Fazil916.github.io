@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f8f8f8;
 }
 
 .sidebar {
@@ -14,32 +15,37 @@ body {
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar button {
     margin-bottom: 10px;
     padding: 10px;
     box-sizing: border-box;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 #room-reports-container {
-    margin-top: 60px;
-    /* Adjust this value based on the height of your sidebar */
+    margin-top: 40px;
     padding: 20px;
     overflow-y: auto;
-    height: calc(100vh - 60px);
-    /* Adjust this value based on the height of your sidebar */
+    height: calc(100vh - 80px);
+    width: 100%;
 }
 
 .room-report {
     background-color: #fff;
-    
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    width: 100%;
 }
-
-
 
 .room-report table {
     width: 100%;
@@ -48,11 +54,15 @@ body {
 
 .room-report table th,
 .room-report table td {
-    
     padding: 10px;
     text-align: left;
+    vertical-align: middle; /* Align the text vertically in the middle */
+    width: 100%;
 }
 
 .room-report table th {
     background-color: #f4f4f4;
+    width: 100%;
 }
+
+

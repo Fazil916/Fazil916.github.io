@@ -89,8 +89,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var width = document.getElementById('edit-room-width').value;
     var illumination = document.getElementById('illumination').value;
 
+    // Assuming average room reflectance values and using a utilisation factor chart
+    var utilisationFactor = 0.8; // This value would be looked up from a chart based on the Room Index and reflectance values
+
     // Calculate required luminaire
-    var requiredLuminaire = Math.ceil((length * width * illumination) / selectedModel.lumen);
+    var requiredLuminaire = Math.ceil((length * width * illumination) / (selectedModel.lumen * utilisationFactor));
+
 
     // Calculate x and y (row and column)
     var x = Math.ceil(Math.sqrt(requiredLuminaire));
