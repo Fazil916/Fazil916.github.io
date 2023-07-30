@@ -10,37 +10,62 @@
 </head>
 
 <body>
-    <!-- Pre-existing structure for a room report -->
-    <div id="room-report-template" class="room-report" style="display: none;">
-        <h1 class="room-name"></h1>
-        <table>
-            <!-- Other rows... -->
-            <tr>
-                <td>Length:</td>
-                <td class="room-length"></td>
-            </tr>
-            <tr>
-                <td>Width:</td>
-                <td class="room-width"></td>
-            </tr>
-            <!-- Other rows... -->
-        </table>
+    <div id="sidebar" class="sidebar">
+        <button id="luxreport">Lux Report</button>
+        <button id="quotation">Quotation</button>
+        <button id="techsub">Tech.Submittals</button>
+        <button id="energy">Energy</button>
     </div>
 
     <!-- Container for all room reports -->
     <div id="room-reports-container">
-    </div>
-
-    <div id="results" class="results">
-        <button id="luxreport">Lux Report</button>
-        <button id="quotation">Quotation</button>
-        <button id="techsub">Technical Submittals</button>
-        <button id="energy">Energy Conseration</button>
+        <div id="room-report-template" class="room-report" style="display: none;">
+            <h1 class="room-name"></h1>
+            <h2>Results</h2>
+            <table>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Calculated</th>
+                    <th>Target</th>
+                    <th>Check</th>
+                </tr>
+                <tr>
+                    <td>Illuminance</td>
+                    <td class="calculated-illuminance"></td>
+                    <td class="target-illuminance"></td>
+                    <td class="room-illuminance"></td>
+                </tr>
+            </table>
+            <h2>Room Details</h2>
+            <table>
+                <tr>
+                    <td>Length:</td>
+                    <td class="room-length"></td>
+                </tr>
+                <tr>
+                    <td>Width:</td>
+                    <td class="room-width"></td>
+                </tr>
+                <tr>
+                    <td>Height:</td>
+                    <td class="room-height"></td>
+                </tr>
+            </table>
+        </div>
     </div>
 
     <script src="/java/estimator.js"></script>
+    <script>
+        document.getElementById('luxreport').addEventListener('click', function () {
+            // Hide all reports
+            document.querySelectorAll('.room-report').forEach(function (report) {
+                report.style.display = 'none';
+            });
+            // Show the lux report
+            document.getElementById('room-report-template').style.display = 'block';
+        });
+    </script>
 
 </body>
-
 
 </html>

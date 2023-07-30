@@ -7,7 +7,7 @@ window.createSvg = function () {
     var lightRadius = 5;
 
     // Event listener for the 'place' button
-    document.getElementById('place').addEventListener('click', function () {
+    document.getElementById('edit-room').addEventListener('click', function () {
         // Get the current room data
         var roomData = JSON.parse(localStorage.getItem(currentRoomName));
         // Log the room data
@@ -20,11 +20,11 @@ window.createSvg = function () {
         var cols = roomData.column;
 
         // Call the function to create the room
-        createRoom(length, width, rows, cols);
+        createRoom(length, width, rows, cols, roomData.name, roomData);
     });
 
     // Function to create the room
-    function createRoom(length, width, rows, cols) {
+    function createRoom(length, width, rows, cols, roomName, roomData) {
         // Clear previous SVG if any
         svgContainer.selectAll('svg').remove();
 
@@ -80,8 +80,6 @@ window.createSvg = function () {
             .attr("stroke-width", 1)
             .attr("fill", "none");
 
-        var luminaires = [];
-
         // Place lights in the center of each grid cell
         var lights = svg.selectAll(".light")
             .data(d3.cross(d3.range(rows), d3.range(cols)))
@@ -89,21 +87,40 @@ window.createSvg = function () {
             .attr("class", "light")
             .attr("cx", d => {
                 var cx = (d[0] + 0.5) * (length / rows);
-                luminaires.push({ x: cx });
                 return xScale(cx);
             })
             .attr("cy", d => {
                 var cy = (d[1] + 0.5) * (width / cols);
-                luminaires[luminaires.length - 1].y = cy;
                 return yScale(cy);
             })
             .attr("r", lightRadius)
             .attr("fill", "red");
 
-        // Add dimension text outside the SVG
-        d3.select("#length").text(`Length: ${length} m`);
-        d3.select("#width").text(`Width: ${width} m`);
+        console.log(lights); // Add this line
 
-        return luminaires;
+        // Wrap the each function in a new Promise
+        new Promise((resolve, reject) => {
+            lights.each(function (d, i) {
+                // Push a new object to the luminaires array
+                roomData.luminaires.push({ x: (d[0] + 0.5) * (length / rows), y: (d[1] + 0.5) * (width / cols), lumen: roomData.model.lumen });
+                console.log(roomData.luminaires[i]);
+            });
+
+            // Resolve the promise
+            resolve();
+        }).then(() => {
+            // Save the updated room data to local storage
+            localStorage.setItem(roomData.name, JSON.stringify(roomData));
+
+            // Add dimension text outside the SVG
+            d3.select("#length").text(`Length: ${length} m`);
+            d3.select("#width").text(`Width: ${width} m`);
+
+            // Serialize the SVG and store it in localStorage
+            var serializer = new XMLSerializer();
+            var svgElement = d3.select("#svg-container").node();
+            var svgString = serializer.serializeToString(svgElement);
+            localStorage.setItem('SVG-' + roomName, svgString);
+        });
     }
 }

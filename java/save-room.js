@@ -7,28 +7,28 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('save-room').addEventListener('click', function () {
     // Default room parameters
     var roomName = "Room " + roomCounter;
-    var length = 5.0;
-    var width = 5.0;
-    var height = 3.0;
+    var length = 4.4;
+    var width = 3.8;
+    var height = 2.8;
     var illumination = 150;
     var selectedBrand = "";
     var selectedModel = "";
     var modelPower = 23;
-    var modelLumen = 1343;
+    var modelLumen = 780;
     var modelBeam = 50;
     var modelColortemp = 3000;
     var modelCri = 80;
     var row = 'x';
     var column = 'y';
-
+    var luminaires = []; // Initialize luminaires as an empty array
 
     // Increment the room counter for next time
     roomCounter++;
 
-    createRoomElement(roomName, length, width, height, illumination, selectedBrand, selectedModel, modelPower, modelLumen, modelBeam, modelColortemp, modelCri, row, column);
+    createRoomElement(roomName, length, width, height, illumination, selectedBrand, selectedModel, modelPower, modelLumen, modelBeam, modelColortemp, modelCri, row, column, luminaires);
   });
 
-  function createRoomElement(roomName, length, width, height, illumination, selectedBrand, selectedModel, modelPower, modelLumen, modelBeam, modelColortemp, modelCri, row, column) {
+  function createRoomElement(roomName, length, width, height, illumination, selectedBrand, selectedModel, modelPower, modelLumen, modelBeam, modelColortemp, modelCri, row, column, luminaires) {
     // Create new room data object
     var roomData = {
       name: roomName,
@@ -44,7 +44,8 @@ document.addEventListener('DOMContentLoaded', function () {
       colortemp: modelColortemp,
       cri: modelCri,
       row: row,
-      column: column
+      column: column,
+      luminaires: luminaires // Add this line
     };
 
     // Save room data object to local storage
@@ -106,7 +107,9 @@ document.addEventListener('DOMContentLoaded', function () {
       model: selectedModel,
       requiredLuminaire: requiredLuminaire,
       row: x,
-      column: y
+      column: y,
+      luminaires: [] // Add this line
+
     };
 
 

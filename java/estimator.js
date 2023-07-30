@@ -48,8 +48,40 @@ function createLuminaireTable(roomData, roomReportElement) {
             roomReportElement.appendChild(table);
         });
 }
+function calculateIlluminance(roomData) {
+    // Assume a 10x10 grid
+    var grid = [];
+    for (var i = 0; i < 10; i++) {
+        grid[i] = [];
+        for (var j = 0; j < 10; j++) {
+            // Calculate the distance from this grid point to each luminaire
+            var distances = roomData.luminaires.map(function (luminaire) {
+                var dx = luminaire.x - i;
+                var dy = luminaire.y - j;
+                return Math.sqrt(dx * dx + dy * dy);
+            });
 
-document.addEventListener('DOMContentLoaded', function () {
+            // Calculate the illuminance at this grid point from each luminaire
+            var illuminances = distances.map(function (distance, index) {
+                return roomData.luminaires[index].lumen / (4 * Math.PI * distance * distance);
+            });
+
+            // Sum the illuminances to get the total illuminance at this grid point
+            grid[i][j] = illuminances.reduce(function (a, b) { return a + b; }, 0);
+        }
+    }
+
+    // Calculate the average illuminance
+    var totalIlluminance = 0;
+    for (var i = 0; i < 10; i++) {
+        for (var j = 0; j < 10; j++) {
+            totalIlluminance += grid[i][j];
+        }
+    }
+    var averageIlluminance = totalIlluminance / 100; // Because it's a 10x10 grid
+
+    return averageIlluminance;
+} document.addEventListener('DOMContentLoaded', function () {
     // Get all keys from local storage
     var keys = Object.keys(localStorage);
 
@@ -64,6 +96,11 @@ document.addEventListener('DOMContentLoaded', function () {
             // Get room data from local storage
             var roomData = JSON.parse(localStorage.getItem(keys[i]));
 
+            console.log(roomData); // Debug statement
+
+            // Calculate the illuminance for the room
+            var illuminance = calculateIlluminance(roomData);
+
             // Clone the template
             var clone = template.cloneNode(true);
             clone.style.display = 'block'; // Make it visible
@@ -72,6 +109,10 @@ document.addEventListener('DOMContentLoaded', function () {
             clone.querySelector('.room-name').textContent = roomData.name;
             clone.querySelector('.room-length').textContent = roomData.length;
             clone.querySelector('.room-width').textContent = roomData.width;
+            clone.querySelector('.room-height').textContent = roomData.height;
+            clone.querySelector('.calculated-illuminance').textContent = illuminance; // Add the calculated illuminance
+            clone.querySelector('.target-illuminance').textContent = roomData.illumination;
+            clone.querySelector('.target-illuminance').textContent = illuminance >= roomData.illumination ? '✅' : '❌';
             // Populate other data...
 
             // Append the clone to the container
