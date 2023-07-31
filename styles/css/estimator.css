@@ -88,3 +88,35 @@ body {
         width: 100%;
     }
 }
+
+#room-details-container {
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f5f5f5;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+#room-details-container h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#room-details-container table {
+    width: 100%;
+    text-align: left;
+}
+
+#room-details-container td {
+    padding: 5px;
+}
+
+.room-length,
+.room-width,
+.room-height {
+    font-weight: bold;
+    color: #666;
+}
