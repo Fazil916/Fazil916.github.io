@@ -25,60 +25,98 @@ document.addEventListener('DOMContentLoaded', function () {
     // Increment the room counter for next time
     roomCounter++;
 
-    createRoomElement(roomName, length, width, height, illumination, selectedBrand, selectedModel, modelPower, modelLumen, modelBeam, modelColortemp, modelCri, row, column, luminaires);
-  });
-
-  function createRoomElement(roomName, length, width, height, illumination, selectedBrand, selectedModel, modelPower, modelLumen, modelBeam, modelColortemp, modelCri, row, column, luminaires) {
-    // Create new room data object
     var roomData = {
-      name: roomName,
+      roomName: roomName,
       length: length,
       width: width,
       height: height,
       illumination: illumination,
-      brand: selectedBrand,
-      model: selectedModel,
-      power: modelPower,
-      lumen: modelLumen,
-      beam: modelBeam,
-      colortemp: modelColortemp,
-      cri: modelCri,
+      selectedBrand: selectedBrand,
+      selectedModel: selectedModel,
+      modelPower: modelPower,
+      modelLumen: modelLumen,
+      modelBeam: modelBeam,
+      modelColortemp: modelColortemp,
+      modelCri: modelCri,
       row: row,
       column: column,
-      luminaires: luminaires // Add this line
+      luminaires: luminaires
     };
 
-    // Save room data object to local storage
-    localStorage.setItem(roomName, JSON.stringify(roomData));
+    // Retrieve existing room data array from local storage (or create an empty array if it doesn't exist)
+    var roomDataArray = JSON.parse(localStorage.getItem('rooms')) || [];
 
-    // Create new room element
-    var roomElement = document.createElement('div');
-    roomElement.textContent = roomName;
-    roomElement.className = 'saved-room';
-    roomElement.id = "room-" + roomName;
+    // Add new room data to the array
+    roomDataArray.push(roomData);
 
-    // Attach event listener to room element
-    roomElement.addEventListener('click', function () {
-      var roomName = this.innerText.trim(); // get room name from the room element
-      currentRoomName = roomName; // update the global room name
-      // Open edit room modal
-      document.getElementById('modal').style.display = 'flex';
-      // Load current room data into modal
-      var roomData = JSON.parse(localStorage.getItem(roomName));
-      if (roomData) { // Check if roomData is not null
-        document.getElementById('edit-room-name').value = roomData.name;
-        document.getElementById('edit-room-length').value = roomData.length;
-        document.getElementById('edit-room-width').value = roomData.width;
-        document.getElementById('edit-room-height').value = roomData.height;
-        document.getElementById('illumination').value = roomData.illumination;
-        document.getElementById('row').value = roomData.row;
-        document.getElementById('column').value = roomData.column;
+    // Save the updated room data array back to local storage
+    localStorage.setItem('rooms', JSON.stringify(roomDataArray));
 
-      }
-    });
-    // Append new room element to saved rooms
-    document.getElementById('saved-rooms').appendChild(roomElement);
-  }
+    createRoomElement(roomName, length, width, height, illumination, selectedBrand, selectedModel, modelPower, modelLumen, modelBeam, modelColortemp, modelCri, row, column, luminaires);
+  });
+});
+
+function createRoomElement(roomName, length, width, height, illumination, selectedBrand, selectedModel, modelPower, modelLumen, modelBeam, modelColortemp, modelCri, row, column, luminaires) {
+  // Create new room data object
+  var roomData = {
+    name: roomName,
+    length: length,
+    width: width,
+    height: height,
+    illumination: illumination,
+    brand: selectedBrand,
+    model: selectedModel,
+    power: modelPower,
+    lumen: modelLumen,
+    beam: modelBeam,
+    colortemp: modelColortemp,
+    cri: modelCri,
+    row: row,
+    column: column,
+    luminaires: luminaires
+  };
+
+  // Retrieve existing room data array from local storage (or create an empty array if it doesn't exist)
+  var roomDataArray = JSON.parse(localStorage.getItem('rooms')) || [];
+
+  // Add new room data to the array
+  roomDataArray.push(roomData);
+
+  // Save the updated room data array back to local storage
+  localStorage.setItem('rooms', JSON.stringify(roomDataArray));
+
+
+  // Create new room element
+  var roomElement = document.createElement('div');
+  roomElement.textContent = roomName;
+  roomElement.className = 'saved-room';
+  roomElement.id = "room-" + roomName;
+
+  // Attach event listener to room element
+  roomElement.addEventListener('click', function () {
+    var roomName = this.innerText.trim(); // get room name from the room element
+    currentRoomName = roomName; // update the global room name
+
+    // Open edit room modal
+    document.getElementById('modal').style.display = 'flex';
+
+    // Load current room data into modal
+    var roomDataArray = JSON.parse(localStorage.getItem('rooms'));
+    var roomData = roomDataArray.find(room => room.roomName === roomName);
+
+    if (roomData) { // Check if roomData is not null
+      document.getElementById('edit-room-name').value = roomData.roomName;
+      document.getElementById('edit-room-length').value = roomData.length;
+      document.getElementById('edit-room-width').value = roomData.width;
+      document.getElementById('edit-room-height').value = roomData.height;
+      document.getElementById('illumination').value = roomData.illumination;
+      document.getElementById('row').value = roomData.row;
+      document.getElementById('column').value = roomData.column;
+    }
+  });
+  // Append new room element to saved rooms
+  document.getElementById('saved-rooms').appendChild(roomElement);
+
 
   // Event listener for the 'edit-room' button
   document.getElementById('place').addEventListener('click', function () {
@@ -189,7 +227,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Call the function from svg.js
   window.createSvg();
-});
+}
+
 
 // Event listener for the 'edit-room' button
 document.getElementById('edit-room').addEventListener('click', function () {

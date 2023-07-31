@@ -49,11 +49,15 @@ function createLuminaireTable(roomData, roomReportElement) {
         });
 }
 function calculateIlluminance(roomData) {
-    // Assume a 10x10 grid
+    // Get grid size from room data
+    var gridSize = roomData.row * roomData.column;
+    console.log(gridSize);
+
+    // Create a grid based on the grid size
     var grid = [];
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < roomData.row; i++) {
         grid[i] = [];
-        for (var j = 0; j < 10; j++) {
+        for (var j = 0; j < roomData.column; j++) {
             // Calculate the distance from this grid point to each luminaire
             var distances = roomData.luminaires.map(function (luminaire) {
                 var dx = luminaire.x - i;
@@ -73,15 +77,17 @@ function calculateIlluminance(roomData) {
 
     // Calculate the average illuminance
     var totalIlluminance = 0;
-    for (var i = 0; i < 10; i++) {
-        for (var j = 0; j < 10; j++) {
+    for (var i = 0; i < roomData.row; i++) {
+        for (var j = 0; j < roomData.column; j++) {
             totalIlluminance += grid[i][j];
         }
     }
-    var averageIlluminance = Math.floor(totalIlluminance / 100); // Because it's a 10x10 grid
+    var averageIlluminance = Math.floor(totalIlluminance / gridSize);
 
     return averageIlluminance;
-} document.addEventListener('DOMContentLoaded', function () {
+}
+
+document.addEventListener('DOMContentLoaded', function () {
     // Get all keys from local storage
     var keys = Object.keys(localStorage);
 

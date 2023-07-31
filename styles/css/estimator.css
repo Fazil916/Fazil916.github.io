@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f8f8;
@@ -28,6 +28,11 @@ body {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.sidebar button:hover {
+    background-color: #0062A5;
 }
 
 #room-reports-container {
@@ -36,12 +41,15 @@ body {
     overflow-y: auto;
     height: calc(100vh - 80px);
     width: 100%;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .room-report {
+    margin-bottom: 20px;
     background-color: #fff;
     padding: 20px;
-    margin-bottom: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     width: 100%;
@@ -50,19 +58,33 @@ body {
 .room-report table {
     width: 100%;
     border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
 }
 
 .room-report table th,
 .room-report table td {
     padding: 10px;
     text-align: left;
-    vertical-align: middle; /* Align the text vertically in the middle */
-    width: 100%;
+    vertical-align: middle;
+    /* Align the text vertically in the middle */
+    border: 1px solid #ccc;
 }
 
 .room-report table th {
     background-color: #f4f4f4;
-    width: 100%;
+    font-weight: bold;
 }
 
+/* Responsive styles */
 
+@media (max-width: 768px) {
+    #room-reports-container {
+        height: calc(100vh - 60px);
+    }
+
+    .room-report {
+        width: 100%;
+    }
+}

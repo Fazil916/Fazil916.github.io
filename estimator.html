@@ -11,10 +11,10 @@
 
 <body>
     <div id="sidebar" class="sidebar">
-        <button id="luxreport">Lux Report</button>
-        <button id="quotation">Quotation</button>
-        <button id="techsub">Tech.Submittals</button>
-        <button id="energy">Energy</button>
+        <button id="luxreport" class="btn btn-primary">Lux Report</button>
+        <button id="quotation" class="btn btn-secondary">Quotation</button>
+        <button id="techsub" class="btn btn-info">Tech.Submittals</button>
+        <button id="energy" class="btn btn-warning">Energy</button>
     </div>
 
     <!-- Container for all room reports -->
@@ -30,27 +30,30 @@
                     <th>Check</th>
                 </tr>
                 <tr>
-                    <td>Illuminance</td>
+                    <td><i class="lightbulb"></i> Illuminance</td>
                     <td class="calculated-illuminance"></td>
                     <td class="target-illuminance"></td>
                     <td class="check-illuminance"></td>
                 </tr>
             </table>
-            <h2>Room Details</h2>
-            <table>
-                <tr>
-                    <td>Length:</td>
-                    <td class="room-length"></td>
-                </tr>
-                <tr>
-                    <td>Width:</td>
-                    <td class="room-width"></td>
-                </tr>
-                <tr>
-                    <td>Height:</td>
-                    <td class="room-height"></td>
-                </tr>
-            </table>
+
+            <div id="room-details-container">
+                <h2>Room Details</h2>
+                <table>
+                    <tr>
+                        <td>Length:</td>
+                        <td class="room-length"></td>
+                    </tr>
+                    <tr>
+                        <td>Width:</td>
+                        <td class="room-width"></td>
+                    </tr>
+                    <tr>
+                        <td>Height:</td>
+                        <td class="room-height"></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 
