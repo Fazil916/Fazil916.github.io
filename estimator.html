@@ -11,31 +11,38 @@
 
 <body>
     <div id="sidebar" class="sidebar">
-        <button id="luxreport" class="btn btn-primary">Lux Report</button>
+        <button id="luxreport" class="btn btn-primary">Report</button>
         <button id="quotation" class="btn btn-secondary">Quotation</button>
-        <button id="techsub" class="btn btn-info">Tech.Submittals</button>
-        <button id="energy" class="btn btn-warning">Energy</button>
+        <button id="techsub" class="btn btn-info">Submittal</button>
     </div>
 
     <!-- Container for all room reports -->
     <div id="room-reports-container">
         <div id="room-report-template" class="room-report" style="display: none;">
             <h1 class="room-name"></h1>
-            <h2>Results</h2>
-            <table>
-                <tr>
-                    <th>Symbol</th>
-                    <th>Calculated</th>
-                    <th>Target</th>
-                    <th>Check</th>
-                </tr>
-                <tr>
-                    <td><i class="lightbulb"></i> Illuminance</td>
-                    <td class="calculated-illuminance"></td>
-                    <td class="target-illuminance"></td>
-                    <td class="check-illuminance"></td>
-                </tr>
-            </table>
+
+            <div id="results-container">
+                <h2>Results</h2>
+                <table>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Calculated</th>
+                        <th>Target</th>
+                        <th>Check</th>
+                    </tr>
+                    <tr>
+                        <td><i class="lightbulb"></i> Illuminance</td>
+                        <td class="calculated-illuminance"></td>
+                        <td class="target-illuminance"></td>
+                        <td class="check-illuminance"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="luminaire-table-container">
+                <h2>Luminaire Details</h2>
+                <!-- Luminaire table will be added here -->
+            </div>
 
             <div id="room-details-container">
                 <h2>Room Details</h2>
@@ -58,16 +65,6 @@
     </div>
 
     <script src="/java/estimator.js"></script>
-    <script>
-        document.getElementById('luxreport').addEventListener('click', function () {
-            // Hide all reports
-            document.querySelectorAll('.room-report').forEach(function (report) {
-                report.style.display = 'none';
-            });
-            // Show the lux report
-            document.getElementById('room-report-template').style.display = 'block';
-        });
-    </script>
 
 </body>
 

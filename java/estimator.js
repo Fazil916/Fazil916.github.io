@@ -4,6 +4,7 @@ function createLuminaireTable(roomData, roomReportElement) {
         .then(response => response.json())
         .then(data => {
             var table = document.createElement('table');
+            table.className = "luminaire-table"; // Add a class to the table
             var thead = document.createElement('thead');
             var tbody = document.createElement('tbody');
 
@@ -44,8 +45,9 @@ function createLuminaireTable(roomData, roomReportElement) {
             });
             table.appendChild(tbody);
 
-            // Append the table to the room report element
-            roomReportElement.appendChild(table);
+            // Append the table to the luminaire table container
+            var tableContainer = roomReportElement.querySelector("#luminaire-table-container");
+            tableContainer.appendChild(table);
         });
 }
 function calculateIlluminance(roomData) {
