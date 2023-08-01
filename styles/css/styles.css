@@ -22,20 +22,20 @@ h2 {
 }
 
 header h1 {
-  color: #ffffff;
+  color: #0a0909;
   font-size: 1.0rem;
   font-weight: 500;
   justify-content: flex-start;
 }
 
 header p {
-  color: #ffffff;
+  color: #030303;
   font-size: 0.8rem;
   font-weight: 200;
 }
 
 a {
-  color: #ffffff;
+  color: #151414;
   text-decoration: none;
 }
 
@@ -46,7 +46,7 @@ a {
 }
 
 header {
-  background-color: #0e0000;
+  background-color: #f8f8f8;
   padding: 20px;
   display: flex;
   justify-content: space-between;
@@ -71,8 +71,8 @@ nav {
 
 .nav-item {
   padding: 10px 20px;
-  background-color: #998e17;
-  color: #fff;
+  background-color: #01526d;
+  color: #070707;
   border: none;
   border-radius: 4px;
   font-size: 16px;
@@ -81,11 +81,11 @@ nav {
 }
 
 .nav-item:hover {
-  background-color: #494303;
+  background-color: #01526d;
 }
 
 main {
-  background-color: #0e0000;
+  background-color: #f8f8f8;
   padding: 40px 0;
   min-height: 100%;
 }
@@ -97,7 +97,7 @@ section {
 
 .section {
   text-align: center;
-  color: #ffffff;
+  color: #1e1b1b;
   padding: 40px;
 }
 
@@ -114,7 +114,7 @@ section {
 .button-container button {
   padding: 10px 20px;
   margin: 10px;
-  background-color: #998e17;
+  background-color: #01526d;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -125,7 +125,7 @@ section {
 }
 
 .button-container button:hover {
-  background-color: #494303;
+  background-color: #01526d;
 }
 
 .myButton {
@@ -135,7 +135,7 @@ section {
   color: #ffffff;
   text-align: center;
   text-decoration: none;
-  background-color: #998e17;
+  background-color: #01526d;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -143,7 +143,7 @@ section {
 }
 
 .myButton:hover {
-  background-color: #494303;
+  background-color: #01526d;
 }
 
 .form-group {
@@ -159,7 +159,7 @@ label {
 input,
 textarea {
   padding: 10px;
-  border: 1px solid #998e17;
+  border: 1px solid #01526d;
   border-radius: 4px;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -168,8 +168,8 @@ textarea {
 
 button[type="submit"] {
   padding: 10px 20px;
-  background-color: #998e17;
-  color: #fff;
+  background-color: #01526d;
+  color: #fffdfd;
   border: none;
   border-radius: 4px;
   font-family: 'Open Sans', sans-serif;
@@ -179,7 +179,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #494303;
+  background-color: #01526d;
 }
 
 .image {

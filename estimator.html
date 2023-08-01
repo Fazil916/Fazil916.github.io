@@ -15,7 +15,6 @@
         <button id="quotation" class="btn btn-secondary">Quotation</button>
         <button id="techsub" class="btn btn-info">Submittal</button>
     </div>
-
     <!-- Container for all room reports -->
     <div id="room-reports-container">
         <div id="room-report-template" class="room-report" style="display: none;">
@@ -44,27 +43,74 @@
                 <!-- Luminaire table will be added here -->
             </div>
 
+            <div id="consumption-container">
+                <h2>Consumption Details</h2>
+                <table>
+                    <tr>
+                        <th>Luminaire Quantity</th>
+                        <th>Total Power</th>
+                        <th>kW/hr</th>
+                        <th>Carbon</th>
+                    </tr>
+                    <tr>
+                        <td class="calculated-Quantity"></td>
+                        <td class="calculated-Power"></td>
+                        <td class="calculated-kW/hr"></td>
+                        <td class="check-Carbon"></td>
+                    </tr>
+                </table>
+            </div>
+
             <div id="room-details-container">
                 <h2>Room Details</h2>
                 <table>
                     <tr>
-                        <td>Length:</td>
-                        <td class="room-length"></td>
+                        <th>Length:</th>
+                        <th>Width:</th>
+                        <th>Height:</th>
+                        <th>Area:</th>
+                        <th>W/m²/100 lx:</th>
                     </tr>
                     <tr>
-                        <td>Width:</td>
                         <td class="room-width"></td>
-                    </tr>
-                    <tr>
-                        <td>Height:</td>
+                        <td class="room-length"></td>
                         <td class="room-height"></td>
+                        <td class="area"></td>
+                        <td class="wm²100lx"></td>
                     </tr>
+
                 </table>
             </div>
         </div>
     </div>
 
+    <!-- Container for quotations -->
+
+    <div id="quotations-container">
+        <h2>Priced Proposal</h2>
+        <table>
+            <tr>
+                <th>Sl No</th>
+                <th>Model</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Quantity</th>
+                <th>Price</th>
+
+            </tr>
+            <tr>
+                <td class="sl-no"></td>
+                <td class="model"></td>
+                <td class="description"></td>
+                <td class="image"></td>
+                <td class="quantity"></td>
+                <td class="price"></td>
+            </tr>
+        </table>
+    </div>
+
     <script src="/java/estimator.js"></script>
+    <script src="/java/selector.js"></script>
 
 </body>
 
