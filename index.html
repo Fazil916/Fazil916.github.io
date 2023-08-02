@@ -18,40 +18,36 @@
     <div class="header-content">
       <div class="title-container">
         <div class="header-text">
-          <h1>ROKN AL WAHDA</h1>
+          <h1>Engineering Tools Factory</h1>
         </div>
       </div>
     </div>
   </header>
 
   <main>
-    
+
     <section id="services" class="section">
-      <h2>Free Tools</h2>
+      <h2>Try Our Free Tools</h2>
       <div class="button-container">
         <a href="/report.html" class="myButton">Lighting Calculator</a>
+        <a href="/inspector.html" class="myButton">MoveInOut Inspector</a>
       </div>
     </section>
 
-    <section id="contact" class="section">
-      <h2>Contact Us</h2>
-      <p>To discuss your lighting needs or to schedule a consultation, please fill out the form</p>
-      <form action="mailto:info@illuminatedesign.com" method="post" enctype="text/plain">
+    <div id="container">
+      <h2>Login</h2>
+      <form id="loginForm">
         <div class="form-group">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" required>
+          <label for="username">Username:</label>
+          <input type="text" id="username" class="form-control" required>
         </div>
         <div class="form-group">
-          <label for="email">Your Email</label>
-          <input type="email" id="email" name="email" required>
+          <label for="password">Password:</label>
+          <input type="password" id="password" class="form-control" required>
         </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
-        <button type="submit">Send Message</button>
+        <button type="submit" id="loginButton">Log In</button>
       </form>
-    </section>
+    </div>
 
   </main>
 

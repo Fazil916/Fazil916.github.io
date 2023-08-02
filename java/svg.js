@@ -112,10 +112,7 @@ window.createSvg = function () {
             // Save the updated room data to local storage
             localStorage.setItem(roomData.name, JSON.stringify(roomData));
 
-            // Add dimension text outside the SVG
-            d3.select("#length").text(`Length: ${length} m`);
-            d3.select("#width").text(`Width: ${width} m`);
-
+ 
             // Serialize the SVG and store it in localStorage
             var serializer = new XMLSerializer();
             var svgElement = d3.select("#svg-container").node();

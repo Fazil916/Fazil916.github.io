@@ -186,7 +186,23 @@ body {
         background-color: #086fb9;
 
         color: rgb(242, 242, 242);
-        font: 1em sans-serif;
+        font: .5em sans-serif;
         font-style: normal;
     }
+
+    #quotations-container td {
+        padding: 5px;
+        background-color: #ffffff;
+        color: rgb(21, 21, 21);
+        font: .5em sans-serif;
+        font-style: normal;
+
+
+    }
+
+    .quotations-image {
+        width: 50px;
+        height: 50px;
+    }
+
 }
