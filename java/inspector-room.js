@@ -100,7 +100,6 @@ function maybeCreateRooms() {
       document.getElementById('modal').style.display = 'none';
     });
 
-
     // Event listener for the custom 'Upload Image' button
     document.getElementById('custom-button').addEventListener('click', function () {
       document.getElementById('cameraInput').click();
