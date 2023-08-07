@@ -21,7 +21,7 @@
         <div class="input-group">
             <label for="project">Project Type</label>
             <select id="project" onchange="updateSubtype(this.value)">
-                <option value="">Select project type</option>
+                <option value=""></option>
                 <option value="Apartment">Apartment</option>
                 <option value="Villa">Villa</option>
             </select>
@@ -29,7 +29,7 @@
         <div class="input-group">
             <label for="project-subtype">Project Subtype</label>
             <select id="project-subtype">
-                <option value="">Select project subtype</option>
+                <option value=""></option>
             </select>
         </div>
     </section>
@@ -39,26 +39,45 @@
             <!-- Saved rooms will be dynamically added here by JavaScript -->
             <!-- The Modal -->
             <div id="modal" style="display: none;">
-                <!-- Modal content -->
                 <div class="modal-content">
-                    <label for="edit-room-name">Name</label>
-                    <input type="text" id="edit-room-name">
-                    <label for="edit-room-length">Length</label>
-                    <input type="number" id="edit-room-length">
-                    <label for="edit-room-width">Width</label>
-                    <input type="number" id="edit-room-width">
-                    <label for="edit-room-height">Height</label>
-                    <input type="number" id="edit-room-height">
-                    <div class="custom-file-upload">
-                        <input type="file" accept="image/*" capture="camera" id="cameraInput" style="display: none;">
-                        <button id="custom-button">Upload Image</button>
-                        <span id="custom-text">No file chosen, yet.</span>
-                    </div>
-                    <button id="save-room">Save</button>
-                    <button id="delete-room">Delete</button>
-                    <div>
-                    </div>
+                    <fieldset>
+                        <legend>Room Information</legend>
+                        <label for="edit-room-name">Name</label>
+                        <!-- input for name here -->
+                        <button id="save-room">Save</button>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>System Checks</legend>
+
+                        <div class="system-checks">
+                            <div class="electrical-file-upload">
+                                <input type="file" accept="image/*" capture="camera" id="temperaturecameraInput"
+                                    style="display: none;">
+                                <button id="custom-button">Check Electrical Systems</button>
+                            </div>
+
+                            <div class="temperature-para-check">
+                                <input type="file" accept="image/*" capture="camera" id="cameraInput"
+                                    style="display: none;">
+                                <button id="temperature-button">Check temperature</button>
+                            </div>
+
+                            <div class="water-supply-check">
+                                <input type="file" accept="image/*" capture="camera" id="watercameraInput"
+                                    style="display: none;">
+                                <button id="water-button">Check water supply</button>
+                            </div>
+
+                            <div class="drain-flow-check">
+                                <input type="file" accept="image/*" capture="camera" id="draincameraInput"
+                                    style="display: none;">
+                                <button id="drain-button">Check Drain</button>
+                            </div>
+                        </div>
+                    </fieldset>
                 </div>
+
             </div>
         </div>
     </div>

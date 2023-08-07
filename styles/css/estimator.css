@@ -17,7 +17,7 @@ body {
         box-sizing: border-box;
         display: flex;
         flex-wrap: inherit;
-        justify-content: flex-end;
+        justify-content: space-around;
 
     }
 
@@ -30,7 +30,7 @@ body {
         border-radius: 100px;
         cursor: pointer;
         margin-bottom: .5em;
-        width: 32%;
+        width: 25%;
         text-align: center;
         justify-content: flex-end;
     }

@@ -25,12 +25,10 @@ function maybeCreateRooms() {
   // Add other conditions for other project types and subtypes.
 
   roomNames.forEach(function (roomName) {
-    // Existing room creation code...
-
+    
     var roomData = {
       roomName: roomName,
-      length: length
-   
+      
     };
 
     // Retrieve existing room data array from local storage (or create an empty array if it doesn't exist)
@@ -137,5 +135,4 @@ function maybeCreateRooms() {
 
     });
   }
-  roomCounter += roomNames.length;
 }
