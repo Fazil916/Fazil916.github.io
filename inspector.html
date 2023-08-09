@@ -44,44 +44,43 @@
                         <legend>Room Information</legend>
                         <label for="edit-room-name">Name</label>
                         <input type="text" id="edit-room-name">
-
                     </fieldset>
 
                     <fieldset>
-                        <legend>System Checks</legend>
-
                         <div class="system-checks">
                             <div class="electrical-file-upload">
                                 <input type="file" accept="image/*" capture="camera" id="temperaturecameraInput"
                                     style="display: none;">
                                 <button id="custom-button">Check Electrical Systems</button>
                             </div>
-
-                            <div class="temperature-para-check">
-                                <input type="file" accept="image/*" capture="camera" id="cameraInput"
-                                    style="display: none;">
-                                <button id="temperature-button">Check temperature</button>
+                            <div id="comments-popup" style="display: none;">
+                                <ul id="comments-list"></ul>
+                                <button onclick="closePopup()">Close</button>
                             </div>
 
-                            <div class="water-supply-check">
-                                <input type="file" accept="image/*" capture="camera" id="watercameraInput"
-                                    style="display: none;">
-                                <button id="water-button">Check water supply</button>
-                            </div>
-
-                            <div class="drain-flow-check">
-                                <input type="file" accept="image/*" capture="camera" id="draincameraInput"
-                                    style="display: none;">
-                                <button id="drain-button">Check Drain</button>
-                            </div>
+                        <div class="temperature-para-check">
+                            <input type="file" accept="image/*" capture="camera" id="cameraInput"
+                                style="display: none;">
+                            <button id="temperature-button">Check temperature</button>
                         </div>
-                        <button id="save-room">Save</button>
-                        <button id="delete-room">Save</button>
-                    </fieldset>
+                        <div class="water-supply-check">
+                            <input type="file" accept="image/*" capture="camera" id="watercameraInput"
+                                style="display: none;">
+                            <button id="water-button">Check water supply</button>
+                        </div>
+                        <div class="drain-flow-check">
+                            <input type="file" accept="image/*" capture="camera" id="draincameraInput"
+                                style="display: none;">
+                            <button id="drain-button">Check Drain</button>
+                        </div>
                 </div>
-
+                <button id="save-room">Save</button>
+                <button id="delete-room">Delete</button>
+                </fieldset>
             </div>
+
         </div>
+    </div>
     </div>
 
     <!-- Java Script Section -->
@@ -89,6 +88,7 @@
     <script src="/java/camera.js"></script>
     <script src="/java/inspector.js"></script>
     <script src="/java/inspector-room.js"></script>
+    <script src="/java/coments.js"></script>
 
 </body>
 

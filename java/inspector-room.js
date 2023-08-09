@@ -25,10 +25,10 @@ function maybeCreateRooms() {
   // Add other conditions for other project types and subtypes.
 
   roomNames.forEach(function (roomName) {
-    
+
     var roomData = {
       roomName: roomName,
-      
+
     };
 
     // Retrieve existing room data array from local storage (or create an empty array if it doesn't exist)
@@ -47,7 +47,7 @@ function maybeCreateRooms() {
     // Create new room data object
     var roomData = {
       name: roomName,
-    
+
     };
 
     // Retrieve existing room data array from local storage (or create an empty array if it doesn't exist)
@@ -77,6 +77,9 @@ function maybeCreateRooms() {
       // Load current room data into modal
       var roomDataArray = JSON.parse(localStorage.getItem('rooms'));
       var roomData = roomDataArray.find(room => room.roomName === roomName);
+
+      // Set the value of the input field with the roomName
+      document.getElementById('edit-room-name').value = roomName;
 
     });
     // Append new room element to saved rooms
