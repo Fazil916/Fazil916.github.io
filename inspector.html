@@ -57,30 +57,31 @@
                                 <ul id="comments-list"></ul>
                                 <button onclick="closePopup()">Close</button>
                             </div>
+                            <video id="camera-preview" style="display: none;"></video>
 
-                        <div class="temperature-para-check">
-                            <input type="file" accept="image/*" capture="camera" id="cameraInput"
-                                style="display: none;">
-                            <button id="temperature-button">Check temperature</button>
+                            <div class="temperature-para-check">
+                                <input type="file" accept="image/*" capture="camera" id="cameraInput"
+                                    style="display: none;">
+                                <button id="temperature-button">Check temperature</button>
+                            </div>
+                            <div class="water-supply-check">
+                                <input type="file" accept="image/*" capture="camera" id="watercameraInput"
+                                    style="display: none;">
+                                <button id="water-button">Check water supply</button>
+                            </div>
+                            <div class="drain-flow-check">
+                                <input type="file" accept="image/*" capture="camera" id="draincameraInput"
+                                    style="display: none;">
+                                <button id="drain-button">Check Drain</button>
+                            </div>
                         </div>
-                        <div class="water-supply-check">
-                            <input type="file" accept="image/*" capture="camera" id="watercameraInput"
-                                style="display: none;">
-                            <button id="water-button">Check water supply</button>
-                        </div>
-                        <div class="drain-flow-check">
-                            <input type="file" accept="image/*" capture="camera" id="draincameraInput"
-                                style="display: none;">
-                            <button id="drain-button">Check Drain</button>
-                        </div>
+                        <button id="save-room">Save</button>
+                        <button id="delete-room">Delete</button>
+                    </fieldset>
                 </div>
-                <button id="save-room">Save</button>
-                <button id="delete-room">Delete</button>
-                </fieldset>
-            </div>
 
+            </div>
         </div>
-    </div>
     </div>
 
     <!-- Java Script Section -->
