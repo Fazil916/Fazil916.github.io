@@ -184,7 +184,6 @@ body {
     #quotations-container th {
         padding: 5px;
         background-color: #086fb9;
-
         color: rgb(242, 242, 242);
         font: .5em sans-serif;
         font-style: normal;
@@ -197,7 +196,13 @@ body {
         font: .5em sans-serif;
         font-style: normal;
 
-
+    }
+    .price-input {
+        padding: 15px;
+        background-color: #ffffff;
+        color: rgb(21, 21, 21);
+        font: .5em sans-serif;
+        font-style: normal;
     }
 
     .quotations-image {

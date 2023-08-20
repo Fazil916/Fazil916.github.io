@@ -10,19 +10,29 @@ document.getElementById('project-subtype').addEventListener('change', function (
   maybeCreateRooms();
 });
 
-
 function maybeCreateRooms() {
-  if (!projectType || !projectSubType) return;  // If one of the selections is missing, do nothing.
+  if (!projectType || !projectSubType) return; // If one of the selections is missing, do nothing.
 
-  let roomNames = [];
+  const roomConfig = {
+    'Apartment': {
+      'Studio': ["Kitchen Area", "Bed Area", "Bathroom"],
+      '1BHK': ["Kitchen", "Bedroom", "Hall", "Bathroom"],
+      '2BHK': ["Kitchen", "Hall", "Guest Bathroom", "Master Bedroom", "Master Bathroom", "Bedroom"],
+      // Add other subtypes here
+    },
+    'Villa': {
+      '2BHK': ["Kitchen", "Hall", "Guest Bathroom", "Master Bedroom", "Master Bathroom", "Bedroom"],
 
-  if (projectType === 'Apartment' && projectSubType === 'Studio') {
-    roomNames = ["Kitchen Area", "Bed Area", "Bathroom"];
-  }
-  if (projectType === 'Apartment' && projectSubType === '1BHK') {
-    roomNames = ["Kitchen", "Bedroom", "Hall", "Bathroom"];
-  }
-  // Add other conditions for other project types and subtypes.
+    },
+    'Office': {
+      'Micro Office': ["Entrance", "Workspace", "Manager Room"],
+      'Small Office': ["Entrance", "Workspace", "Manager Room"],
+      'One Floor': ["Entrance", "Workspace", "Manager Room"],
+
+    },
+  };
+
+  let roomNames = roomConfig[projectType] ? roomConfig[projectType][projectSubType] || [] : [];
 
   roomNames.forEach(function (roomName) {
 

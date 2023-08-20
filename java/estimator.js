@@ -30,7 +30,9 @@ document.addEventListener('DOMContentLoaded', function () {
             clone.querySelector('.calculated-illuminance').textContent = illuminance; // Add the calculated illuminance
             clone.querySelector('.target-illuminance').textContent = roomData.illumination;
             clone.querySelector('.check-illuminance').textContent = illuminance >= roomData.illumination ? '✅' : '❌';
-            // Populate other data...
+            clone.querySelector('.calculated-Quantity').textContent = roomData.column * roomData.row;
+            clone.querySelector('.area').textContent = roomData.length * roomData.width;
+            clone.querySelector('.calculated-Power').textContent = roomData.model.power * roomData.column * roomData.row;
 
             // Append the clone to the container
             container.appendChild(clone);
@@ -94,41 +96,26 @@ document.addEventListener('DOMContentLoaded', function () {
                     tableContainer.appendChild(table);
                 });
         }
+
         function calculateIlluminance(roomData) {
             // Get grid size from room data
             var gridSize = roomData.row * roomData.column;
-            console.log(gridSize);
 
-            // Create a grid based on the grid size
-            var grid = [];
-            for (var i = 0; i < roomData.row; i++) {
-                grid[i] = [];
-                for (var j = 0; j < roomData.column; j++) {
-                    // Calculate the distance from this grid point to each luminaire
-                    var distances = roomData.luminaires.map(function (luminaire) {
-                        var dx = luminaire.x - i;
-                        var dy = luminaire.y - j;
-                        return Math.sqrt(dx * dx + dy * dy);
-                    });
+            // Calculate the area of each grid cell
+            var gridArea = (roomData.length * roomData.width) / gridSize;
 
-                    // Calculate the illuminance at this grid point from each luminaire
-                    var illuminances = distances.map(function (distance, index) {
-                        return roomData.luminaires[index].lumen / (4 * Math.PI * distance * distance);
-                    });
+            // Define factors
+            var utilizationFactor = 0.8; // Assume a utilization factor of 90%
+            var maintenanceFactor = 0.9; // Assume a maintenance factor of 90%
+            var reflectionFactor = 0.9; // Assume a reflection factor of 90% (or choose a value that fits your scenario)
 
-                    // Sum the illuminances to get the total illuminance at this grid point
-                    grid[i][j] = illuminances.reduce(function (a, b) { return a + b; }, 0);
-                }
-            }
+            // Sum the illuminance for each luminaire divided by the grid area, considering the factors
+            var totalIlluminance = roomData.luminaires.reduce(function (sum, luminaire) {
+                return sum + ((luminaire.lumen / gridArea) * utilizationFactor * maintenanceFactor * reflectionFactor);
+            }, 0);
 
-            // Calculate the average illuminance
-            var totalIlluminance = 0;
-            for (var i = 0; i < roomData.row; i++) {
-                for (var j = 0; j < roomData.column; j++) {
-                    totalIlluminance += grid[i][j];
-                }
-            }
-            var averageIlluminance = Math.floor(totalIlluminance / gridSize);
+            // Calculate the average illuminance across the entire room and round up
+            var averageIlluminance = Math.ceil(totalIlluminance / gridSize);
 
             return averageIlluminance;
         }
@@ -172,19 +159,20 @@ document.addEventListener('DOMContentLoaded', function () {
             priceInput.addEventListener('click', handlePriceClick);
             tdPrice.appendChild(priceInput);
             tr.appendChild(tdPrice);
-            
+
             function handlePriceClick(event) {
                 var unitPrice = prompt("Enter the unit price:");
                 if (unitPrice) {
-                    var totalPrice = unitPrice * roomData.model.tdQuantity;
+                    var totalPrice = unitPrice * roomData.row * roomData.column;
                     event.target.value = totalPrice;
                 }
             }
-            
+
             // Add the row to the table
             table.appendChild(tr);
 
         }
+
     }
-            
+
 });
